@@ -1,0 +1,26 @@
+# Dependencies
+node_modules
+.pnp
+.pnp.js
+
+# Testing
+coverage
+
+# Production
+build
+dist
+
+# Misc
+.DS_Store
+.env
+.npm
+*.log
+
+# IDE
+.vscode
+.idea
+
+# Debug
+error_log.txt
+test_*.js
+verify_chatbot.js
