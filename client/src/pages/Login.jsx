@@ -2,24 +2,17 @@ import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { GoogleLogin } from '@react-oauth/google';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import DarkModeToggle from '../components/DarkModeToggle';
 
 const Login = () => {
-    const [loginMode, setLoginMode] = useState('email'); // 'email' or 'phone'
-
     // Email State
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    // Phone State
-    const [phoneNumber, setPhoneNumber] = useState('');
-    const [otp, setOtp] = useState('');
-    const [otpSent, setOtpSent] = useState(false);
-
     const [error, setError] = useState('');
 
-    const { login, googleLogin, sendOtp, verifyOtp, user } = useAuth();
+    const { login, googleLogin, user } = useAuth();
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -33,31 +26,6 @@ const Login = () => {
         setError('');
         try {
             await login(email, password);
-        } catch (err) {
-            setError(err);
-        }
-    };
-
-    const handleSendOtp = async (e) => {
-        e.preventDefault();
-        if (!phoneNumber) {
-            setError('Please enter a phone number');
-            return;
-        }
-        setError('');
-        try {
-            await sendOtp(phoneNumber);
-            setOtpSent(true);
-        } catch (err) {
-            setError(err);
-        }
-    };
-
-    const handleVerifyOtp = async (e) => {
-        e.preventDefault();
-        setError('');
-        try {
-            await verifyOtp(phoneNumber, otp);
         } catch (err) {
             setError(err);
         }
@@ -103,28 +71,6 @@ const Login = () => {
                     </p>
                 </div>
 
-                {/* Login Mode Toggle */}
-                <div className="flex p-1 bg-gray-100 dark:bg-gray-800 rounded-xl mb-6">
-                    <button
-                        onClick={() => { setLoginMode('email'); setError(''); }}
-                        className={`flex-1 py-2 text-sm font-medium rounded-lg transition-all ${loginMode === 'email'
-                                ? 'bg-white dark:bg-gray-700 text-sky-600 dark:text-sky-400 shadow-sm'
-                                : 'text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300'
-                            }`}
-                    >
-                        Email
-                    </button>
-                    <button
-                        onClick={() => { setLoginMode('phone'); setError(''); }}
-                        className={`flex-1 py-2 text-sm font-medium rounded-lg transition-all ${loginMode === 'phone'
-                                ? 'bg-white dark:bg-gray-700 text-sky-600 dark:text-sky-400 shadow-sm'
-                                : 'text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300'
-                            }`}
-                    >
-                        Phone
-                    </button>
-                </div>
-
                 {error && (
                     <motion.div
                         initial={{ opacity: 0, scale: 0.95 }}
@@ -136,105 +82,44 @@ const Login = () => {
                 )}
 
                 {/* Email Form */}
-                {loginMode === 'email' && (
-                    <motion.form
-                        key="email-form"
-                        initial={{ opacity: 0, x: -20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        className="space-y-6"
-                        onSubmit={handleEmailLogin}
+                <motion.form
+                    key="email-form"
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    className="space-y-6"
+                    onSubmit={handleEmailLogin}
+                >
+                    <div className="space-y-4">
+                        <div>
+                            <input
+                                type="email"
+                                required
+                                className={inputClasses}
+                                placeholder="Email address"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                            />
+                        </div>
+                        <div>
+                            <input
+                                type="password"
+                                required
+                                className={inputClasses}
+                                placeholder="Password"
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
+                            />
+                        </div>
+                    </div>
+                    <motion.button
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
+                        type="submit"
+                        className={buttonClasses}
                     >
-                        <div className="space-y-4">
-                            <div>
-                                <input
-                                    type="email"
-                                    required
-                                    className={inputClasses}
-                                    placeholder="Email address"
-                                    value={email}
-                                    onChange={(e) => setEmail(e.target.value)}
-                                />
-                            </div>
-                            <div>
-                                <input
-                                    type="password"
-                                    required
-                                    className={inputClasses}
-                                    placeholder="Password"
-                                    value={password}
-                                    onChange={(e) => setPassword(e.target.value)}
-                                />
-                            </div>
-                        </div>
-                        <motion.button
-                            whileHover={{ scale: 1.02 }}
-                            whileTap={{ scale: 0.98 }}
-                            type="submit"
-                            className={buttonClasses}
-                        >
-                            Sign in
-                        </motion.button>
-                    </motion.form>
-                )}
-
-                {/* Phone Form */}
-                {loginMode === 'phone' && (
-                    <motion.form
-                        key="phone-form"
-                        initial={{ opacity: 0, x: 20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        className="space-y-6"
-                        onSubmit={otpSent ? handleVerifyOtp : handleSendOtp}
-                    >
-                        <div className="space-y-4">
-                            <div>
-                                <input
-                                    type="tel"
-                                    required
-                                    disabled={otpSent}
-                                    className={`${inputClasses} ${otpSent ? 'opacity-50 cursor-not-allowed' : ''}`}
-                                    placeholder="Phone Number (e.g., 9876543210)"
-                                    value={phoneNumber}
-                                    onChange={(e) => setPhoneNumber(e.target.value)}
-                                />
-                            </div>
-                            {otpSent && (
-                                <motion.div
-                                    initial={{ opacity: 0, height: 0 }}
-                                    animate={{ opacity: 1, height: 'auto' }}
-                                >
-                                    <input
-                                        type="text"
-                                        required
-                                        className={inputClasses}
-                                        placeholder="Enter 6-digit OTP"
-                                        value={otp}
-                                        onChange={(e) => setOtp(e.target.value)}
-                                    />
-                                </motion.div>
-                            )}
-                        </div>
-                        <div className="flex flex-col space-y-3">
-                            <motion.button
-                                whileHover={{ scale: 1.02 }}
-                                whileTap={{ scale: 0.98 }}
-                                type="submit"
-                                className={buttonClasses}
-                            >
-                                {otpSent ? 'Verify OTP & Login' : 'Send OTP'}
-                            </motion.button>
-                            {otpSent && (
-                                <button
-                                    type="button"
-                                    onClick={() => { setOtpSent(false); setOtp(''); }}
-                                    className="text-sm text-sky-600 hover:text-sky-500 dark:text-sky-400 dark:hover:text-sky-300"
-                                >
-                                    Change Phone Number
-                                </button>
-                            )}
-                        </div>
-                    </motion.form>
-                )}
+                        Sign in
+                    </motion.button>
+                </motion.form>
 
                 <div className="flex flex-col items-center space-y-4 mt-8">
                     <div className="relative w-full">

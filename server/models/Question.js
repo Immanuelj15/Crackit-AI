@@ -1,11 +1,20 @@
 const mongoose = require('mongoose');
 
 const questionSchema = new mongoose.Schema({
-    company: { type: mongoose.Schema.Types.ObjectId, ref: 'Company' },
+    company: { type: mongoose.Schema.Types.ObjectId, ref: 'Company' }, // Optional for general aptitude
     type: {
         type: String,
         enum: ['aptitude', 'coding', 'technical', 'hr'],
         required: true
+    },
+    category: {
+        type: String,
+        enum: ['quant', 'logical', 'verbal', 'general'],
+        default: 'general'
+    },
+    topic: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Topic' // Link to specific topic like "Percentage"
     },
     questionText: { type: String, required: true },
     options: [{ type: String }], // For MCQ

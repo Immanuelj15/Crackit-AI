@@ -126,88 +126,9 @@ const googleAuth = async (req, res) => {
     }
 };
 
-// @desc    Send OTP (Mock)
-// @route   POST /api/auth/otp/send
-// @access  Public
-const sendOtp = async (req, res) => {
-    const { phoneNumber } = req.body;
-
-    try {
-        let user = await User.findOne({ phoneNumber });
-
-        if (!user) {
-            // Create a temporary user or placeholder if not exists? 
-            // For now, let's assume we create a minimal user with just phone
-            // Or typically, we might want them to register fully.
-            // But usually "Login with OTP" implies creation if new.
-            user = await User.create({
-                phoneNumber,
-                name: 'User', // Placeholder
-                email: phoneNumber + '@mobile.com', // Placeholder unique email
-                password: '',
-            });
-        }
-
-        // Generate 6 digit OTP
-        const otp = Math.floor(100000 + Math.random() * 900000).toString();
-        const otpExpires = new Date(Date.now() + 10 * 60 * 1000); // 10 mins
-
-        user.otp = otp;
-        user.otpExpires = otpExpires;
-        await user.save();
-
-        console.log(`>>> MOCK OTP for ${phoneNumber}: ${otp} <<<`);
-
-        res.status(200).json({ message: 'OTP sent successfully (Check server console)' });
-
-    } catch (error) {
-        console.error(error);
-        res.status(500).json({ message: 'Failed to send OTP' });
-    }
-};
-
-// @desc    Verify OTP (Firebase Login)
-// @route   POST /api/auth/otp/verify
-// @access  Public
-const verifyOtp = async (req, res) => {
-    const { phoneNumber } = req.body; // OTP is verified on client by Firebase
-
-    try {
-        let user = await User.findOne({ phoneNumber });
-
-        if (!user) {
-            // If user doesn't exist, create one automatically (Trusting Firebase verification)
-            user = await User.create({
-                phoneNumber,
-                name: 'Mobile User', // Default name
-                email: phoneNumber + '@firebase.com', // Placeholder unique email
-                password: '', // No password
-            });
-        }
-
-        generateToken(res, user._id);
-        res.json({
-            _id: user._id,
-            name: user.name,
-            email: user.email,
-            phoneNumber: user.phoneNumber,
-            picture: user.picture,
-            role: user.role,
-            college: user.college,
-            branch: user.branch,
-        });
-
-    } catch (error) {
-        console.error(error);
-        res.status(500).json({ message: 'Login failed' });
-    }
-};
-
 module.exports = {
     registerUser,
     loginUser,
     logoutUser,
-    googleAuth,
-    sendOtp,
-    verifyOtp
+    googleAuth
 };

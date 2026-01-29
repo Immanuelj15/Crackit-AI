@@ -26,11 +26,6 @@ const userSchema = new mongoose.Schema({
         unique: true,
         sparse: true
     },
-    phoneNumber: {
-        type: String,
-        unique: true,
-        sparse: true,
-    },
     college: {
         type: String,
     },

@@ -24,6 +24,7 @@ app.use(cors({
 app.use('/api/auth', authRoutes);
 app.use('/api/companies', require('./routes/companyRoutes'));
 app.use('/api/questions', require('./routes/questionRoutes'));
+app.use('/api/topics', require('./routes/topicRoutes'));
 app.use('/api/ai', require('./routes/aiRoutes'));
 app.use('/api/chat', require('./routes/chatRoutes'));
 

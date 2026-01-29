@@ -87,34 +87,6 @@ export const AuthProvider = ({ children }) => {
         }
     }
 
-    const sendOtp = async (phoneNumber) => {
-        try {
-            const config = { headers: { 'Content-Type': 'application/json' } };
-            const { data } = await axios.post('/api/auth/otp/send', { phoneNumber }, config);
-            return data;
-        } catch (error) {
-            throw error.response && error.response.data.message
-                ? error.response.data.message
-                : error.message;
-        }
-    };
-
-    const verifyOtp = async (phoneNumber, otp) => {
-        try {
-            // Note: with Firebase on client, we often just send the phone number to 'log in'
-            // or send the ID token. For this prototype, we send phone + dummy OTP/flag if needed.
-            const config = { headers: { 'Content-Type': 'application/json' } };
-            const { data } = await axios.post('/api/auth/otp/verify', { phoneNumber, otp }, config);
-            setUser(data);
-            localStorage.setItem('userInfo', JSON.stringify(data));
-            return data;
-        } catch (error) {
-            throw error.response && error.response.data.message
-                ? error.response.data.message
-                : error.message;
-        }
-    };
-
     const logout = async () => {
         await axios.post('/api/auth/logout');
         localStorage.removeItem('userInfo');
@@ -122,7 +94,7 @@ export const AuthProvider = ({ children }) => {
     };
 
     return (
-        <AuthContext.Provider value={{ user, login, register, logout, googleLogin, sendOtp, verifyOtp, loading }}>
+        <AuthContext.Provider value={{ user, login, register, logout, googleLogin, loading }}>
             {children}
         </AuthContext.Provider>
     );

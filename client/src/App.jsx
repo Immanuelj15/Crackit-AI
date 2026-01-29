@@ -8,7 +8,10 @@ import { ThemeProvider } from './context/ThemeContext';
 
 import MockInterview from './pages/MockInterview';
 import CompanyDetail from './pages/CompanyDetail';
-import Chatbot from './components/Chatbot';
+import AptitudePractice from './pages/AptitudePractice';
+import TopicSelection from './pages/TopicSelection';
+import TopicDetail from './pages/TopicDetail';
+import Chatbot from './components/ChatBot';
 
 const ProtectedRoute = ({ children }) => {
   const { user, loading } = useAuth();
@@ -52,6 +55,30 @@ function App() {
               element={
                 <ProtectedRoute>
                   <CompanyDetail />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/aptitude"
+              element={
+                <ProtectedRoute>
+                  <AptitudePractice />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/aptitude/:category"
+              element={
+                <ProtectedRoute>
+                  <TopicSelection />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/aptitude/:category/:topicId"
+              element={
+                <ProtectedRoute>
+                  <TopicDetail />
                 </ProtectedRoute>
               }
             />
