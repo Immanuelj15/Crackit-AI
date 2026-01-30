@@ -126,17 +126,44 @@ const CompanyDetail = () => {
                     className="lg:col-span-1"
                 >
                     <div className="bg-white/80 dark:bg-gray-800/50 backdrop-blur-lg border border-white/20 dark:border-white/5 rounded-2xl p-6 shadow-lg sticky top-24">
-                        <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-4 flex items-center">
+                        <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-6 flex items-center">
                             <span className="bg-sky-100 dark:bg-sky-900/30 p-2 rounded-lg text-sky-600 dark:text-sky-400 mr-3">
                                 🚀
                             </span>
-                            Hiring Process
+                            Hiring Rounds
                         </h2>
+
+                        {/* Visual Rounds Timeline */}
+                        {company.rounds && company.rounds.length > 0 && (
+                            <div className="mb-8 ml-2 relative border-l-2 border-sky-100 dark:border-sky-900 space-y-8">
+                                {company.rounds.map((round, idx) => (
+                                    <div key={idx} className="relative pl-6 group">
+                                        <div className="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full border-2 border-white dark:border-gray-800 bg-sky-200 dark:bg-sky-700 group-hover:bg-sky-500 transition-colors"></div>
+                                        <div className="flex flex-col">
+                                            <span className="text-sm font-semibold text-gray-900 dark:text-white group-hover:text-sky-600 dark:group-hover:text-sky-400 transition-colors">
+                                                {round.name}
+                                            </span>
+                                            <span className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">
+                                                {round.description}
+                                            </span>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        )}
+
+                        <hr className="my-6 border-gray-100 dark:border-gray-700" />
+
+                        <h3 className="text-sm uppercase tracking-wider text-gray-500 dark:text-gray-400 font-bold mb-4">
+                            Detailed Pattern
+                        </h3>
+
                         <div className="prose dark:prose-invert prose-sm prose-sky max-w-none text-gray-600 dark:text-gray-300">
                             {company.hiringPattern?.split('\n').filter(line => line.trim() !== '').map((line, i) => {
                                 // Header styling
                                 if (line.startsWith('##')) {
-                                    return <h3 key={i} className="text-lg font-bold text-gray-800 dark:text-white mt-4 mb-2">{line.replace(/#/g, '')}</h3>;
+                                    // Skip headers in markdown if we have visual rounds, mostly to avoid redundancy if title matches, but keeping for completeness
+                                    return null;
                                 }
 
                                 // Bold text parsing within lines (e.g., "1. **Round:** Desc")

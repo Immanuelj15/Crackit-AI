@@ -19,6 +19,7 @@ const questionSchema = new mongoose.Schema({
     questionText: { type: String, required: true },
     options: [{ type: String }], // For MCQ
     correctAnswer: { type: String }, // Index or text
+    explanation: { type: String }, // Step-by-step explanation
     difficulty: { type: String, enum: ['easy', 'medium', 'hard'], default: 'medium' }
 }, { timestamps: true });
 

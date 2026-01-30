@@ -93,8 +93,26 @@ export const AuthProvider = ({ children }) => {
         setUser(null);
     };
 
+    const updateUserProfile = async (formData) => {
+        try {
+            const config = {
+                headers: {
+                    'Content-Type': 'multipart/form-data',
+                },
+            };
+            const { data } = await axios.put('/api/auth/profile', formData, config);
+            setUser(data);
+            localStorage.setItem('userInfo', JSON.stringify(data));
+            return data;
+        } catch (error) {
+            throw error.response && error.response.data.message
+                ? error.response.data.message
+                : error.message;
+        }
+    };
+
     return (
-        <AuthContext.Provider value={{ user, login, register, logout, googleLogin, loading }}>
+        <AuthContext.Provider value={{ user, login, register, logout, googleLogin, updateUserProfile, loading }}>
             {children}
         </AuthContext.Provider>
     );

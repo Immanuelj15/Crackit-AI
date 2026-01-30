@@ -188,9 +188,22 @@ const getOverallStats = async (req, res) => {
     }
 };
 
+const getUserHistory = async (req, res) => {
+    try {
+        const results = await Result.find({ user: req.user._id })
+            .populate('topic', 'name')
+            .sort({ createdAt: -1 })
+            .limit(10);
+        res.json(results);
+    } catch (error) {
+        res.status(500).json({ message: 'Failed to fetch history' });
+    }
+};
+
 module.exports = {
     getTopics,
     getTopicDetails,
     submitTestResult,
-    getOverallStats
+    getOverallStats,
+    getUserHistory
 };

@@ -37,6 +37,15 @@ const userSchema = new mongoose.Schema({
     },
     otpExpires: {
         type: Date,
+    },
+    department: {
+        type: String,
+    },
+    year: {
+        type: String,
+    },
+    phone: {
+        type: String,
     }
 }, { timestamps: true });
 

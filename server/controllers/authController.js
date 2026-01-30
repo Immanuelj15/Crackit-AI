@@ -126,9 +126,48 @@ const googleAuth = async (req, res) => {
     }
 };
 
+// @desc    Update user profile
+// @route   PUT /api/auth/profile
+// @access  Private
+const updateProfile = async (req, res) => {
+    const user = await User.findById(req.user._id);
+
+    if (user) {
+        user.name = req.body.name || user.name;
+        user.department = req.body.department || user.department;
+        user.year = req.body.year || user.year;
+        user.phone = req.body.phone || user.phone;
+
+        // If image is uploaded
+        if (req.file) {
+            // Save relative path for frontend to use
+            user.picture = `/uploads/profiles/${req.file.filename}`;
+        }
+
+        const updatedUser = await user.save();
+
+        res.json({
+            _id: updatedUser._id,
+            name: updatedUser.name,
+            email: updatedUser.email,
+            picture: updatedUser.picture,
+            role: updatedUser.role,
+            college: updatedUser.college,
+            branch: updatedUser.branch,
+            department: updatedUser.department,
+            year: updatedUser.year,
+            phone: updatedUser.phone
+        });
+    } else {
+        res.status(404);
+        throw new Error('User not found');
+    }
+};
+
 module.exports = {
     registerUser,
     loginUser,
     logoutUser,
-    googleAuth
+    googleAuth,
+    updateProfile
 };

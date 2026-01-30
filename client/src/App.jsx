@@ -8,10 +8,12 @@ import { ThemeProvider } from './context/ThemeContext';
 
 import MockInterview from './pages/MockInterview';
 import CompanyDetail from './pages/CompanyDetail';
-import AptitudePractice from './pages/AptitudePractice';
 import TopicSelection from './pages/TopicSelection';
 import TopicDetail from './pages/TopicDetail';
 import Chatbot from './components/ChatBot';
+import Layout from './components/Layout';
+import AptitudeLayout from './components/AptitudeLayout';
+import Profile from './pages/Profile';
 
 const ProtectedRoute = ({ children }) => {
   const { user, loading } = useAuth();
@@ -23,7 +25,7 @@ const ProtectedRoute = ({ children }) => {
     return <Navigate to="/login" />;
   }
 
-  return children;
+  return <Layout>{children}</Layout>;
 };
 
 function App() {
@@ -39,6 +41,14 @@ function App() {
               element={
                 <ProtectedRoute>
                   <Dashboard />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/profile"
+              element={
+                <ProtectedRoute>
+                  <Profile />
                 </ProtectedRoute>
               }
             />
@@ -62,7 +72,9 @@ function App() {
               path="/aptitude"
               element={
                 <ProtectedRoute>
-                  <AptitudePractice />
+                  <AptitudeLayout>
+                    <TopicSelection />
+                  </AptitudeLayout>
                 </ProtectedRoute>
               }
             />
@@ -70,7 +82,9 @@ function App() {
               path="/aptitude/:category"
               element={
                 <ProtectedRoute>
-                  <TopicSelection />
+                  <AptitudeLayout>
+                    <TopicSelection />
+                  </AptitudeLayout>
                 </ProtectedRoute>
               }
             />
@@ -78,7 +92,9 @@ function App() {
               path="/aptitude/:category/:topicId"
               element={
                 <ProtectedRoute>
-                  <TopicDetail />
+                  <AptitudeLayout>
+                    <TopicDetail />
+                  </AptitudeLayout>
                 </ProtectedRoute>
               }
             />
