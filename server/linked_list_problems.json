@@ -1,0 +1,649 @@
+[
+    {
+        "title": "Reverse Linked List",
+        "difficulty": "Easy",
+        "description": "## Reverse Linked List\n\nGiven the `head` of a singly linked list, reverse the list, and return *the reversed list*.",
+        "constraints": "- The number of nodes in the list is the range `[0, 5000]`.\n- `-5000 <= Node.val <= 5000`",
+        "examples": [
+            {
+                "input": "head = [1,2,3,4,5]",
+                "output": "[5,4,3,2,1]"
+            },
+            {
+                "input": "head = [1,2]",
+                "output": "[2,1]"
+            },
+            {
+                "input": "head = []",
+                "output": "[]"
+            }
+        ],
+        "starterCode": [
+            {
+                "language": "javascript",
+                "code": "/**\n * Definition for singly-linked list.\n * function ListNode(val, next) {\n *     this.val = (val===undefined ? 0 : val)\n *     this.next = (next===undefined ? null : next)\n * }\n */\n/**\n * @param {ListNode} head\n * @return {ListNode}\n */\nvar reverseList = function(head) {\n    \n};"
+            },
+            {
+                "language": "python",
+                "code": "# Definition for singly-linked list.\n# class ListNode:\n#     def __init__(self, val=0, next=None):\n#         self.val = val\n#         self.next = next\nclass Solution:\n    def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:\n        pass"
+            },
+            {
+                "language": "java",
+                "code": "/**\n * Definition for singly-linked list.\n * public class ListNode {\n *     int val;\n *     ListNode next;\n *     ListNode() {}\n *     ListNode(int val) { this.val = val; }\n *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }\n * }\n */\nclass Solution {\n    public ListNode reverseList(ListNode head) {\n        // Write your code here\n    }\n}"
+            }
+        ],
+        "functionName": "reverseList"
+    },
+    {
+        "title": "Merge Two Sorted Lists",
+        "difficulty": "Easy",
+        "description": "## Merge Two Sorted Lists\n\nYou are given the heads of two sorted linked lists `list1` and `list2`.\n\nMerge the two lists in a one **sorted** list. The list should be made by splicing together the nodes of the first two lists.\n\nReturn *the head of the merged linked list*.",
+        "constraints": "- The number of nodes in both lists is in the range `[0, 50]`.\n- `-100 <= Node.val <= 100`.\n- Both `list1` and `list2` are sorted in **non-decreasing** order.",
+        "examples": [
+            {
+                "input": "list1 = [1,2,4], list2 = [1,3,4]",
+                "output": "[1,1,2,3,4,4]"
+            },
+            {
+                "input": "list1 = [], list2 = []",
+                "output": "[]"
+            },
+            {
+                "input": "list1 = [], list2 = [0]",
+                "output": "[0]"
+            }
+        ],
+        "starterCode": [
+            {
+                "language": "javascript",
+                "code": "/**\n * Definition for singly-linked list.\n * function ListNode(val, next) {\n *     this.val = (val===undefined ? 0 : val)\n *     this.next = (next===undefined ? null : next)\n * }\n */\n/**\n * @param {ListNode} list1\n * @param {ListNode} list2\n * @return {ListNode}\n */\nvar mergeTwoLists = function(list1, list2) {\n    \n};"
+            },
+            {
+                "language": "python",
+                "code": "class Solution:\n    def mergeTwoLists(self, list1: Optional[ListNode], list2: Optional[ListNode]) -> Optional[ListNode]:\n        pass"
+            },
+            {
+                "language": "java",
+                "code": "class Solution {\n    public ListNode mergeTwoLists(ListNode list1, ListNode list2) {\n        // Write your code here\n    }\n}"
+            }
+        ],
+        "functionName": "mergeTwoLists"
+    },
+    {
+        "title": "Linked List Cycle",
+        "difficulty": "Easy",
+        "description": "## Linked List Cycle\n\nGiven `head`, the head of a linked list, determine if the linked list has a cycle in it.\n\nThere is a cycle in a linked list if there is some node in the list that can be reached again by continuously following the `next` pointer. Internally, `pos` is used to denote the index of the node that tail's `next` pointer is connected to. **Note that `pos` is not passed as a parameter**.\n\nReturn `true` *if there is a cycle in the linked list*. Otherwise, return `false`.",
+        "constraints": "- The number of the nodes in the list is in the range `[0, 10^4]`.\n- `-10^5 <= Node.val <= 10^5`.\n- `pos` is `-1` or a **valid index** in the linked-list.",
+        "examples": [
+            {
+                "input": "head = [3,2,0,-4], pos = 1",
+                "output": "true",
+                "explanation": "There is a cycle in the linked list, where the tail connects to the 1st node (0-indexed)."
+            },
+            {
+                "input": "head = [1,2], pos = 0",
+                "output": "true",
+                "explanation": "There is a cycle in the linked list, where the tail connects to the 0th node."
+            },
+            {
+                "input": "head = [1], pos = -1",
+                "output": "false",
+                "explanation": "There is no cycle in the linked list."
+            }
+        ],
+        "starterCode": [
+            {
+                "language": "javascript",
+                "code": "/**\n * @param {ListNode} head\n * @return {boolean}\n */\nvar hasCycle = function(head) {\n    \n};"
+            },
+            {
+                "language": "python",
+                "code": "class Solution:\n    def hasCycle(self, head: Optional[ListNode]) -> bool:\n        pass"
+            },
+            {
+                "language": "java",
+                "code": "public class Solution {\n    public boolean hasCycle(ListNode head) {\n        // Write your code here\n    }\n}"
+            }
+        ],
+        "functionName": "hasCycle"
+    },
+    {
+        "title": "Remove Duplicates from Sorted List",
+        "difficulty": "Easy",
+        "description": "## Remove Duplicates from Sorted List\n\nGiven the `head` of a sorted linked list, delete all duplicates such that each element appears only once. Return *the linked list **sorted** as well*.",
+        "constraints": "- The number of nodes in the list is in the range `[0, 300]`.\n- `-100 <= Node.val <= 100`.\n- The list is guaranteed to be **sorted** in non-decreasing order.",
+        "examples": [
+            {
+                "input": "head = [1,1,2]",
+                "output": "[1,2]"
+            },
+            {
+                "input": "head = [1,1,2,3,3]",
+                "output": "[1,2,3]"
+            }
+        ],
+        "starterCode": [
+            {
+                "language": "javascript",
+                "code": "/**\n * @param {ListNode} head\n * @return {ListNode}\n */\nvar deleteDuplicates = function(head) {\n    \n};"
+            },
+            {
+                "language": "python",
+                "code": "class Solution:\n    def deleteDuplicates(self, head: Optional[ListNode]) -> Optional[ListNode]:\n        pass"
+            },
+            {
+                "language": "java",
+                "code": "class Solution {\n    public ListNode deleteDuplicates(ListNode head) {\n        // Write your code here\n    }\n}"
+            }
+        ],
+        "functionName": "deleteDuplicates"
+    },
+    {
+        "title": "Middle of the Linked List",
+        "difficulty": "Easy",
+        "description": "## Middle of the Linked List\n\nGiven the `head` of a singly linked list, return *the middle node of the linked list*.\n\nIf there are two middle nodes, return **the second middle** node.",
+        "constraints": "- The number of nodes in the list is in the range `[1, 100]`.\n- `1 <= Node.val <= 100`",
+        "examples": [
+            {
+                "input": "head = [1,2,3,4,5]",
+                "output": "[3,4,5]",
+                "explanation": "The middle node of the list is node 3."
+            },
+            {
+                "input": "head = [1,2,3,4,5,6]",
+                "output": "[4,5,6]",
+                "explanation": "Since the list has two middle nodes with values 3 and 4, we return the second one."
+            }
+        ],
+        "starterCode": [
+            {
+                "language": "javascript",
+                "code": "/**\n * @param {ListNode} head\n * @return {ListNode}\n */\nvar middleNode = function(head) {\n    \n};"
+            },
+            {
+                "language": "python",
+                "code": "class Solution:\n    def middleNode(self, head: Optional[ListNode]) -> Optional[ListNode]:\n        pass"
+            },
+            {
+                "language": "java",
+                "code": "class Solution {\n    public ListNode middleNode(ListNode head) {\n        // Write your code here\n    }\n}"
+            }
+        ],
+        "functionName": "middleNode"
+    },
+    {
+        "title": "Palindrome Linked List",
+        "difficulty": "Easy",
+        "description": "## Palindrome Linked List\n\nGiven the `head` of a singly linked list, return `true` *if it is a palindrome or `false` otherwise*.",
+        "constraints": "- The number of nodes in the list is in the range `[1, 10^5]`.\n- `0 <= Node.val <= 9`.",
+        "examples": [
+            {
+                "input": "head = [1,2,2,1]",
+                "output": "true"
+            },
+            {
+                "input": "head = [1,2]",
+                "output": "false"
+            }
+        ],
+        "starterCode": [
+            {
+                "language": "javascript",
+                "code": "/**\n * @param {ListNode} head\n * @return {boolean}\n */\nvar isPalindrome = function(head) {\n    \n};"
+            },
+            {
+                "language": "python",
+                "code": "class Solution:\n    def isPalindrome(self, head: Optional[ListNode]) -> bool:\n        pass"
+            },
+            {
+                "language": "java",
+                "code": "class Solution {\n    public boolean isPalindrome(ListNode head) {\n        // Write your code here\n    }\n}"
+            }
+        ],
+        "functionName": "isPalindrome"
+    },
+    {
+        "title": "Intersection of Two Linked Lists",
+        "difficulty": "Easy",
+        "description": "## Intersection of Two Linked Lists\n\nGiven the heads of two singly linked-lists `headA` and `headB`, return the node at which the two lists intersect. If the two linked lists have no intersection at all, return `null`.\n\nFor example, the following two linked lists begin to intersect at node `c1`:\n\n```\nA:          a1 → a2\n                   ↘\n                     c1 → c2 → c3\n                   ↗\nB:     b1 → b2 → b3\n```\n\nThe test cases are generated such that there are no cycles anywhere in the entire linked structure.\n\n**Note** that the linked lists must **retain their original structure** after the function returns.",
+        "constraints": "- The number of nodes of `listA` is in the `m`.\n- The number of nodes of `listB` is in the `n`.\n- `1 <= m, n <= 3 * 10^4`.\n- `1 <= Node.val <= 10^5`.\n- `skipA` is the number of nodes to skip in `listA` (starting from the head) to get to the intersected node.\n- `skipB` is the number of nodes to skip in `listB` (starting from the head) to get to the intersected node.\n- `intersectVal` is the value of the node where the intersection occurs.\n- `intersectVal` is `0` if there is no intersected node. `skipA` and `skipB` can be anything if `intersectVal` is `0`.",
+        "examples": [
+            {
+                "input": "intersectVal = 8, listA = [4,1,8,4,5], listB = [5,6,1,8,4,5], skipA = 2, skipB = 3",
+                "output": "Intersected at '8'"
+            },
+            {
+                "input": "intersectVal = 2, listA = [1,9,1,2,4], listB = [3,2,4], skipA = 3, skipB = 1",
+                "output": "Intersected at '2'"
+            },
+            {
+                "input": "intersectVal = 0, listA = [2,6,4], listB = [1,5], skipA = 3, skipB = 2",
+                "output": "No intersection"
+            }
+        ],
+        "starterCode": [
+            {
+                "language": "javascript",
+                "code": "/**\n * @param {ListNode} headA\n * @param {ListNode} headB\n * @return {ListNode}\n */\nvar getIntersectionNode = function(headA, headB) {\n    \n};"
+            },
+            {
+                "language": "python",
+                "code": "class Solution:\n    def getIntersectionNode(self, headA: ListNode, headB: ListNode) -> Optional[ListNode]:\n        pass"
+            },
+            {
+                "language": "java",
+                "code": "public class Solution {\n    public ListNode getIntersectionNode(ListNode headA, ListNode headB) {\n        // Write your code here\n    }\n}"
+            }
+        ],
+        "functionName": "getIntersectionNode"
+    },
+    {
+        "title": "Add Two Numbers",
+        "difficulty": "Medium",
+        "description": "## Add Two Numbers\n\nYou are given two **non-empty** linked lists representing two non-negative integers. The digits are stored in **reverse order**, and each of their nodes contains a single digit. Add the two numbers and return the sum as a linked list.\n\nYou may assume the two numbers do not contain any leading zero, except the number 0 itself.",
+        "constraints": "- The number of nodes in each linked list is in the range `[1, 100]`.\n- `0 <= Node.val <= 9`.\n- It is guaranteed that the list represents a number that does not have leading zeros.",
+        "examples": [
+            {
+                "input": "l1 = [2,4,3], l2 = [5,6,4]",
+                "output": "[7,0,8]",
+                "explanation": "342 + 465 = 807."
+            },
+            {
+                "input": "l1 = [0], l2 = [0]",
+                "output": "[0]"
+            },
+            {
+                "input": "l1 = [9,9,9,9,9,9,9], l2 = [9,9,9,9]",
+                "output": "[8,9,9,9,0,0,0,1]"
+            }
+        ],
+        "starterCode": [
+            {
+                "language": "javascript",
+                "code": "/**\n * @param {ListNode} l1\n * @param {ListNode} l2\n * @return {ListNode}\n */\nvar addTwoNumbers = function(l1, l2) {\n    \n};"
+            },
+            {
+                "language": "python",
+                "code": "class Solution:\n    def addTwoNumbers(self, l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:\n        pass"
+            },
+            {
+                "language": "java",
+                "code": "class Solution {\n    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {\n        // Write your code here\n    }\n}"
+            }
+        ],
+        "functionName": "addTwoNumbers"
+    },
+    {
+        "title": "Remove Nth Node From End of List",
+        "difficulty": "Medium",
+        "description": "## Remove Nth Node From End of List\n\nGiven the `head` of a linked list, remove the `nth` node from the end of the list and return its head.",
+        "constraints": "- The number of nodes in the list is `sz`.\n- `1 <= sz <= 30`.\n- `0 <= Node.val <= 100`.\n- `1 <= n <= sz`.",
+        "examples": [
+            {
+                "input": "head = [1,2,3,4,5], n = 2",
+                "output": "[1,2,3,5]"
+            },
+            {
+                "input": "head = [1], n = 1",
+                "output": "[]"
+            },
+            {
+                "input": "head = [1,2], n = 1",
+                "output": "[1]"
+            }
+        ],
+        "starterCode": [
+            {
+                "language": "javascript",
+                "code": "/**\n * @param {ListNode} head\n * @param {number} n\n * @return {ListNode}\n */\nvar removeNthFromEnd = function(head, n) {\n    \n};"
+            },
+            {
+                "language": "python",
+                "code": "class Solution:\n    def removeNthFromEnd(self, head: Optional[ListNode], n: int) -> Optional[ListNode]:\n        pass"
+            },
+            {
+                "language": "java",
+                "code": "class Solution {\n    public ListNode removeNthFromEnd(ListNode head, int n) {\n        // Write your code here\n    }\n}"
+            }
+        ],
+        "functionName": "removeNthFromEnd"
+    },
+    {
+        "title": "Reorder List",
+        "difficulty": "Medium",
+        "description": "## Reorder List\n\nYou are given the head of a singly linked-list. The list can be represented as:\n\n`L0 → L1 → … → Ln - 1 → Ln`\n\n*Reorder the list to be on the following form:*\n\n`L0 → Ln → L1 → Ln - 1 → L2 → Ln - 2 → …`\n\nYou may not modify the values in the list's nodes. Only nodes themselves may be changed.",
+        "constraints": "- The number of nodes in the list is in the range `[1, 5 * 10^4]`.\n- `1 <= Node.val <= 1000`.",
+        "examples": [
+            {
+                "input": "head = [1,2,3,4]",
+                "output": "[1,4,2,3]"
+            },
+            {
+                "input": "head = [1,2,3,4,5]",
+                "output": "[1,5,2,4,3]"
+            }
+        ],
+        "starterCode": [
+            {
+                "language": "javascript",
+                "code": "/**\n * @param {ListNode} head\n * @return {void} Do not return anything, modify head in-place instead.\n */\nvar reorderList = function(head) {\n    \n};"
+            },
+            {
+                "language": "python",
+                "code": "class Solution:\n    def reorderList(self, head: Optional[ListNode]) -> None:\n        pass"
+            },
+            {
+                "language": "java",
+                "code": "class Solution {\n    public void reorderList(ListNode head) {\n        // Write your code here\n    }\n}"
+            }
+        ],
+        "functionName": "reorderList"
+    },
+    {
+        "title": "Swap Nodes in Pairs",
+        "difficulty": "Medium",
+        "description": "## Swap Nodes in Pairs\n\nGiven a linked list, swap every two adjacent nodes and return its head. You must solve the problem without modifying the values in the list's nodes (i.e., only nodes themselves may be changed.)",
+        "constraints": "- The number of nodes in the list is in the range `[0, 100]`.\n- `0 <= Node.val <= 100`.",
+        "examples": [
+            {
+                "input": "head = [1,2,3,4]",
+                "output": "[2,1,4,3]"
+            },
+            {
+                "input": "head = []",
+                "output": "[]"
+            },
+            {
+                "input": "head = [1]",
+                "output": "[1]"
+            }
+        ],
+        "starterCode": [
+            {
+                "language": "javascript",
+                "code": "/**\n * @param {ListNode} head\n * @return {ListNode}\n */\nvar swapPairs = function(head) {\n    \n};"
+            },
+            {
+                "language": "python",
+                "code": "class Solution:\n    def swapPairs(self, head: Optional[ListNode]) -> Optional[ListNode]:\n        pass"
+            },
+            {
+                "language": "java",
+                "code": "class Solution {\n    public ListNode swapPairs(ListNode head) {\n        // Write your code here\n    }\n}"
+            }
+        ],
+        "functionName": "swapPairs"
+    },
+    {
+        "title": "Rotate List",
+        "difficulty": "Medium",
+        "description": "## Rotate List\n\nGiven the `head` of a linked list, rotate the list to the right by `k` places.",
+        "constraints": "- The number of nodes in the list is in the range `[0, 500]`.\n- `-100 <= Node.val <= 100`.\n- `0 <= k <= 2 * 10^9`.",
+        "examples": [
+            {
+                "input": "head = [1,2,3,4,5], k = 2",
+                "output": "[4,5,1,2,3]"
+            },
+            {
+                "input": "head = [0,1,2], k = 4",
+                "output": "[2,0,1]"
+            }
+        ],
+        "starterCode": [
+            {
+                "language": "javascript",
+                "code": "/**\n * @param {ListNode} head\n * @param {number} k\n * @return {ListNode}\n */\nvar rotateRight = function(head, k) {\n    \n};"
+            },
+            {
+                "language": "python",
+                "code": "class Solution:\n    def rotateRight(self, head: Optional[ListNode], k: int) -> Optional[ListNode]:\n        pass"
+            },
+            {
+                "language": "java",
+                "code": "class Solution {\n    public ListNode rotateRight(ListNode head, int k) {\n        // Write your code here\n    }\n}"
+            }
+        ],
+        "functionName": "rotateRight"
+    },
+    {
+        "title": "Copy List with Random Pointer",
+        "difficulty": "Medium",
+        "description": "## Copy List with Random Pointer\n\nA linked list of length `n` is given such that each node contains an additional random pointer, which could point to any node in the list, or `null`.\n\nConstruct a **deep copy** of the list. The deep copy should consist of exactly `n` **brand new** nodes, where each new node has its value set to the value of its corresponding original node. Both the `next` and `random` pointer of the new nodes should point to new nodes in the copied list such that the pointers in the original list and copied list represent the same list state. **None of the pointers in the new list should point to nodes in the original list**.\n\nFor example, if there are two nodes `X` and `Y` in the original list, where `X.random --> Y`, then for the corresponding two nodes `x` and `y` in the copied list, `x.random --> y`.\n\nReturn *the head of the copied linked list*.",
+        "constraints": "- `0 <= n <= 1000`.\n- `-10^4 <= Node.val <= 10^4`.\n- `Node.random` is `null` or is pointing to some node in the linked list.",
+        "examples": [
+            {
+                "input": "head = [[7,null],[13,0],[11,4],[10,2],[1,0]]",
+                "output": "[[7,null],[13,0],[11,4],[10,2],[1,0]]"
+            },
+            {
+                "input": "head = [[1,1],[2,1]]",
+                "output": "[[1,1],[2,1]]"
+            }
+        ],
+        "starterCode": [
+            {
+                "language": "javascript",
+                "code": "/**\n * // Definition for a Node.\n * function Node(val, next, random) {\n *    this.val = val;\n *    this.next = next;\n *    this.random = random;\n * };\n */\n/**\n * @param {Node} head\n * @return {Node}\n */\nvar copyRandomList = function(head) {\n    \n};"
+            },
+            {
+                "language": "python",
+                "code": "\"\"\"\n# Definition for a Node.\nclass Node:\n    def __init__(self, x: int, next: 'Node' = None, random: 'Node' = None):\n        self.val = int(x)\n        self.next = next\n        self.random = random\n\"\"\"\nclass Solution:\n    def copyRandomList(self, head: 'Optional[Node]') -> 'Optional[Node]':\n        pass"
+            },
+            {
+                "language": "java",
+                "code": "/*\n// Definition for a Node.\nclass Node {\n    int val;\n    Node next;\n    Node random;\n\n    public Node(int val) {\n        this.val = val;\n        this.next = null;\n        this.random = null;\n    }\n}\n*/\nclass Solution {\n    public Node copyRandomList(Node head) {\n        // Write your code here\n    }\n}"
+            }
+        ],
+        "functionName": "copyRandomList"
+    },
+    {
+        "title": "Partition List",
+        "difficulty": "Medium",
+        "description": "## Partition List\n\nGiven the `head` of a linked list and a value `x`, partition it such that all nodes **less than** `x` come before nodes **greater than or equal to** `x`.\n\nYou should **preserve** the original relative order of the nodes in each of the two partitions.",
+        "constraints": "- The number of nodes in the list is in the range `[0, 200]`.\n- `-100 <= Node.val <= 100`.\n- `-200 <= x <= 200`.",
+        "examples": [
+            {
+                "input": "head = [1,4,3,2,5,2], x = 3",
+                "output": "[1,2,2,4,3,5]"
+            },
+            {
+                "input": "head = [2,1], x = 2",
+                "output": "[1,2]"
+            }
+        ],
+        "starterCode": [
+            {
+                "language": "javascript",
+                "code": "/**\n * @param {ListNode} head\n * @param {number} x\n * @return {ListNode}\n */\nvar partition = function(head, x) {\n    \n};"
+            },
+            {
+                "language": "python",
+                "code": "class Solution:\n    def partition(self, head: Optional[ListNode], x: int) -> Optional[ListNode]:\n        pass"
+            },
+            {
+                "language": "java",
+                "code": "class Solution {\n    public ListNode partition(ListNode head, int x) {\n        // Write your code here\n    }\n}"
+            }
+        ],
+        "functionName": "partition"
+    },
+    {
+        "title": "Merge k Sorted Lists",
+        "difficulty": "Hard",
+        "description": "## Merge k Sorted Lists\n\nYou are given an array of `k` linked-lists `lists`, each linked-list is sorted in ascending order.\n\nMerge all the linked-lists into one sorted linked-list and return it.",
+        "constraints": "- `k == lists.length`.\n- `0 <= k <= 10^4`.\n- `0 <= lists[i].length <= 500`.\n- `-10^4 <= lists[i][j] <= 10^4`.\n- `lists[i]` is sorted in **ascending order**.\n- The sum of `lists[i].length` will not exceed `10^4`.",
+        "examples": [
+            {
+                "input": "lists = [[1,4,5],[1,3,4],[2,6]]",
+                "output": "[1,1,2,3,4,4,5,6]"
+            },
+            {
+                "input": "lists = []",
+                "output": "[]"
+            }
+        ],
+        "starterCode": [
+            {
+                "language": "javascript",
+                "code": "/**\n * @param {ListNode[]} lists\n * @return {ListNode}\n */\nvar mergeKLists = function(lists) {\n    \n};"
+            },
+            {
+                "language": "python",
+                "code": "class Solution:\n    def mergeKLists(self, lists: List[Optional[ListNode]]) -> Optional[ListNode]:\n        pass"
+            },
+            {
+                "language": "java",
+                "code": "class Solution {\n    public ListNode mergeKLists(ListNode[] lists) {\n        // Write your code here\n    }\n}"
+            }
+        ],
+        "functionName": "mergeKLists"
+    },
+    {
+        "title": "Reverse Nodes in k-Group",
+        "difficulty": "Hard",
+        "description": "## Reverse Nodes in k-Group\n\nGiven the `head` of a linked list, reverse the nodes of the list `k` at a time, and return the modified list.\n\n`k` is a positive integer and is less than or equal to the length of the linked list. If the number of nodes is not a multiple of `k` then left-out nodes, in the end, should remain as it is.\n\nYou may not alter the values in the list's nodes, only nodes themselves may be changed.",
+        "constraints": "- The number of nodes in the list is `n`.\n- `1 <= k <= n <= 5000`.\n- `0 <= Node.val <= 1000`.",
+        "examples": [
+            {
+                "input": "head = [1,2,3,4,5], k = 2",
+                "output": "[2,1,4,3,5]"
+            },
+            {
+                "input": "head = [1,2,3,4,5], k = 3",
+                "output": "[3,2,1,4,5]"
+            }
+        ],
+        "starterCode": [
+            {
+                "language": "javascript",
+                "code": "/**\n * @param {ListNode} head\n * @param {number} k\n * @return {ListNode}\n */\nvar reverseKGroup = function(head, k) {\n    \n};"
+            },
+            {
+                "language": "python",
+                "code": "class Solution:\n    def reverseKGroup(self, head: Optional[ListNode], k: int) -> Optional[ListNode]:\n        pass"
+            },
+            {
+                "language": "java",
+                "code": "class Solution {\n    public ListNode reverseKGroup(ListNode head, int k) {\n        // Write your code here\n    }\n}"
+            }
+        ],
+        "functionName": "reverseKGroup"
+    },
+    {
+        "title": "LFU Cache",
+        "difficulty": "Hard",
+        "description": "## LFU Cache\n\nDesign and implement a data structure for a [Least Frequently Used (LFU)](https://en.wikipedia.org/wiki/Least_frequently_used) cache.\n\nImplement the `LFUCache` class:\n\n- `LFUCache(int capacity)` Initializes the object with the `capacity` of the data structure.\n- `int get(int key)` Gets the value of the `key` if the `key` exists in the cache. Otherwise, returns `-1`.\n- `void put(int key, int value)` Update the value of the `key` if present, or inserts the `key` if not already present. When the cache reaches its `capacity`, it should invalidate and remove the **least frequently used** key before inserting a new item. For this problem, when there is a **tie** (i.e., two or more keys with the same frequency), the **least recently used** key would be invalidated.\n\nTo determine the least frequently used key, a **use counter** is maintained for each key in the cache. The key with the smallest **use counter** is the least frequently used key.\n\nWhen a key is first inserted into the cache, its **use counter** is set to `1` (due to the `put` operation). The **use counter** for a key in the cache is incremented either a `get` or `put` operation is called on it.",
+        "constraints": "- `1 <= capacity <= 10^4`.\n- `0 <= key <= 10^5`.\n- `0 <= value <= 10^9`.\n- At most `2 * 10^5` calls will be made to `get` and `put`.",
+        "examples": [
+            {
+                "input": "[\"LFUCache\", \"put\", \"put\", \"get\", \"put\", \"get\", \"get\", \"put\", \"get\", \"get\", \"get\"]\n[[2], [1, 1], [2, 2], [1], [3, 3], [2], [3], [4, 4], [1], [3], [4]]",
+                "output": "[null, null, null, 1, null, -1, 3, null, -1, 3, 4]",
+                "explanation": "LFUCache lfu = new LFUCache(2);\nlfu.put(1, 1);\nlfu.put(2, 2);\nlfu.get(1);      // return 1\nlfu.put(3, 3);   // 2 is the LFU key because freq(2)=1 is the smallest, invalidate 2.\nlfu.get(2);      // return -1\nlfu.get(3);      // return 3\nlfu.put(4, 4);   // Both 1 and 3 have freq=2, but 1 is older, invalidate 1.\nlfu.get(1);      // return -1\nlfu.get(3);      // return 3\nlfu.get(4);      // return 4"
+            }
+        ],
+        "starterCode": [
+            {
+                "language": "javascript",
+                "code": "\nvar LFUCache = function(capacity) {\n    \n};\n\n/** \n * @param {number} key\n * @return {number}\n */\nLFUCache.prototype.get = function(key) {\n    \n};\n\n/** \n * @param {number} key \n * @param {number} value\n * @return {void}\n */\nLFUCache.prototype.put = function(key, value) {\n    \n};\n\n/** \n * Your LFUCache object will be instantiated and called as such:\n * var obj = new LFUCache(capacity)\n * var param_1 = obj.get(key)\n * obj.put(key,value)\n */"
+            },
+            {
+                "language": "python",
+                "code": "class LFUCache:\n\n    def __init__(self, capacity: int):\n        pass\n\n    def get(self, key: int) -> int:\n        pass\n\n    def put(self, key: int, value: int) -> None:\n        pass\n\n# Your LFUCache object will be instantiated and called as such:\n# obj = LFUCache(capacity)\n# param_1 = obj.get(key)\n# obj.put(key,value)"
+            },
+            {
+                "language": "java",
+                "code": "class LFUCache {\n\n    public LFUCache(int capacity) {\n        \n    }\n    \n    public int get(int key) {\n        \n    }\n    \n    public void put(int key, int value) {\n        \n    }\n}"
+            }
+        ],
+        "functionName": "LFUCache"
+    },
+    {
+        "title": "Sort List",
+        "difficulty": "Hard",
+        "description": "## Sort List\n\nGiven the `head` of a linked list, return *the list after sorting it in **ascending order***.\n\n**Note:** Can you sort the linked list in `O(n log n)` time and `O(1)` memory (i.e. constant space)?",
+        "constraints": "- The number of nodes in the list is in the range `[0, 5 * 10^4]`.\n- `-10^5 <= Node.val <= 10^5`.",
+        "examples": [
+            {
+                "input": "head = [4,2,1,3]",
+                "output": "[1,2,3,4]"
+            },
+            {
+                "input": "head = [-1,5,3,4,0]",
+                "output": "[-1,0,3,4,5]"
+            }
+        ],
+        "starterCode": [
+            {
+                "language": "javascript",
+                "code": "/**\n * @param {ListNode} head\n * @return {ListNode}\n */\nvar sortList = function(head) {\n    \n};"
+            },
+            {
+                "language": "python",
+                "code": "class Solution:\n    def sortList(self, head: Optional[ListNode]) -> Optional[ListNode]:\n        pass"
+            },
+            {
+                "language": "java",
+                "code": "class Solution {\n    public ListNode sortList(ListNode head) {\n        // Write your code here\n    }\n}"
+            }
+        ],
+        "functionName": "sortList"
+    },
+    {
+        "title": "Linked List in Binary Tree",
+        "difficulty": "Hard",
+        "description": "## Linked List in Binary Tree\n\nGiven a binary tree `root` and a linked list with `head` as the first node.\n\nReturn `true` if all the elements in the linked list starting from the `head` correspond to some **downward path** connected in the binary tree otherwise return `false`.\n\nIn this context downward path means a path that starts at some node and goes downwards.",
+        "constraints": "- The number of nodes in the tree will be in the range `[1, 2500]`.\n- The number of nodes in the list will be in the range `[1, 100]`.\n- `1 <= Node.val <= 100` for each node in the linked list and binary tree.",
+        "examples": [
+            {
+                "input": "head = [4,2,8], root = [1,4,4,null,2,2,null,1,null,6,8,null,null,null,null,1,3]",
+                "output": "true"
+            },
+            {
+                "input": "head = [1,4,2,6], root = [1,4,4,null,2,2,null,1,null,6,8,null,null,null,null,1,3]",
+                "output": "true"
+            }
+        ],
+        "starterCode": [
+            {
+                "language": "javascript",
+                "code": "/**\n * @param {ListNode} head\n * @param {TreeNode} root\n * @return {boolean}\n */\nvar isSubPath = function(head, root) {\n    \n};"
+            },
+            {
+                "language": "python",
+                "code": "class Solution:\n    def isSubPath(self, head: Optional[ListNode], root: Optional[TreeNode]) -> bool:\n        pass"
+            },
+            {
+                "language": "java",
+                "code": "class Solution {\n    public boolean isSubPath(ListNode head, TreeNode root) {\n        // Write your code here\n    }\n}"
+            }
+        ],
+        "functionName": "isSubPath"
+    },
+    {
+        "title": "Design Browser History",
+        "difficulty": "Hard",
+        "description": "## Design Browser History\n\nYou have a **browser** of one tab where you start on the `homepage` and you can visit another `url`, get back in the history number of `steps` or move forward in the history number of `steps`.\n\nImplement the `BrowserHistory` class:\n\n- `BrowserHistory(string homepage)` Initializes the object with the `homepage` of the browser.\n- `void visit(string url)` Visits `url` from the current page. It clears up all the forward history.\n- `string back(int steps)` Move `steps` back in history. If you can only return `x` steps in the history and `steps > x`, you will return only `x` steps. Return the current `url` after moving back in history **at most** `steps`.\n- `string forward(int steps)` Move `steps` forward in history. If you can only forward `x` steps in the history and `steps > x`, you will forward only `x` steps. Return the current `url` after moving forward in history **at most** `steps`.",
+        "constraints": "- `1 <= homepage.length <= 20`.\n- `1 <= url.length <= 20`.\n- `1 <= steps <= 100`.\n- `homepage` and `url` consist of dots and lower case English letters.\n- At most `5000` calls will be made to `visit`, `back`, and `forward`.",
+        "examples": [
+            {
+                "input": "[\"BrowserHistory\",\"visit\",\"visit\",\"visit\",\"back\",\"back\",\"forward\",\"visit\",\"forward\",\"back\",\"back\"]\n[[\"leetcode.com\"],[\"google.com\"],[\"facebook.com\"],[\"youtube.com\"],[1],[1],[1],[\"linkedin.com\"],[2],[2],[7]]",
+                "output": "[null,null,null,null,\"facebook.com\",\"google.com\",\"facebook.com\",null,\"linkedin.com\",\"google.com\",\"leetcode.com\"]"
+            }
+        ],
+        "starterCode": [
+            {
+                "language": "javascript",
+                "code": "\nvar BrowserHistory = function(homepage) {\n    \n};\n\n/** \n * @param {string} url\n * @return {void}\n */\nBrowserHistory.prototype.visit = function(url) {\n    \n};\n\n/** \n * @param {number} steps\n * @return {string}\n */\nBrowserHistory.prototype.back = function(steps) {\n    \n};\n\n/** \n * @param {number} steps\n * @return {string}\n */\nBrowserHistory.prototype.forward = function(steps) {\n    \n};\n\n/** \n * Your BrowserHistory object will be instantiated and called as such:\n * var obj = new BrowserHistory(homepage)\n * obj.visit(url)\n * var param_2 = obj.back(steps)\n * var param_3 = obj.forward(steps)\n */"
+            },
+            {
+                "language": "python",
+                "code": "class BrowserHistory:\n\n    def __init__(self, homepage: str):\n        pass\n\n    def visit(self, url: str) -> None:\n        pass\n\n    def back(self, steps: int) -> str:\n        pass\n\n    def forward(self, steps: int) -> str:\n        pass\n\n# Your BrowserHistory object will be instantiated and called as such:\n# obj = BrowserHistory(homepage)\n# obj.visit(url)\n# param_2 = obj.back(steps)\n# param_3 = obj.forward(steps)"
+            },
+            {
+                "language": "java",
+                "code": "class BrowserHistory {\n\n    public BrowserHistory(String homepage) {\n        \n    }\n    \n    public void visit(String url) {\n        \n    }\n    \n    public String back(int steps) {\n        \n    }\n    \n    public String forward(int steps) {\n        \n    }\n}"
+            }
+        ],
+        "functionName": "BrowserHistory"
+    }
+]

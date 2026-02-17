@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
 import { motion, AnimatePresence } from 'framer-motion';
+import { FiArrowLeft } from 'react-icons/fi';
 import QuestionCard from '../components/QuestionCard';
 import DarkModeToggle from '../components/DarkModeToggle';
 
@@ -61,9 +62,8 @@ const CompanyDetail = () => {
             <nav className="fixed w-full z-50 top-0 start-0 border-b border-white/20 bg-white/70 dark:bg-gray-900/70 backdrop-blur-md">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex items-center justify-between h-16">
-                        <Link to="/dashboard" className="flex items-center text-sky-600 dark:text-sky-400 font-medium hover:text-sky-700 dark:hover:text-sky-300 transition-colors group">
-                            <span className="mr-2 transform group-hover:-translate-x-1 transition-transform">←</span>
-                            Back to Dashboard
+                        <Link to="/dashboard" className="p-2.5 rounded-full bg-white/50 dark:bg-gray-800/50 hover:bg-sky-50 dark:hover:bg-gray-700 text-gray-600 dark:text-gray-300 hover:text-sky-600 dark:hover:text-sky-400 transition-all shadow-sm border border-gray-200/50 dark:border-gray-700/50 group backdrop-blur-sm">
+                            <FiArrowLeft className="w-5 h-5 transform group-hover:-translate-x-1 transition-transform" />
                         </Link>
                         <div className="flex items-center gap-4">
                             <DarkModeToggle />

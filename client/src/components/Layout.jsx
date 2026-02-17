@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FiHome, FiBarChart2, FiCpu, FiUser, FiMenu, FiX, FiLogOut, FiMoon, FiSun, FiBriefcase } from 'react-icons/fi';
+import { FiHome, FiBarChart2, FiCpu, FiUser, FiMenu, FiX, FiLogOut, FiMoon, FiSun, FiBriefcase, FiCode } from 'react-icons/fi';
 import DarkModeToggle from './DarkModeToggle';
+import Chatbot from './ChatBot';
 import { useAuth } from '../context/AuthContext';
 
 const Layout = ({ children }) => {
@@ -16,8 +17,9 @@ const Layout = ({ children }) => {
     const menuItems = [
         { path: '/dashboard', label: 'Dashboard', icon: <FiBarChart2 /> },
         { path: '/aptitude', label: 'Aptitude', icon: <FiCpu /> },
+        { path: '/coding', label: 'Coding', icon: <FiCode /> },
         { path: '/mock-interview', label: 'Mock Interview', icon: <FiUser /> },
-        // { path: '/companies', label: 'Companies', icon: <FiBriefcase /> }, 
+        { path: '/companies', label: 'Companies', icon: <FiBriefcase /> },
         { path: '/profile', label: 'Profile', icon: <FiUser /> },
     ];
 
@@ -164,6 +166,7 @@ const Layout = ({ children }) => {
                     </motion.div>
                 </div>
             </main>
+            <Chatbot />
         </div>
     );
 };

@@ -1,0 +1,627 @@
+[
+    {
+        "title": "Two Sum II - Input Array Is Sorted",
+        "difficulty": "Easy",
+        "description": "## Two Sum II - Input Array Is Sorted\n\nGiven a **1-indexed** array of integers `numbers` that is already sorted in **non-decreasing order**, find two numbers such that they add up to a specific `target` number. Let these two numbers be `numbers[index1]` and `numbers[index2]` where `1 <= index1 < index2 <= numbers.length`.\n\nReturn the indices of the two numbers, `index1` and `index2`, added by one as an integer array `[index1, index2]` of length 2.\n\nThe tests are generated such that there is **exactly one solution**. You may not use the same element twice.\n\nYour solution must use only constant extra space.",
+        "constraints": "- `2 <= numbers.length <= 3 * 10^4`\n- `-1000 <= numbers[i] <= 1000`\n- `numbers` is sorted in non-decreasing order.\n- `-1000 <= target <= 1000`\n- Exactly one solution exists.",
+        "examples": [
+            {
+                "input": "numbers = [2,7,11,15], target = 9",
+                "output": "[1,2]",
+                "explanation": "The sum of 2 and 7 is 9. Therefore, index1 = 1, index2 = 2. We return [1, 2]."
+            },
+            {
+                "input": "numbers = [2,3,4], target = 6",
+                "output": "[1,3]",
+                "explanation": "The sum of 2 and 4 is 6. Therefore index1 = 1, index2 = 3. We return [1, 3]."
+            },
+            {
+                "input": "numbers = [-1,0], target = -1",
+                "output": "[1,2]",
+                "explanation": "The sum of -1 and 0 is -1. Therefore index1 = 1, index2 = 2. We return [1, 2]."
+            }
+        ],
+        "starterCode": [
+            {
+                "language": "javascript",
+                "code": "/**\n * @param {number[]} numbers\n * @param {number} target\n * @return {number[]}\n */\nvar twoSum = function(numbers, target) {\n    // Write your code here\n};"
+            },
+            {
+                "language": "python",
+                "code": "class Solution:\n    def twoSum(self, numbers: List[int], target: int) -> List[int]:\n        pass"
+            }
+        ],
+        "functionName": "twoSum"
+    },
+    {
+        "title": "Remove Duplicates from Sorted Array",
+        "difficulty": "Easy",
+        "description": "## Remove Duplicates from Sorted Array\n\nGiven an integer array `nums` sorted in **non-decreasing order**, remove the duplicates **in-place** such that each unique element appears only once. The relative order of the elements should be kept the same.\n\nSince it is impossible to change the length of the array in some languages, you must instead have the result be placed in the **first part** of the array `nums`. More formally, if there are `k` elements after removing the duplicates, then the first `k` elements of `nums` should hold the final result. It does not matter what you leave beyond the first `k` elements.\n\nReturn `k` after placing the final result in the first `k` slots of `nums`.",
+        "constraints": "- `1 <= nums.length <= 3 * 10^4`\n- `-100 <= nums[i] <= 100`\n- `nums` is sorted in non-decreasing order.",
+        "examples": [
+            {
+                "input": "nums = [1,1,2]",
+                "output": "2, nums = [1,2,_]",
+                "explanation": "Your function should return k = 2, with the first two elements of nums being 1 and 2 respectively."
+            },
+            {
+                "input": "nums = [0,0,1,1,1,2,2,3,3,4]",
+                "output": "5, nums = [0,1,2,3,4,_,_,_,_,_]",
+                "explanation": "Your function should return k = 5, with the first five elements of nums being 0, 1, 2, 3, and 4 respectively."
+            }
+        ],
+        "starterCode": [
+            {
+                "language": "javascript",
+                "code": "/**\n * @param {number[]} nums\n * @return {number}\n */\nvar removeDuplicates = function(nums) {\n    // Write your code here\n};"
+            },
+            {
+                "language": "python",
+                "code": "class Solution:\n    def removeDuplicates(self, nums: List[int]) -> int:\n        pass"
+            }
+        ],
+        "functionName": "removeDuplicates"
+    },
+    {
+        "title": "Reverse String",
+        "difficulty": "Easy",
+        "description": "## Reverse String\n\nWrite a function that reverses a string. The input string is given as an array of characters `s`.\n\nYou must do this by modifying the input array **in-place** with `O(1)` extra memory.",
+        "constraints": "- `1 <= s.length <= 10^5`\n- `s[i]` is a printable ascii character.",
+        "examples": [
+            {
+                "input": "s = [\"h\",\"e\",\"l\",\"l\",\"o\"]",
+                "output": "[\"o\",\"l\",\"l\",\"e\",\"h\"]",
+                "explanation": "The input string is reversed in-place."
+            },
+            {
+                "input": "s = [\"H\",\"a\",\"n\",\"n\",\"a\",\"h\"]",
+                "output": "[\"h\",\"a\",\"n\",\"n\",\"a\",\"H\"]",
+                "explanation": "The input string is reversed in-place."
+            }
+        ],
+        "starterCode": [
+            {
+                "language": "javascript",
+                "code": "/**\n * @param {character[]} s\n * @return {void} Do not return anything, modify s in-place instead.\n */\nvar reverseString = function(s) {\n    // Write your code here\n};"
+            },
+            {
+                "language": "python",
+                "code": "class Solution:\n    def reverseString(self, s: List[str]) -> None:\n        \"\"\"\n        Do not return anything, modify s in-place instead.\n        \"\"\"\n        pass"
+            }
+        ],
+        "functionName": "reverseString"
+    },
+    {
+        "title": "Valid Palindrome",
+        "difficulty": "Easy",
+        "description": "## Valid Palindrome\n\nA phrase is a **palindrome** if, after converting all uppercase letters into lowercase letters and removing all non-alphanumeric characters, it reads the same forward and backward. Alphanumeric characters include letters and numbers.\n\nGiven a string `s`, return `true` if it is a palindrome, or `false` otherwise.",
+        "constraints": "- `1 <= s.length <= 2 * 10^5`\n- `s` consists only of printable ASCII characters.",
+        "examples": [
+            {
+                "input": "s = \"A man, a plan, a canal: Panama\"",
+                "output": "true",
+                "explanation": "\"amanaplanacanalpanama\" is a palindrome."
+            },
+            {
+                "input": "s = \"race a car\"",
+                "output": "false",
+                "explanation": "\"raceacar\" is not a palindrome."
+            },
+            {
+                "input": "s = \" \"",
+                "output": "true",
+                "explanation": "s is an empty string \"\" after removing non-alphanumeric characters. Since an empty string reads the same forward and backward, it is a palindrome."
+            }
+        ],
+        "starterCode": [
+            {
+                "language": "javascript",
+                "code": "/**\n * @param {string} s\n * @return {boolean}\n */\nvar isPalindrome = function(s) {\n    // Write your code here\n};"
+            },
+            {
+                "language": "python",
+                "code": "class Solution:\n    def isPalindrome(self, s: str) -> bool:\n        pass"
+            }
+        ],
+        "functionName": "isPalindrome"
+    },
+    {
+        "title": "Merge Sorted Array",
+        "difficulty": "Easy",
+        "description": "## Merge Sorted Array\n\nYou are given two integer arrays `nums1` and `nums2`, sorted in **non-decreasing order**, and two integers `m` and `n`, representing the number of elements in `nums1` and `nums2` respectively.\n\nMerge `nums1` and `nums2` into a single array sorted in **non-decreasing order**.\n\nThe final sorted array should not be returned by the function, but instead be stored inside the array `nums1`. To accommodate this, `nums1` has a length of `m + n`, where the first `m` elements denote the elements that should be merged, and the last `n` elements are set to `0` and should be ignored. `nums2` has a length of `n`.",
+        "constraints": "- `nums1.length == m + n`\n- `nums2.length == n`\n- `0 <= m, n <= 200`\n- `1 <= m + n <= 200`\n- `-10^9 <= nums1[i], nums2[j] <= 10^9`",
+        "examples": [
+            {
+                "input": "nums1 = [1,2,3,0,0,0], m = 3, nums2 = [2,5,6], n = 3",
+                "output": "[1,2,2,3,5,6]",
+                "explanation": "The arrays we are merging are [1,2,3] and [2,5,6].\nThe result of the merge is [1,2,2,3,5,6] with the underlined elements coming from nums1."
+            },
+            {
+                "input": "nums1 = [1], m = 1, nums2 = [], n = 0",
+                "output": "[1]",
+                "explanation": "The arrays we are merging are [1] and [].\nThe result of the merge is [1]."
+            }
+        ],
+        "starterCode": [
+            {
+                "language": "javascript",
+                "code": "/**\n * @param {number[]} nums1\n * @param {number} m\n * @param {number[]} nums2\n * @param {number} n\n * @return {void} Do not return anything, modify nums1 in-place instead.\n */\nvar merge = function(nums1, m, nums2, n) {\n    // Write your code here\n};"
+            },
+            {
+                "language": "python",
+                "code": "class Solution:\n    def merge(self, nums1: List[int], m: int, nums2: List[int], n: int) -> None:\n        \"\"\"\n        Do not return anything, modify nums1 in-place instead.\n        \"\"\"\n        pass"
+            }
+        ],
+        "functionName": "merge"
+    },
+    {
+        "title": "Move Zeroes",
+        "difficulty": "Easy",
+        "description": "## Move Zeroes\n\nGiven an integer array `nums`, move all `0`'s to the end of it while maintaining the relative order of the non-zero elements.\n\n**Note** that you must do this in-place without making a copy of the array.",
+        "constraints": "- `1 <= nums.length <= 10^4`\n- `-2^31 <= nums[i] <= 2^31 - 1`",
+        "examples": [
+            {
+                "input": "nums = [0,1,0,3,12]",
+                "output": "[1,3,12,0,0]",
+                "explanation": "Non-zero elements are 1, 3, 12. Zeros are moved to the end."
+            },
+            {
+                "input": "nums = [0]",
+                "output": "[0]",
+                "explanation": "Only one element, no change."
+            }
+        ],
+        "starterCode": [
+            {
+                "language": "javascript",
+                "code": "/**\n * @param {number[]} nums\n * @return {void} Do not return anything, modify nums in-place instead.\n */\nvar moveZeroes = function(nums) {\n    // Write your code here\n};"
+            },
+            {
+                "language": "python",
+                "code": "class Solution:\n    def moveZeroes(self, nums: List[int]) -> None:\n        \"\"\"\n        Do not return anything, modify nums in-place instead.\n        \"\"\"\n        pass"
+            }
+        ],
+        "functionName": "moveZeroes"
+    },
+    {
+        "title": "Squares of a Sorted Array",
+        "difficulty": "Easy",
+        "description": "## Squares of a Sorted Array\n\nGiven an integer array `nums` sorted in **non-decreasing** order, return *an array of the squares of each number* sorted in non-decreasing order.",
+        "constraints": "- `1 <= nums.length <= 10^4`\n- `-10^4 <= nums[i] <= 10^4`\n- `nums` is sorted in non-decreasing order.",
+        "examples": [
+            {
+                "input": "nums = [-4,-1,0,3,10]",
+                "output": "[0,1,9,16,100]",
+                "explanation": "After squaring, the array becomes [16,1,0,9,100].\nAfter sorting, it becomes [0,1,9,16,100]."
+            },
+            {
+                "input": "nums = [-7,-3,2,3,11]",
+                "output": "[4,9,9,49,121]",
+                "explanation": "Squares: [49, 9, 4, 9, 121]. Sorted: [4, 9, 9, 49, 121]."
+            }
+        ],
+        "starterCode": [
+            {
+                "language": "javascript",
+                "code": "/**\n * @param {number[]} nums\n * @return {number[]}\n */\nvar sortedSquares = function(nums) {\n    // Write your code here\n};"
+            },
+            {
+                "language": "python",
+                "code": "class Solution:\n    def sortedSquares(self, nums: List[int]) -> List[int]:\n        pass"
+            }
+        ],
+        "functionName": "sortedSquares"
+    },
+    {
+        "title": "3Sum",
+        "difficulty": "Medium",
+        "description": "## 3Sum\n\nGiven an integer array nums, return all the triplets `[nums[i], nums[j], nums[k]]` such that `i != j`, `i != k`, and `j != k`, and `nums[i] + nums[j] + nums[k] == 0`.\n\nNotice that the solution set must not contain duplicate triplets.",
+        "constraints": "- `3 <= nums.length <= 3000`\n- `-10^5 <= nums[i] <= 10^5`",
+        "examples": [
+            {
+                "input": "nums = [-1,0,1,2,-1,-4]",
+                "output": "[[-1,-1,2],[-1,0,1]]",
+                "explanation": "The distinct triplets are [-1,0,1] and [-1,-1,2]. Note that the order of the output and the order of the triplets does not matter."
+            },
+            {
+                "input": "nums = [0,1,1]",
+                "output": "[]",
+                "explanation": "The only possible triplet sums to 2, not 0."
+            },
+            {
+                "input": "nums = [0,0,0]",
+                "output": "[[0,0,0]]",
+                "explanation": "The only possible triplet sums to 0."
+            }
+        ],
+        "starterCode": [
+            {
+                "language": "javascript",
+                "code": "/**\n * @param {number[]} nums\n * @return {number[][]}\n */\nvar threeSum = function(nums) {\n    // Write your code here\n};"
+            },
+            {
+                "language": "python",
+                "code": "class Solution:\n    def threeSum(self, nums: List[int]) -> List[List[int]]:\n        pass"
+            }
+        ],
+        "functionName": "threeSum"
+    },
+    {
+        "title": "Container With Most Water",
+        "difficulty": "Medium",
+        "description": "## Container With Most Water\n\nYou are given an integer array `height` of length `n`. There are `n` vertical lines drawn such that the two endpoints of the `i`-th line are `(i, 0)` and `(i, height[i])`.\n\nFind two lines that together with the x-axis form a container, such that the container contains the most water.\n\nReturn *the maximum amount of water a container can store*.\n\n**Notice** that you may not slant the container.",
+        "constraints": "- `n == height.length`\n- `2 <= n <= 10^5`\n- `0 <= height[i] <= 10^4`",
+        "examples": [
+            {
+                "input": "height = [1,8,6,2,5,4,8,3,7]",
+                "output": "49",
+                "explanation": "The vertical lines are [1,8,6,2,5,4,8,3,7]. The max area is formed by lines at index 1 and 8 (heights 8 and 7). Width = 7. Area = 7 * 7 = 49."
+            },
+            {
+                "input": "height = [1,1]",
+                "output": "1",
+                "explanation": "Area = 1 * 1 = 1."
+            }
+        ],
+        "starterCode": [
+            {
+                "language": "javascript",
+                "code": "/**\n * @param {number[]} height\n * @return {number}\n */\nvar maxArea = function(height) {\n    // Write your code here\n};"
+            },
+            {
+                "language": "python",
+                "code": "class Solution:\n    def maxArea(self, height: List[int]) -> int:\n        pass"
+            }
+        ],
+        "functionName": "maxArea"
+    },
+    {
+        "title": "Sort Colors",
+        "difficulty": "Medium",
+        "description": "## Sort Colors\n\nGiven an array `nums` with `n` objects colored red, white, or blue, sort them **in-place** so that objects of the same color are adjacent, with the colors in the order red, white, and blue.\n\nWe will use the integers `0`, `1`, and `2` to represent the color red, white, and blue, respectively.\n\nYou must solve this problem without using the library's sort function.",
+        "constraints": "- `n == nums.length`\n- `1 <= n <= 300`\n- `nums[i]` is either `0`, `1`, or `2`.",
+        "examples": [
+            {
+                "input": "nums = [2,0,2,1,1,0]",
+                "output": "[0,0,1,1,2,2]",
+                "explanation": "The array is sorted with 0s first, then 1s, then 2s."
+            },
+            {
+                "input": "nums = [2,0,1]",
+                "output": "[0,1,2]",
+                "explanation": "Sorted array: [0,1,2]."
+            }
+        ],
+        "starterCode": [
+            {
+                "language": "javascript",
+                "code": "/**\n * @param {number[]} nums\n * @return {void} Do not return anything, modify nums in-place instead.\n */\nvar sortColors = function(nums) {\n    // Write your code here\n};"
+            },
+            {
+                "language": "python",
+                "code": "class Solution:\n    def sortColors(self, nums: List[int]) -> None:\n        \"\"\"\n        Do not return anything, modify nums in-place instead.\n        \"\"\"\n        pass"
+            }
+        ],
+        "functionName": "sortColors"
+    },
+    {
+        "title": "Remove Nth Node From End of List",
+        "difficulty": "Medium",
+        "description": "## Remove Nth Node From End of List\n\nGiven the `head` of a linked list, remove the `n`-th node from the end of the list and return its head.",
+        "constraints": "- The number of nodes in the list is `sz`.\n- `1 <= sz <= 30`\n- `0 <= Node.val <= 100`\n- `1 <= n <= sz`",
+        "examples": [
+            {
+                "input": "head = [1,2,3,4,5], n = 2",
+                "output": "[1,2,3,5]",
+                "explanation": "The 2nd node from the end is 4. Removing it yield [1,2,3,5]."
+            },
+            {
+                "input": "head = [1], n = 1",
+                "output": "[]",
+                "explanation": "Removing the only node leaves an empty list."
+            },
+            {
+                "input": "head = [1,2], n = 1",
+                "output": "[1]",
+                "explanation": "Removing the last node (2) leaves [1]."
+            }
+        ],
+        "starterCode": [
+            {
+                "language": "javascript",
+                "code": "/**\n * Definition for singly-linked list.\n * function ListNode(val, next) {\n *     this.val = (val===undefined ? 0 : val)\n *     this.next = (next===undefined ? null : next)\n * }\n */\n/**\n * @param {ListNode} head\n * @param {number} n\n * @return {ListNode}\n */\nvar removeNthFromEnd = function(head, n) {\n    // Write your code here\n};"
+            },
+            {
+                "language": "python",
+                "code": "class Solution:\n    def removeNthFromEnd(self, head: Optional[ListNode], n: int) -> Optional[ListNode]:\n        pass"
+            }
+        ],
+        "functionName": "removeNthFromEnd"
+    },
+    {
+        "title": "Find the Duplicate Number",
+        "difficulty": "Medium",
+        "description": "## Find the Duplicate Number\n\nGiven an array of integers `nums` containing `n + 1` integers where each integer is in the range `[1, n]` inclusive.\n\nThere is only **one repeated number** in `nums`, return *this repeated number*.\n\nYou must solve the problem **without modifying** the array `nums` and uses only constant extra space.",
+        "constraints": "- `1 <= n <= 10^5`\n- `nums.length == n + 1`\n- `1 <= nums[i] <= n`\n- All the integers in `nums` appear only once except for precisely one integer which appears two or more times.",
+        "examples": [
+            {
+                "input": "nums = [1,3,4,2,2]",
+                "output": "2",
+                "explanation": "2 is the duplicate number."
+            },
+            {
+                "input": "nums = [3,1,3,4,2]",
+                "output": "3",
+                "explanation": "3 is the duplicate number."
+            },
+            {
+                "input": "nums = [3,3,3,3,3]",
+                "output": "3",
+                "explanation": "3 is the only value and appears multiple times."
+            }
+        ],
+        "starterCode": [
+            {
+                "language": "javascript",
+                "code": "/**\n * @param {number[]} nums\n * @return {number}\n */\nvar findDuplicate = function(nums) {\n    // Write your code here\n};"
+            },
+            {
+                "language": "python",
+                "code": "class Solution:\n    def findDuplicate(self, nums: List[int]) -> int:\n        pass"
+            }
+        ],
+        "functionName": "findDuplicate"
+    },
+    {
+        "title": "Partition Labels",
+        "difficulty": "Medium",
+        "description": "## Partition Labels\n\nYou are given a string `s`. We want to partition the string into as many parts as possible so that each letter appears in at most one part.\n\nNote that the partition is done so that after concatenating all the parts in order, the resultant string should be `s`.\n\nReturn *a list of integers representing the size of these parts*.",
+        "constraints": "- `1 <= s.length <= 500`\n- `s` consists of lowercase English letters.",
+        "examples": [
+            {
+                "input": "s = \"ababcbacadefegdehijhklij\"",
+                "output": "[9,7,8]",
+                "explanation": "The partition is \"ababcbaca\", \"defegde\", \"hijhklij\".\nThis is a partition so that each letter appears in at most one part.\nA partition like \"ababcbacadefegde\", \"hijhklij\" is incorrect, because it splits s into less parts."
+            },
+            {
+                "input": "s = \"eccbbbbdec\"",
+                "output": "[10]",
+                "explanation": "The single partition \"eccbbbbdec\" satisfies the condition."
+            }
+        ],
+        "starterCode": [
+            {
+                "language": "javascript",
+                "code": "/**\n * @param {string} s\n * @return {number[]}\n */\nvar partitionLabels = function(s) {\n    // Write your code here\n};"
+            },
+            {
+                "language": "python",
+                "code": "class Solution:\n    def partitionLabels(self, s: str) -> List[int]:\n        pass"
+            }
+        ],
+        "functionName": "partitionLabels"
+    },
+    {
+        "title": "Longest Substring Without Repeating Characters",
+        "difficulty": "Medium",
+        "description": "## Longest Substring Without Repeating Characters\n\nGiven a string `s`, find the length of the **longest substring** without repeating characters.",
+        "constraints": "- `0 <= s.length <= 5 * 10^4`\n- `s` consists of English letters, digits, symbols and spaces.",
+        "examples": [
+            {
+                "input": "s = \"abcabcbb\"",
+                "output": "3",
+                "explanation": "The answer is \"abc\", with the length of 3."
+            },
+            {
+                "input": "s = \"bbbbb\"",
+                "output": "1",
+                "explanation": "The answer is \"b\", with the length of 1."
+            },
+            {
+                "input": "s = \"pwwkew\"",
+                "output": "3",
+                "explanation": "The answer is \"wke\", with the length of 3. Note that the answer must be a substring, \"pwke\" is a subsequence and not a substring."
+            }
+        ],
+        "starterCode": [
+            {
+                "language": "javascript",
+                "code": "/**\n * @param {string} s\n * @return {number}\n */\nvar lengthOfLongestSubstring = function(s) {\n    // Write your code here\n};"
+            },
+            {
+                "language": "python",
+                "code": "class Solution:\n    def lengthOfLongestSubstring(self, s: str) -> int:\n        pass"
+            }
+        ],
+        "functionName": "lengthOfLongestSubstring"
+    },
+    {
+        "title": "Trapping Rain Water",
+        "difficulty": "Hard",
+        "description": "## Trapping Rain Water\n\nGiven `n` non-negative integers representing an elevation map where the width of each bar is `1`, compute how much water it can trap after raining.",
+        "constraints": "- `n == height.length`\n- `1 <= n <= 2 * 10^4`\n- `0 <= height[i] <= 10^5`",
+        "examples": [
+            {
+                "input": "height = [0,1,0,2,1,0,1,3,2,1,2,1]",
+                "output": "6",
+                "explanation": "The elevation map behaves like a container. Water is trapped between bars. Total units trapped = 6."
+            },
+            {
+                "input": "height = [4,2,0,3,2,5]",
+                "output": "9",
+                "explanation": "Total units trapped = 9."
+            }
+        ],
+        "starterCode": [
+            {
+                "language": "javascript",
+                "code": "/**\n * @param {number[]} height\n * @return {number}\n */\nvar trap = function(height) {\n    // Write your code here\n};"
+            },
+            {
+                "language": "python",
+                "code": "class Solution:\n    def trap(self, height: List[int]) -> int:\n        pass"
+            }
+        ],
+        "functionName": "trap"
+    },
+    {
+        "title": "Minimum Window Substring",
+        "difficulty": "Hard",
+        "description": "## Minimum Window Substring\n\nGiven two strings `s` and `t` of lengths `m` and `n` respectively, return *the **minimum window substring** of* `s` *such that every character in* `t` *(including duplicates) is included in the window*.\n\nIf there is no such substring, return the empty string `\"\"`.\n\nThe testcases will be generated such that the answer is **unique**.",
+        "constraints": "- `m == s.length`\n- `n == t.length`\n- `1 <= m, n <= 10^5`\n- `s` and `t` consist of uppercase and lowercase English letters.",
+        "examples": [
+            {
+                "input": "s = \"ADOBECODEBANC\", t = \"ABC\"",
+                "output": "\"BANC\"",
+                "explanation": "The minimum window substring \"BANC\" includes A, B, and C from string t."
+            },
+            {
+                "input": "s = \"a\", t = \"a\"",
+                "output": "\"a\"",
+                "explanation": "Entire string s is the minimum window."
+            },
+            {
+                "input": "s = \"a\", t = \"aa\"",
+                "output": "\"\"",
+                "explanation": "\"a\" does not include \"aa\" (two as), so return empty string."
+            }
+        ],
+        "starterCode": [
+            {
+                "language": "javascript",
+                "code": "/**\n * @param {string} s\n * @param {string} t\n * @return {string}\n */\nvar minWindow = function(s, t) {\n    // Write your code here\n};"
+            },
+            {
+                "language": "python",
+                "code": "class Solution:\n    def minWindow(self, s: str, t: str) -> str:\n        pass"
+            }
+        ],
+        "functionName": "minWindow"
+    },
+    {
+        "title": "Substring with Concatenation of All Words",
+        "difficulty": "Hard",
+        "description": "## Substring with Concatenation of All Words\n\nYou are given a string `s` and an array of strings `words` of the **same length**.\n\nReturn all starting indices of substring(s) in `s` that is a concatenation of each word in `words` exactly once, **in any order**, and without any intervening characters.\n\nYou can return the answer in **any order**.",
+        "constraints": "- `1 <= s.length <= 10^4`\n- `1 <= words.length <= 5000`\n- `1 <= words[i].length <= 30`\n- `s` and `words[i]` consist of lowercase English letters.",
+        "examples": [
+            {
+                "input": "s = \"barfoothefoobarman\", words = [\"foo\",\"bar\"]",
+                "output": "[0,9]",
+                "explanation": "Substrings starting at index 0 and 9 are \"barfoo\" and \"foobar\" respectively. Both are concatenations of [\"foo\", \"bar\"]."
+            },
+            {
+                "input": "s = \"wordgoodgoodgoodbestword\", words = [\"word\",\"good\",\"best\",\"word\"]",
+                "output": "[]",
+                "explanation": "There is no substring that contains all words exactly once."
+            },
+            {
+                "input": "s = \"barfoofoobarthefoobarman\", words = [\"bar\",\"foo\",\"the\"]",
+                "output": "[6,9,12]",
+                "explanation": "Substrings at 6 (\"foobarthe\"), 9 (\"barthefoo\"), 12 (\"thefoobar\")."
+            }
+        ],
+        "starterCode": [
+            {
+                "language": "javascript",
+                "code": "/**\n * @param {string} s\n * @param {string[]} words\n * @return {number[]}\n */\nvar findSubstring = function(s, words) {\n    // Write your code here\n};"
+            },
+            {
+                "language": "python",
+                "code": "class Solution:\n    def findSubstring(self, s: str, words: List[str]) -> List[int]:\n        pass"
+            }
+        ],
+        "functionName": "findSubstring"
+    },
+    {
+        "title": "4Sum",
+        "difficulty": "Hard",
+        "description": "## 4Sum\n\nGiven an array `nums` of `n` integers, return *an array of all the **unique** quadruplets* `[nums[a], nums[b], nums[c], nums[d]]` such that:\n- `0 <= a, b, c, d < n`\n- `a`, `b`, `c`, and `d` are **distinct**.\n- `nums[a] + nums[b] + nums[c] + nums[d] == target`\n\nYou may return the answer in **any order**.",
+        "constraints": "- `1 <= nums.length <= 200`\n- `-10^9 <= nums[i] <= 10^9`\n- `-10^9 <= target <= 10^9`",
+        "examples": [
+            {
+                "input": "nums = [1,0,-1,0,-2,2], target = 0",
+                "output": "[[-2,-1,1,2],[-2,0,0,2],[-1,0,0,1]]",
+                "explanation": "There are three unique quadruplets summing to 0."
+            },
+            {
+                "input": "nums = [2,2,2,2,2], target = 8",
+                "output": "[[2,2,2,2]]",
+                "explanation": "Only one unique quadruplet."
+            }
+        ],
+        "starterCode": [
+            {
+                "language": "javascript",
+                "code": "/**\n * @param {number[]} nums\n * @param {number} target\n * @return {number[][]}\n */\nvar fourSum = function(nums, target) {\n    // Write your code here\n};"
+            },
+            {
+                "language": "python",
+                "code": "class Solution:\n    def fourSum(self, nums: List[int], target: int) -> List[List[int]]:\n        pass"
+            }
+        ],
+        "functionName": "fourSum"
+    },
+    {
+        "title": "Max Points on a Line",
+        "difficulty": "Hard",
+        "description": "## Max Points on a Line\n\nGiven an array of `points` where `points[i] = [xi, yi]` represents a point on the **X-Y** plane, return *the maximum number of points that lie on the same straight line*.",
+        "constraints": "- `1 <= points.length <= 300`\n- `points[i].length == 2`\n- `-10^4 <= xi, yi <= 10^4`\n- All the `points` are **unique**.",
+        "examples": [
+            {
+                "input": "points = [[1,1],[2,2],[3,3]]",
+                "output": "3",
+                "explanation": "All 3 points lie on y = x."
+            },
+            {
+                "input": "points = [[1,1],[3,2],[5,3],[4,1],[2,3],[1,4]]",
+                "output": "4",
+                "explanation": "4 points lie on the same line."
+            }
+        ],
+        "starterCode": [
+            {
+                "language": "javascript",
+                "code": "/**\n * @param {number[][]} points\n * @return {number}\n */\nvar maxPoints = function(points) {\n    // Write your code here\n};"
+            },
+            {
+                "language": "python",
+                "code": "class Solution:\n    def maxPoints(self, points: List[List[int]]) -> int:\n        pass"
+            }
+        ],
+        "functionName": "maxPoints"
+    },
+    {
+        "title": "Shortest Subarray with Sum at Least K",
+        "difficulty": "Hard",
+        "description": "## Shortest Subarray with Sum at Least K\n\nGiven an integer array `nums` and an integer `k`, return *the length of the shortest non-empty **subarray** of* `nums` *with a sum of at least* `k`.\n\nIf there is no such subarray, return `-1`.",
+        "constraints": "- `1 <= nums.length <= 10^5`\n- `-10^5 <= nums[i] <= 10^5`\n- `1 <= k <= 10^9`",
+        "examples": [
+            {
+                "input": "nums = [1], k = 1",
+                "output": "1",
+                "explanation": "[1] sum is 1 >= 1. Length 1."
+            },
+            {
+                "input": "nums = [1,2], k = 4",
+                "output": "-1",
+                "explanation": "Sum is 3 < 4. No subarray."
+            },
+            {
+                "input": "nums = [2,-1,2], k = 3",
+                "output": "3",
+                "explanation": "[2,-1,2] sum is 3 >= 3. Length 3."
+            }
+        ],
+        "starterCode": [
+            {
+                "language": "javascript",
+                "code": "/**\n * @param {number[]} nums\n * @param {number} k\n * @return {number}\n */\nvar shortestSubarray = function(nums, k) {\n    // Write your code here\n};"
+            },
+            {
+                "language": "python",
+                "code": "class Solution:\n    def shortestSubarray(self, nums: List[int], k: int) -> int:\n        pass"
+            }
+        ],
+        "functionName": "shortestSubarray"
+    }
+]

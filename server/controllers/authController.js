@@ -137,6 +137,7 @@ const updateProfile = async (req, res) => {
         user.department = req.body.department || user.department;
         user.year = req.body.year || user.year;
         user.phone = req.body.phone || user.phone;
+        user.college = req.body.college || user.college;
 
         // If image is uploaded
         if (req.file) {

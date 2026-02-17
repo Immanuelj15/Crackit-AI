@@ -46,6 +46,14 @@ const userSchema = new mongoose.Schema({
     },
     phone: {
         type: String,
+    },
+    streak: {
+        type: Number,
+        default: 0
+    },
+    lastActiveDate: {
+        type: Date,
+        default: null
     }
 }, { timestamps: true });
 

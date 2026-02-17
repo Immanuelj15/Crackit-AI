@@ -1,0 +1,676 @@
+[
+    {
+        "title": "Running Sum of 1d Array",
+        "difficulty": "Easy",
+        "description": "## Running Sum of 1d Array\n\nGiven an array `nums`. We define a running sum of an array as `runningSum[i] = sum(nums[0]…nums[i])`.\n\nReturn the running sum of `nums`.",
+        "constraints": "- `1 <= nums.length <= 1000`\n- `-10^6 <= nums[i] <= 10^6`",
+        "examples": [
+            {
+                "input": "nums = [1,2,3,4]",
+                "output": "[1,3,6,10]",
+                "explanation": "Running sum is obtained as follows: [1, 1+2, 1+2+3, 1+2+3+4]."
+            },
+            {
+                "input": "nums = [1,1,1,1,1]",
+                "output": "[1,2,3,4,5]",
+                "explanation": "Running sum is obtained as follows: [1, 1+1, 1+1+1, 1+1+1+1, 1+1+1+1+1]."
+            },
+            {
+                "input": "nums = [3,1,2,10,1]",
+                "output": "[3,4,6,16,17]"
+            }
+        ],
+        "starterCode": [
+            {
+                "language": "javascript",
+                "code": "/**\n * @param {number[]} nums\n * @return {number[]}\n */\nvar runningSum = function(nums) {\n    \n};"
+            },
+            {
+                "language": "python",
+                "code": "class Solution:\n    def runningSum(self, nums: List[int]) -> List[int]:\n        pass"
+            },
+            {
+                "language": "java",
+                "code": "class Solution {\n    public int[] runningSum(int[] nums) {\n        // Write your code here\n    }\n}"
+            }
+        ],
+        "functionName": "runningSum"
+    },
+    {
+        "title": "Range Sum Query - Immutable",
+        "difficulty": "Easy",
+        "description": "## Range Sum Query - Immutable\n\nGiven an integer array `nums`, handle multiple queries of the following type:\n\n1. Calculate the **sum** of the elements of `nums` between indices `left` and `right` inclusive where `left <= right`.\n\nImplement the `NumArray` class:\n- `NumArray(int[] nums)` Initializes the object with the integer array `nums`.\n- `int sumRange(int left, int right)` Returns the sum of the elements of `nums` between indices `left` and `right` inclusive (i.e. `nums[left] + nums[left + 1] + ... + nums[right]`).",
+        "constraints": "- `1 <= nums.length <= 10^4`\n- `-10^5 <= nums[i] <= 10^5`\n- `0 <= left <= right < nums.length`\n- At most `10^4` calls will be made to `sumRange`.",
+        "examples": [
+            {
+                "input": "[\"NumArray\", \"sumRange\", \"sumRange\", \"sumRange\"]\n[[[-2, 0, 3, -5, 2, -1]], [0, 2], [2, 5], [0, 5]]",
+                "output": "[null, 1, -1, -3]",
+                "explanation": "NumArray numArray = new NumArray([-2, 0, 3, -5, 2, -1]);\nnumArray.sumRange(0, 2); // return (-2) + 0 + 3 = 1\nnumArray.sumRange(2, 5); // return 3 + (-5) + 2 + (-1) = -1\nnumArray.sumRange(0, 5); // return (-2) + 0 + 3 + (-5) + 2 + (-1) = -3"
+            }
+        ],
+        "starterCode": [
+            {
+                "language": "javascript",
+                "code": "\n/**\n * @param {number[]} nums\n */\nvar NumArray = function(nums) {\n    \n};\n\n/** \n * @param {number} left \n * @param {number} right\n * @return {number}\n */\nNumArray.prototype.sumRange = function(left, right) {\n    \n};\n\n/** \n * Your NumArray object will be instantiated and called as such:\n * var obj = new NumArray(nums)\n * var param_1 = obj.sumRange(left,right)\n */"
+            },
+            {
+                "language": "python",
+                "code": "class NumArray:\n\n    def __init__(self, nums: List[int]):\n        pass\n\n    def sumRange(self, left: int, right: int) -> int:\n        pass\n\n# Your NumArray object will be instantiated and called as such:\n# obj = NumArray(nums)\n# param_1 = obj.sumRange(left,right)"
+            },
+            {
+                "language": "java",
+                "code": "class NumArray {\n\n    public NumArray(int[] nums) {\n        \n    }\n    \n    public int sumRange(int left, int right) {\n        \n    }\n}"
+            }
+        ],
+        "functionName": "NumArray"
+    },
+    {
+        "title": "Find Pivot Index",
+        "difficulty": "Easy",
+        "description": "## Find Pivot Index\n\nGiven an array of integers `nums`, calculate the **pivot index** of this array.\n\nThe **pivot index** is the index where the sum of all the numbers **strictly** to the left of the index is equal to the sum of all the numbers **strictly** to the index's right.\n\nIf the index is on the left edge of the array, then the left sum is `0` because there are no elements to the left. This also applies to the right edge of the array.\n\nReturn the **leftmost pivot index**. If no such index exists, return `-1`.",
+        "constraints": "- `1 <= nums.length <= 10^4`\n- `-1000 <= nums[i] <= 1000`",
+        "examples": [
+            {
+                "input": "nums = [1,7,3,6,5,6]",
+                "output": "3",
+                "explanation": "The pivot index is 3.\nLeft sum = nums[0] + nums[1] + nums[2] = 1 + 7 + 3 = 11\nRight sum = nums[4] + nums[5] = 5 + 6 = 11"
+            },
+            {
+                "input": "nums = [1,2,3]",
+                "output": "-1",
+                "explanation": "There is no pivot index."
+            },
+            {
+                "input": "nums = [2,1,-1]",
+                "output": "0",
+                "explanation": "The pivot index is 0.\nLeft sum = 0 (no elements to the left)\nRight sum = nums[1] + nums[2] = 1 + -1 = 0"
+            }
+        ],
+        "starterCode": [
+            {
+                "language": "javascript",
+                "code": "/**\n * @param {number[]} nums\n * @return {number}\n */\nvar pivotIndex = function(nums) {\n    \n};"
+            },
+            {
+                "language": "python",
+                "code": "class Solution:\n    def pivotIndex(self, nums: List[int]) -> int:\n        pass"
+            },
+            {
+                "language": "java",
+                "code": "class Solution {\n    public int pivotIndex(int[] nums) {\n        // Write your code here\n    }\n}"
+            }
+        ],
+        "functionName": "pivotIndex"
+    },
+    {
+        "title": "Sum of All Odd Length Subarrays",
+        "difficulty": "Easy",
+        "description": "## Sum of All Odd Length Subarrays\n\nGiven an array of positive integers `arr`, return the sum of all possible **odd-length subarrays** of `arr`.\n\nA **subarray** is a contiguous subsequence of the array.",
+        "constraints": "- `1 <= arr.length <= 100`\n- `1 <= arr[i] <= 1000`",
+        "examples": [
+            {
+                "input": "arr = [1,4,2,5,3]",
+                "output": "58",
+                "explanation": "The odd-length subarrays of [1,4,2,5,3] are:\n[1] = 1\n[4] = 4\n[2] = 2\n[5] = 5\n[3] = 3\n[1,4,2] = 7\n[4,2,5] = 11\n[2,5,3] = 10\n[1,4,2,5,3] = 15\nIf we add all these together we get 1 + 4 + 2 + 5 + 3 + 7 + 11 + 10 + 15 = 58"
+            },
+            {
+                "input": "arr = [1,2]",
+                "output": "3",
+                "explanation": "There are only 2 subarrays of odd length, [1] and [2]. Their sum is 3."
+            },
+            {
+                "input": "arr = [10,11,12]",
+                "output": "66"
+            }
+        ],
+        "starterCode": [
+            {
+                "language": "javascript",
+                "code": "/**\n * @param {number[]} arr\n * @return {number}\n */\nvar sumOddLengthSubarrays = function(arr) {\n    \n};"
+            },
+            {
+                "language": "python",
+                "code": "class Solution:\n    def sumOddLengthSubarrays(self, arr: List[int]) -> int:\n        pass"
+            },
+            {
+                "language": "java",
+                "code": "class Solution {\n    public int sumOddLengthSubarrays(int[] arr) {\n        // Write your code here\n    }\n}"
+            }
+        ],
+        "functionName": "sumOddLengthSubarrays"
+    },
+    {
+        "title": "Maximum Population Year",
+        "difficulty": "Easy",
+        "description": "## Maximum Population Year\n\nYou are given a 2D integer array `logs` where each `logs[i] = [birthi, deathi]` indicates the birth and death years of the `ith` person.\n\nThe **population** of some year `x` is the number of people alive during that year. The `ith` person is counted in year `x`'s population if `x` is in the **inclusive** range `[birthi, deathi - 1]`.\n\nReturn the **earliest** year with the **maximum population**.",
+        "constraints": "- `1 <= logs.length <= 100`\n- `1950 <= birthi < deathi <= 2050`",
+        "examples": [
+            {
+                "input": "logs = [[1993,1999],[2000,2010]]",
+                "output": "1993",
+                "explanation": "The maximum population is 1, and 1993 is the earliest year with this population."
+            },
+            {
+                "input": "logs = [[1950,1961],[1960,1971],[1970,1981]]",
+                "output": "1960",
+                "explanation": "The population is as follows:\n- 1950-1959: 1\n- 1960: 2\n- 1961-1969: 1\n- 1970: 2\n- 1971-1980: 1\nThe maximum population is 2, and it occurred in 1960 and 1970.\nThe earlier one is 1960."
+            }
+        ],
+        "starterCode": [
+            {
+                "language": "javascript",
+                "code": "/**\n * @param {number[][]} logs\n * @return {number}\n */\nvar maximumPopulation = function(logs) {\n    \n};"
+            },
+            {
+                "language": "python",
+                "code": "class Solution:\n    def maximumPopulation(self, logs: List[List[int]]) -> int:\n        pass"
+            },
+            {
+                "language": "java",
+                "code": "class Solution {\n    public int maximumPopulation(int[][] logs) {\n        // Write your code here\n    }\n}"
+            }
+        ],
+        "functionName": "maximumPopulation"
+    },
+    {
+        "title": "Number of Students Doing Homework at a Given Time",
+        "difficulty": "Easy",
+        "description": "## Number of Students Doing Homework at a Given Time\n\nGiven two integer arrays `startTime` and `endTime` and an integer `queryTime`.\n\nThe `ith` student started doing their homework at the time `startTime[i]` and finished it at time `endTime[i]`.\n\nReturn the number of students doing their homework at time `queryTime`. More formally, return the number of students where `queryTime` lays in the interval `[startTime[i], endTime[i]]` inclusive.",
+        "constraints": "- `startTime.length == endTime.length`\n- `1 <= startTime.length <= 100`\n- `1 <= startTime[i] <= endTime[i] <= 1000`\n- `1 <= queryTime <= 1000`",
+        "examples": [
+            {
+                "input": "startTime = [1,2,3], endTime = [3,2,7], queryTime = 4",
+                "output": "1",
+                "explanation": "We have 3 students where:\nThe first student started doing homework at time 1 and finished at time 3 and wasn't doing anything at time 4.\nThe second student started doing homework at time 2 and finished at time 2 and also wasn't doing anything at time 4.\nThe third student started doing homework at time 3 and finished at time 7 and was the only student doing homework at time 4."
+            },
+            {
+                "input": "startTime = [4], endTime = [4], queryTime = 4",
+                "output": "1",
+                "explanation": "The only student was doing their homework at the queryTime."
+            }
+        ],
+        "starterCode": [
+            {
+                "language": "javascript",
+                "code": "/**\n * @param {number[]} startTime\n * @param {number[]} endTime\n * @param {number} queryTime\n * @return {number}\n */\nvar busyStudent = function(startTime, endTime, queryTime) {\n    \n};"
+            },
+            {
+                "language": "python",
+                "code": "class Solution:\n    def busyStudent(self, startTime: List[int], endTime: List[int], queryTime: int) -> int:\n        pass"
+            },
+            {
+                "language": "java",
+                "code": "class Solution {\n    public int busyStudent(int[] startTime, int[] endTime, int queryTime) {\n        // Write your code here\n    }\n}"
+            }
+        ],
+        "functionName": "busyStudent"
+    },
+    {
+        "title": "Find the Highest Altitude",
+        "difficulty": "Easy",
+        "description": "## Find the Highest Altitude\n\nThere is a biker going on a road trip. The road trip consists of `n + 1` points at different altitudes. The biker starts his trip on point `0` with altitude equal `0`.\n\nYou are given an integer array `gain` of length `n` where `gain[i]` is the net gain in altitude between points `i` and `i + 1` for all (`0 <= i < n`). Return the **highest altitude** of a point.",
+        "constraints": "- `n == gain.length`\n- `1 <= n <= 100`\n- `-100 <= gain[i] <= 100`",
+        "examples": [
+            {
+                "input": "gain = [-5,1,5,0,-7]",
+                "output": "1",
+                "explanation": "The altitudes are [0,-5,-4,1,1,-6]. The highest is 1."
+            },
+            {
+                "input": "gain = [-4,-3,-2,-1,4,3,2]",
+                "output": "0",
+                "explanation": "The altitudes are [0,-4,-7,-9,-10,-6,-3,-1]. The highest is 0."
+            }
+        ],
+        "starterCode": [
+            {
+                "language": "javascript",
+                "code": "/**\n * @param {number[]} gain\n * @return {number}\n */\nvar largestAltitude = function(gain) {\n    \n};"
+            },
+            {
+                "language": "python",
+                "code": "class Solution:\n    def largestAltitude(self, gain: List[int]) -> int:\n        pass"
+            },
+            {
+                "language": "java",
+                "code": "class Solution {\n    public int largestAltitude(int[] gain) {\n        // Write your code here\n    }\n}"
+            }
+        ],
+        "functionName": "largestAltitude"
+    },
+    {
+        "title": "Subarray Sum Equals K",
+        "difficulty": "Medium",
+        "description": "## Subarray Sum Equals K\n\nGiven an array of integers `nums` and an integer `k`, return the total number of subarrays whose sum equals to `k`.\n\nA subarray is a contiguous non-empty sequence of elements within an array.",
+        "constraints": "- `1 <= nums.length <= 2 * 10^4`\n- `-1000 <= nums[i] <= 1000`\n- `-10^7 <= k <= 10^7`",
+        "examples": [
+            {
+                "input": "nums = [1,1,1], k = 2",
+                "output": "2"
+            },
+            {
+                "input": "nums = [1,2,3], k = 3",
+                "output": "2"
+            }
+        ],
+        "starterCode": [
+            {
+                "language": "javascript",
+                "code": "/**\n * @param {number[]} nums\n * @param {number} k\n * @return {number}\n */\nvar subarraySum = function(nums, k) {\n    \n};"
+            },
+            {
+                "language": "python",
+                "code": "class Solution:\n    def subarraySum(self, nums: List[int], k: int) -> int:\n        pass"
+            },
+            {
+                "language": "java",
+                "code": "class Solution {\n    public int subarraySum(int[] nums, int k) {\n        // Write your code here\n    }\n}"
+            }
+        ],
+        "functionName": "subarraySum"
+    },
+    {
+        "title": "Continuous Subarray Sum",
+        "difficulty": "Medium",
+        "description": "## Continuous Subarray Sum\n\nGiven an integer array `nums` and an integer `k`, return `true` if `nums` has a **good subarray** or `false` otherwise.\n\nA **good subarray** is a subarray where:\n- its length is **at least two**, and\n- the sum of the elements of the subarray is a multiple of `k`.\n\nNote that:\n- A **subarray** is a contiguous part of the array.\n- An integer `x` is a multiple of `k` if there exists an integer `n` such that `x = n * k`. `0` is always a multiple of `k`.",
+        "constraints": "- `1 <= nums.length <= 10^5`\n- `0 <= nums[i] <= 10^9`\n- `0 <= sum(nums[i]) <= 2^31 - 1`\n- `1 <= k <= 2^31 - 1`",
+        "examples": [
+            {
+                "input": "nums = [23,2,4,6,7], k = 6",
+                "output": "true",
+                "explanation": "[2, 4] is a continuous subarray of size 2 whose elements sum up to 6."
+            },
+            {
+                "input": "nums = [23,2,6,4,7], k = 6",
+                "output": "true",
+                "explanation": "[23, 2, 6, 4, 7] is an continuous subarray of size 5 whose elements sum up to 42.\n42 is a multiple of 6 because 42 = 7 * 6 and 7 is an integer."
+            },
+            {
+                "input": "nums = [23,2,6,4,7], k = 13",
+                "output": "false"
+            }
+        ],
+        "starterCode": [
+            {
+                "language": "javascript",
+                "code": "/**\n * @param {number[]} nums\n * @param {number} k\n * @return {boolean}\n */\nvar checkSubarraySum = function(nums, k) {\n    \n};"
+            },
+            {
+                "language": "python",
+                "code": "class Solution:\n    def checkSubarraySum(self, nums: List[int], k: int) -> bool:\n        pass"
+            },
+            {
+                "language": "java",
+                "code": "class Solution {\n    public boolean checkSubarraySum(int[] nums, int k) {\n        // Write your code here\n    }\n}"
+            }
+        ],
+        "functionName": "checkSubarraySum"
+    },
+    {
+        "title": "Product of Array Except Self",
+        "difficulty": "Medium",
+        "description": "## Product of Array Except Self\n\nGiven an integer array `nums`, return an array `answer` such that `answer[i]` is equal to the product of all the elements of `nums` except `nums[i]`.\n\nThe product of any prefix or suffix of `nums` is **guaranteed** to fit in a **32-bit** integer.\n\nYou must write an algorithm that runs in `O(n)` time and without using the division operation.",
+        "constraints": "- `2 <= nums.length <= 10^5`\n- `-30 <= nums[i] <= 30`\n- The product of any prefix or suffix of `nums` is **guaranteed** to fit in a **32-bit** integer.",
+        "examples": [
+            {
+                "input": "nums = [1,2,3,4]",
+                "output": "[24,12,8,6]"
+            },
+            {
+                "input": "nums = [-1,1,0,-3,3]",
+                "output": "[0,0,9,0,0]"
+            }
+        ],
+        "starterCode": [
+            {
+                "language": "javascript",
+                "code": "/**\n * @param {number[]} nums\n * @return {number[]}\n */\nvar productExceptSelf = function(nums) {\n    \n};"
+            },
+            {
+                "language": "python",
+                "code": "class Solution:\n    def productExceptSelf(self, nums: List[int]) -> List[int]:\n        pass"
+            },
+            {
+                "language": "java",
+                "code": "class Solution {\n    public int[] productExceptSelf(int[] nums) {\n        // Write your code here\n    }\n}"
+            }
+        ],
+        "functionName": "productExceptSelf"
+    },
+    {
+        "title": "Range Sum Query 2D - Immutable",
+        "difficulty": "Medium",
+        "description": "## Range Sum Query 2D - Immutable\n\nGiven a 2D matrix `matrix`, handle multiple queries of the following type:\n\n1. Calculate the **sum** of the elements of `matrix` inside the rectangle defined by its **upper left corner** `(row1, col1)` and **lower right corner** `(row2, col2)`.\n\nImplement the `NumMatrix` class:\n- `NumMatrix(int[][] matrix)` Initializes the object with the integer matrix `matrix`.\n- `int sumRegion(int row1, int col1, int row2, int col2)` Returns the **sum** of the elements of `matrix` inside the rectangle defined by its **upper left corner** `(row1, col1)` and **lower right corner** `(row2, col2)`.",
+        "constraints": "- `m == matrix.length`\n- `n == matrix[i].length`\n- `1 <= m, n <= 200`\n- `-10^4 <= matrix[i][j] <= 10^4`\n- `0 <= row1 <= row2 < m`\n- `0 <= col1 <= col2 < n`\n- At most `10^4` calls will be made to `sumRegion`.",
+        "examples": [
+            {
+                "input": "[\"NumMatrix\", \"sumRegion\", \"sumRegion\", \"sumRegion\"]\n[[[[3, 0, 1, 4, 2], [5, 6, 3, 2, 1], [1, 2, 0, 1, 5], [4, 1, 0, 1, 7], [1, 0, 3, 0, 5]]], [2, 1, 4, 3], [1, 1, 2, 2], [1, 2, 2, 4]]",
+                "output": "[null, 8, 11, 12]",
+                "explanation": "NumMatrix numMatrix = new NumMatrix([[3, 0, 1, 4, 2], [5, 6, 3, 2, 1], [1, 2, 0, 1, 5], [4, 1, 0, 1, 7], [1, 0, 3, 0, 5]]);\nnumMatrix.sumRegion(2, 1, 4, 3); // return 8 (i.e sum of the red rectangle)\nnumMatrix.sumRegion(1, 1, 2, 2); // return 11 (i.e sum of the green rectangle)\nnumMatrix.sumRegion(1, 2, 2, 4); // return 12 (i.e sum of the blue rectangle)"
+            }
+        ],
+        "starterCode": [
+            {
+                "language": "javascript",
+                "code": "\n/**\n * @param {number[][]} matrix\n */\nvar NumMatrix = function(matrix) {\n    \n};\n\n/** \n * @param {number} row1 \n * @param {number} col1 \n * @param {number} row2 \n * @param {number} col2\n * @return {number}\n */\nNumMatrix.prototype.sumRegion = function(row1, col1, row2, col2) {\n    \n};\n\n/** \n * Your NumMatrix object will be instantiated and called as such:\n * var obj = new NumMatrix(matrix)\n * var param_1 = obj.sumRegion(row1,col1,row2,col2)\n */"
+            },
+            {
+                "language": "python",
+                "code": "class NumMatrix:\n\n    def __init__(self, matrix: List[List[int]]):\n        pass\n\n    def sumRegion(self, row1: int, col1: int, row2: int, col2: int) -> int:\n        pass\n\n# Your NumMatrix object will be instantiated and called as such:\n# obj = NumMatrix(matrix)\n# param_1 = obj.sumRegion(row1,col1,row2,col2)"
+            },
+            {
+                "language": "java",
+                "code": "class NumMatrix {\n\n    public NumMatrix(int[][] matrix) {\n        \n    }\n    \n    public int sumRegion(int row1, int col1, int row2, int col2) {\n        \n    }\n}"
+            }
+        ],
+        "functionName": "NumMatrix"
+    },
+    {
+        "title": "Find the Middle Index in Array",
+        "difficulty": "Medium",
+        "description": "## Find the Middle Index in Array\n\nGiven a **0-indexed** integer array `nums`, find the **leftmost middleIndex** (i.e., the smallest amongst all the possible ones).\n\nA `middleIndex` is an index where `nums[0] + nums[1] + ... + nums[middleIndex-1] == nums[middleIndex+1] + nums[middleIndex+2] + ... + nums[nums.length-1]`.\n\nIf `middleIndex == 0`, the left side sum is considered to be `0`. Similarly, if `middleIndex == nums.length - 1`, the right side sum is considered to be `0`.\n\nReturn the **leftmost middleIndex** that satisfies the condition, or `-1` if there is no such index.",
+        "constraints": "- `1 <= nums.length <= 100`\n- `-1000 <= nums[i] <= 1000`\n\n**Note**: This question is the same as 724: [Find Pivot Index](https://leetcode.com/problems/find-pivot-index/)",
+        "examples": [
+            {
+                "input": "nums = [2,3,-1,8,4]",
+                "output": "3",
+                "explanation": "The sum of the numbers before index 3 is: 2 + 3 + -1 = 4\nThe sum of the numbers after index 3 is: 4 = 4"
+            },
+            {
+                "input": "nums = [1,-1,4]",
+                "output": "2",
+                "explanation": "The sum of the numbers before index 2 is: 1 + -1 = 0\nThe sum of the numbers after index 2 is: 0"
+            },
+            {
+                "input": "nums = [2,5]",
+                "output": "-1",
+                "explanation": "There is no valid middleIndex."
+            }
+        ],
+        "starterCode": [
+            {
+                "language": "javascript",
+                "code": "/**\n * @param {number[]} nums\n * @return {number}\n */\nvar findMiddleIndex = function(nums) {\n    \n};"
+            },
+            {
+                "language": "python",
+                "code": "class Solution:\n    def findMiddleIndex(self, nums: List[int]) -> int:\n        pass"
+            },
+            {
+                "language": "java",
+                "code": "class Solution {\n    public int findMiddleIndex(int[] nums) {\n        // Write your code here\n    }\n}"
+            }
+        ],
+        "functionName": "findMiddleIndex"
+    },
+    {
+        "title": "Maximum Size Subarray Sum Equals k",
+        "difficulty": "Medium",
+        "description": "## Maximum Size Subarray Sum Equals k\n\nGiven an integer array `nums` and an integer `k`, return the maximum length of a subarray that sums to `k`. If there is not one, return `0` instead.",
+        "constraints": "- `1 <= nums.length <= 2 * 10^5`\n- `-10^4 <= nums[i] <= 10^4`\n- `-10^9 <= k <= 10^9`",
+        "examples": [
+            {
+                "input": "nums = [1,-1,5,-2,3], k = 3",
+                "output": "4",
+                "explanation": "The subarray [1, -1, 5, -2] sums to 3 and is the longest."
+            },
+            {
+                "input": "nums = [-2,-1,2,1], k = 1",
+                "output": "2",
+                "explanation": "The subarray [-1, 2] sums to 1 and is the longest."
+            }
+        ],
+        "starterCode": [
+            {
+                "language": "javascript",
+                "code": "/**\n * @param {number[]} nums\n * @param {number} k\n * @return {number}\n */\nvar maxSubArrayLen = function(nums, k) {\n    \n};"
+            },
+            {
+                "language": "python",
+                "code": "class Solution:\n    def maxSubArrayLen(self, nums: List[int], k: int) -> int:\n        pass"
+            },
+            {
+                "language": "java",
+                "code": "class Solution {\n    public int maxSubArrayLen(int[] nums, int k) {\n        // Write your code here\n    }\n}"
+            }
+        ],
+        "functionName": "maxSubArrayLen"
+    },
+    {
+        "title": "Corporate Flight Bookings",
+        "difficulty": "Medium",
+        "description": "## Corporate Flight Bookings\n\nThere are `n` flights that are labeled from `1` to `n`.\n\nYou are given an array of flight bookings `bookings`, where `bookings[i] = [firsti, lasti, seatsi]` represents a booking for flights `firsti` through `lasti` (**inclusive**) with `seatsi` seats reserved for **each flight** in the range.\n\nReturn an array `answer` of length `n`, where `answer[i]` is the total number of seats reserved for flight `i`.",
+        "constraints": "- `1 <= n <= 2 * 10^4`\n- `1 <= bookings.length <= 2 * 10^4`\n- `bookings[i].length == 3`\n- `1 <= firsti <= lasti <= n`\n- `1 <= seatsi <= 10^4`",
+        "examples": [
+            {
+                "input": "bookings = [[1,2,10],[2,3,20],[2,5,25]], n = 5",
+                "output": "[10,55,45,25,25]",
+                "explanation": "Flight labels:        1   2   3   4   5\nBooking 1 reserved:  10  10\nBooking 2 reserved:      20  20\nBooking 3 reserved:      25  25  25  25\nTotal seats:         10  55  45  25  25\nHence, answer = [10,55,45,25,25]"
+            },
+            {
+                "input": "bookings = [[1,2,10],[2,2,15]], n = 2",
+                "output": "[10,25]",
+                "explanation": "Flight labels:        1   2\nBooking 1 reserved:  10  10\nBooking 2 reserved:      15\nTotal seats:         10  25\nHence, answer = [10,25]"
+            }
+        ],
+        "starterCode": [
+            {
+                "language": "javascript",
+                "code": "/**\n * @param {number[][]} bookings\n * @param {number} n\n * @return {number[]}\n */\nvar corpFlightBookings = function(bookings, n) {\n    \n};"
+            },
+            {
+                "language": "python",
+                "code": "class Solution:\n    def corpFlightBookings(self, bookings: List[List[int]], n: int) -> List[int]:\n        pass"
+            },
+            {
+                "language": "java",
+                "code": "class Solution {\n    public int[] corpFlightBookings(int[][] bookings, int n) {\n        // Write your code here\n    }\n}"
+            }
+        ],
+        "functionName": "corpFlightBookings"
+    },
+    {
+        "title": "Minimum Cost to Make Array Equal",
+        "difficulty": "Hard",
+        "description": "## Minimum Cost to Make Array Equal\n\nYou are given two 0-indexed arrays `nums` and `cost` consisting each of `n` positive integers.\n\nYou can do the following operation **any** number of times:\n- Increase or decrease any element of the array `nums` by `1`.\n\nThe cost of doing one operation on the `ith` element is `cost[i]`.\n\nReturn the **minimum** total cost such that all the elements of the array `nums` become **equal**.",
+        "constraints": "- `n == nums.length == cost.length`\n- `1 <= n <= 10^5`\n- `1 <= nums[i], cost[i] <= 10^6`",
+        "examples": [
+            {
+                "input": "nums = [1,3,5,2], cost = [2,3,1,14]",
+                "output": "8",
+                "explanation": "We can make all the elements equal to 2 in the following way:\n- Increase the 0th element one time. The cost is 2.\n- Decrease the 1st element one time. The cost is 3.\n- Decrease the 2nd element three times. The cost is 1 + 1 + 1 = 3.\nThe total cost is 2 + 3 + 3 = 8."
+            },
+            {
+                "input": "nums = [2,2,2,2,2], cost = [4,2,8,1,3]",
+                "output": "0",
+                "explanation": "All the elements are already equal, so the cost is 0."
+            }
+        ],
+        "starterCode": [
+            {
+                "language": "javascript",
+                "code": "/**\n * @param {number[]} nums\n * @param {number[]} cost\n * @return {number}\n */\nvar minCost = function(nums, cost) {\n    \n};"
+            },
+            {
+                "language": "python",
+                "code": "class Solution:\n    def minCost(self, nums: List[int], cost: List[int]) -> int:\n        pass"
+            },
+            {
+                "language": "java",
+                "code": "class Solution {\n    public long minCost(int[] nums, int[] cost) {\n        // Write your code here\n    }\n}"
+            }
+        ],
+        "functionName": "minCost"
+    },
+    {
+        "title": "Count of Range Sum",
+        "difficulty": "Hard",
+        "description": "## Count of Range Sum\n\nGiven an integer array `nums` and two integers `lower` and `upper`, return the number of range sums that lie in `[lower, upper]` inclusive.\n\nRange sum `S(i, j)` is defined as the sum of the elements in `nums` between indices `i` and `j` inclusive, where `i <= j`.",
+        "constraints": "- `1 <= nums.length <= 10^5`\n- `-2^31 <= nums[i] <= 2^31 - 1`\n- `-10^5 <= lower <= upper <= 10^5`\n- The answer is guaranteed to fit in a **32-bit** integer.",
+        "examples": [
+            {
+                "input": "nums = [-2,5,-1], lower = -2, upper = 2",
+                "output": "3",
+                "explanation": "The three ranges are: [0,0], [2,2], and [0,2] and their respective sums are: -2, -1, 2."
+            },
+            {
+                "input": "nums = [0], lower = 0, upper = 0",
+                "output": "1"
+            }
+        ],
+        "starterCode": [
+            {
+                "language": "javascript",
+                "code": "/**\n * @param {number[]} nums\n * @param {number} lower\n * @param {number} upper\n * @return {number}\n */\nvar countRangeSum = function(nums, lower, upper) {\n    \n};"
+            },
+            {
+                "language": "python",
+                "code": "class Solution:\n    def countRangeSum(self, nums: List[int], lower: int, upper: int) -> int:\n        pass"
+            },
+            {
+                "language": "java",
+                "code": "class Solution {\n    public int countRangeSum(int[] nums, int lower, int upper) {\n        // Write your code here\n    }\n}"
+            }
+        ],
+        "functionName": "countRangeSum"
+    },
+    {
+        "title": "Maximum Sum of 3 Non-Overlapping Subarrays",
+        "difficulty": "Hard",
+        "description": "## Maximum Sum of 3 Non-Overlapping Subarrays\n\nGiven an integer array `nums` and an integer `k`, find three non-overlapping subarrays of length `k` with maximum sum and return them.\n\nReturn the result as a list of indices representing the starting position of each interval (0-indexed). If there are multiple answers, return the lexicographically smallest one.",
+        "constraints": "- `1 <= nums.length <= 2 * 10^4`\n- `1 <= nums[i] < 2^16`\n- `1 <= k <= floor(nums.length / 3)`",
+        "examples": [
+            {
+                "input": "nums = [1,2,1,2,6,7,5,1], k = 2",
+                "output": "[0,3,5]",
+                "explanation": "Subarrays [1, 2], [2, 6], [7, 5] correspond to the starting indices [0, 3, 5].\nWe could have also taken [2, 1], but an answer of [1, 3, 5] would be lexicographically larger."
+            },
+            {
+                "input": "nums = [1,2,1,2,1,2,1,2,1], k = 2",
+                "output": "[0,2,4]"
+            }
+        ],
+        "starterCode": [
+            {
+                "language": "javascript",
+                "code": "/**\n * @param {number[]} nums\n * @param {number} k\n * @return {number[]}\n */\nvar maxSumOfThreeSubarrays = function(nums, k) {\n    \n};"
+            },
+            {
+                "language": "python",
+                "code": "class Solution:\n    def maxSumOfThreeSubarrays(self, nums: List[int], k: int) -> List[int]:\n        pass"
+            },
+            {
+                "language": "java",
+                "code": "class Solution {\n    public int[] maxSumOfThreeSubarrays(int[] nums, int k) {\n        // Write your code here\n    }\n}"
+            }
+        ],
+        "functionName": "maxSumOfThreeSubarrays"
+    },
+    {
+        "title": "Subarray Sums Divisible by K",
+        "difficulty": "Hard",
+        "description": "## Subarray Sums Divisible by K\n\nGiven an integer array `nums` and an integer `k`, return the number of non-empty subarrays that have a sum divisible by `k`.\n\nA **subarray** is a contiguous part of an array.",
+        "constraints": "- `1 <= nums.length <= 3 * 10^4`\n- `-10^4 <= nums[i] <= 10^4`\n- `2 <= k <= 10^4`",
+        "examples": [
+            {
+                "input": "nums = [4,5,0,-2,-3,1], k = 5",
+                "output": "7",
+                "explanation": "There are 7 subarrays with a sum divisible by k = 5:\n[4, 5, 0, -2, -3, 1], [5], [5, 0], [5, 0, -2, -3], [0], [0, -2, -3], [-2, -3]"
+            },
+            {
+                "input": "nums = [5], k = 9",
+                "output": "0"
+            }
+        ],
+        "starterCode": [
+            {
+                "language": "javascript",
+                "code": "/**\n * @param {number[]} nums\n * @param {number} k\n * @return {number}\n */\nvar subarraysDivByK = function(nums, k) {\n    \n};"
+            },
+            {
+                "language": "python",
+                "code": "class Solution:\n    def subarraysDivByK(self, nums: List[int], k: int) -> int:\n        pass"
+            },
+            {
+                "language": "java",
+                "code": "class Solution {\n    public int subarraysDivByK(int[] nums, int k) {\n        // Write your code here\n    }\n}"
+            }
+        ],
+        "functionName": "subarraysDivByK"
+    },
+    {
+        "title": "Make Sum Divisible by P",
+        "difficulty": "Hard",
+        "description": "## Make Sum Divisible by P\n\nGiven an array of positive integers `nums`, remove the **smallest** subarray (possibly **empty**) such that the **sum** of the remaining elements is divisible by `p`. It is **not** allowed to remove the whole array.\n\nReturn the length of the smallest subarray that you need to remove, or `-1` if it's impossible.\n\nA **subarray** is defined as a contiguous block of elements in the array.",
+        "constraints": "- `1 <= nums.length <= 10^5`\n- `1 <= nums[i] <= 10^9`\n- `1 <= p <= 10^9`",
+        "examples": [
+            {
+                "input": "nums = [3,1,4,2], p = 6",
+                "output": "1",
+                "explanation": "The sum of the elements in nums is 10, which is not divisible by 6. We can remove the subarray [4], and the sum of the remaining elements is 6, which is divisible by 6."
+            },
+            {
+                "input": "nums = [6,3,5,2], p = 9",
+                "output": "2",
+                "explanation": "We cannot remove a single element to get a sum divisible by 9. The best way is to remove the subarray [5,2], leaving us with [6,3] with sum 9."
+            },
+            {
+                "input": "nums = [1,2,3], p = 3",
+                "output": "0",
+                "explanation": "Here the sum is 6. which is already divisible by 3. Also we do not need to remove the whole array."
+            }
+        ],
+        "starterCode": [
+            {
+                "language": "javascript",
+                "code": "/**\n * @param {number[]} nums\n * @param {number} p\n * @return {number}\n */\nvar minSubarray = function(nums, p) {\n    \n};"
+            },
+            {
+                "language": "python",
+                "code": "class Solution:\n    def minSubarray(self, nums: List[int], p: int) -> int:\n        pass"
+            },
+            {
+                "language": "java",
+                "code": "class Solution {\n    public int minSubarray(int[] nums, int p) {\n        // Write your code here\n    }\n}"
+            }
+        ],
+        "functionName": "minSubarray"
+    },
+    {
+        "title": "Minimum Operations to Reduce X to Zero",
+        "difficulty": "Hard",
+        "description": "## Minimum Operations to Reduce X to Zero\n\nYou are given an integer array `nums` and an integer `x`. In one operation, you can either remove the leftmost or the rightmost element from the array `nums` and subtract its value from `x`. Note that this **modifies** the array for future operations.\n\nReturn the **minimum number** of operations to reduce `x` to **exactly** `0` if it is possible, otherwise, return `-1`.",
+        "constraints": "- `1 <= nums.length <= 10^5`\n- `1 <= nums[i] <= 10^4`\n- `1 <= x <= 10^9`",
+        "examples": [
+            {
+                "input": "nums = [1,1,4,2,3], x = 5",
+                "output": "2",
+                "explanation": "The optimal solution is to remove the last two elements to reduce x to zero."
+            },
+            {
+                "input": "nums = [5,6,7,8,9], x = 4",
+                "output": "-1"
+            },
+            {
+                "input": "nums = [3,2,20,1,1,3], x = 10",
+                "output": "5",
+                "explanation": "The optimal solution is to remove the last three elements and the first two elements (5 operations in total) to reduce x to zero."
+            }
+        ],
+        "starterCode": [
+            {
+                "language": "javascript",
+                "code": "/**\n * @param {number[]} nums\n * @param {number} x\n * @return {number}\n */\nvar minOperations = function(nums, x) {\n    \n};"
+            },
+            {
+                "language": "python",
+                "code": "class Solution:\n    def minOperations(self, nums: List[int], x: int) -> int:\n        pass"
+            },
+            {
+                "language": "java",
+                "code": "class Solution {\n    public int minOperations(int[] nums, int x) {\n        // Write your code here\n    }\n}"
+            }
+        ],
+        "functionName": "minOperations"
+    }
+]

@@ -1,0 +1,631 @@
+[
+    {
+        "title": "Maximum Depth of Binary Tree",
+        "difficulty": "Easy",
+        "description": "## Maximum Depth of Binary Tree\n\nGiven the `root` of a binary tree, return *its maximum depth*.\n\nA binary tree's **maximum depth** is the number of nodes along the longest path from the root node down to the farthest leaf node.",
+        "constraints": "- The number of nodes in the tree is in the range `[0, 10^4]`.\n- `-100 <= Node.val <= 100`.",
+        "examples": [
+            {
+                "input": "root = [3,9,20,null,null,15,7]",
+                "output": "3"
+            },
+            {
+                "input": "root = [1,null,2]",
+                "output": "2"
+            }
+        ],
+        "starterCode": [
+            {
+                "language": "javascript",
+                "code": "/**\n * Definition for a binary tree node.\n * function TreeNode(val, left, right) {\n *     this.val = (val===undefined ? 0 : val)\n *     this.left = (left===undefined ? null : left)\n *     this.right = (right===undefined ? null : right)\n * }\n */\n/**\n * @param {TreeNode} root\n * @return {number}\n */\nvar maxDepth = function(root) {\n    \n};"
+            },
+            {
+                "language": "python",
+                "code": "# Definition for a binary tree node.\n# class TreeNode:\n#     def __init__(self, val=0, left=None, right=None):\n#         self.val = val\n#         self.left = left\n#         self.right = right\nclass Solution:\n    def maxDepth(self, root: Optional[TreeNode]) -> int:\n        pass"
+            },
+            {
+                "language": "java",
+                "code": "/**\n * Definition for a binary tree node.\n * public class TreeNode {\n *     int val;\n *     TreeNode left;\n *     TreeNode right;\n *     TreeNode() {}\n *     TreeNode(int val) { this.val = val; }\n *     TreeNode(int val, TreeNode left, TreeNode right) {\n *         this.val = val;\n *         this.left = left;\n *         this.right = right;\n *     }\n * }\n */\nclass Solution {\n    public int maxDepth(TreeNode root) {\n        // Write your code here\n    }\n}"
+            }
+        ],
+        "functionName": "maxDepth"
+    },
+    {
+        "title": "Same Tree",
+        "difficulty": "Easy",
+        "description": "## Same Tree\n\nGiven the roots of two binary trees `p` and `q`, write a function to check if they are the same or not.\n\nTwo binary trees are considered the same if they are structurally identical, and the nodes have the same value.",
+        "constraints": "- The number of nodes in both trees is in the range `[0, 100]`.\n- `-10^4 <= Node.val <= 10^4`.",
+        "examples": [
+            {
+                "input": "p = [1,2,3], q = [1,2,3]",
+                "output": "true"
+            },
+            {
+                "input": "p = [1,2], q = [1,null,2]",
+                "output": "false"
+            }
+        ],
+        "starterCode": [
+            {
+                "language": "javascript",
+                "code": "/**\n * @param {TreeNode} p\n * @param {TreeNode} q\n * @return {boolean}\n */\nvar isSameTree = function(p, q) {\n    \n};"
+            },
+            {
+                "language": "python",
+                "code": "class Solution:\n    def isSameTree(self, p: Optional[TreeNode], q: Optional[TreeNode]) -> bool:\n        pass"
+            },
+            {
+                "language": "java",
+                "code": "class Solution {\n    public boolean isSameTree(TreeNode p, TreeNode q) {\n        // Write your code here\n    }\n}"
+            }
+        ],
+        "functionName": "isSameTree"
+    },
+    {
+        "title": "Invert Binary Tree",
+        "difficulty": "Easy",
+        "description": "## Invert Binary Tree\n\nGiven the `root` of a binary tree, invert the tree, and return *its root*.",
+        "constraints": "- The number of nodes in the tree is in the range `[0, 100]`.\n- `-100 <= Node.val <= 100`.",
+        "examples": [
+            {
+                "input": "root = [4,2,7,1,3,6,9]",
+                "output": "[4,7,2,9,6,3,1]"
+            },
+            {
+                "input": "root = [2,1,3]",
+                "output": "[2,3,1]"
+            }
+        ],
+        "starterCode": [
+            {
+                "language": "javascript",
+                "code": "/**\n * @param {TreeNode} root\n * @return {TreeNode}\n */\nvar invertTree = function(root) {\n    \n};"
+            },
+            {
+                "language": "python",
+                "code": "class Solution:\n    def invertTree(self, root: Optional[TreeNode]) -> Optional[TreeNode]:\n        pass"
+            },
+            {
+                "language": "java",
+                "code": "class Solution {\n    public TreeNode invertTree(TreeNode root) {\n        // Write your code here\n    }\n}"
+            }
+        ],
+        "functionName": "invertTree"
+    },
+    {
+        "title": "Symmetric Tree",
+        "difficulty": "Easy",
+        "description": "## Symmetric Tree\n\nGiven the `root` of a binary tree, check whether it is a mirror of itself (i.e., symmetric around its center).",
+        "constraints": "- The number of nodes in the tree is in the range `[1, 1000]`.\n- `-100 <= Node.val <= 100`.",
+        "examples": [
+            {
+                "input": "root = [1,2,2,3,4,4,3]",
+                "output": "true"
+            },
+            {
+                "input": "root = [1,2,2,null,3,null,3]",
+                "output": "false"
+            }
+        ],
+        "starterCode": [
+            {
+                "language": "javascript",
+                "code": "/**\n * @param {TreeNode} root\n * @return {boolean}\n */\nvar isSymmetric = function(root) {\n    \n};"
+            },
+            {
+                "language": "python",
+                "code": "class Solution:\n    def isSymmetric(self, root: Optional[TreeNode]) -> bool:\n        pass"
+            },
+            {
+                "language": "java",
+                "code": "class Solution {\n    public boolean isSymmetric(TreeNode root) {\n        // Write your code here\n    }\n}"
+            }
+        ],
+        "functionName": "isSymmetric"
+    },
+    {
+        "title": "Path Sum",
+        "difficulty": "Easy",
+        "description": "## Path Sum\n\nGiven the `root` of a binary tree and an integer `targetSum`, return `true` if the tree has a **root-to-leaf** path such that adding up all the values along the path equals `targetSum`.\n\nA **leaf** is a node with no children.",
+        "constraints": "- The number of nodes in the tree is in the range `[0, 5000]`.\n- `-1000 <= Node.val <= 1000`.\n- `-1000 <= targetSum <= 1000`.",
+        "examples": [
+            {
+                "input": "root = [5,4,8,11,null,13,4,7,2,null,null,null,1], targetSum = 22",
+                "output": "true",
+                "explanation": "The root-to-leaf path with the target sum is shown."
+            },
+            {
+                "input": "root = [1,2,3], targetSum = 5",
+                "output": "false"
+            }
+        ],
+        "starterCode": [
+            {
+                "language": "javascript",
+                "code": "/**\n * @param {TreeNode} root\n * @param {number} targetSum\n * @return {boolean}\n */\nvar hasPathSum = function(root, targetSum) {\n    \n};"
+            },
+            {
+                "language": "python",
+                "code": "class Solution:\n    def hasPathSum(self, root: Optional[TreeNode], targetSum: int) -> bool:\n        pass"
+            },
+            {
+                "language": "java",
+                "code": "class Solution {\n    public boolean hasPathSum(TreeNode root, int targetSum) {\n        // Write your code here\n    }\n}"
+            }
+        ],
+        "functionName": "hasPathSum"
+    },
+    {
+        "title": "Minimum Depth of Binary Tree",
+        "difficulty": "Easy",
+        "description": "## Minimum Depth of Binary Tree\n\nGiven a binary tree, find its minimum depth.\n\nThe minimum depth is the number of nodes along the shortest path from the root node down to the nearest leaf node.\n\n**Note:** A leaf is a node with no children.",
+        "constraints": "- The number of nodes in the tree is in the range `[0, 10^5]`.\n- `-1000 <= Node.val <= 1000`.",
+        "examples": [
+            {
+                "input": "root = [3,9,20,null,null,15,7]",
+                "output": "2"
+            },
+            {
+                "input": "root = [2,null,3,null,4,null,5,null,6]",
+                "output": "5"
+            }
+        ],
+        "starterCode": [
+            {
+                "language": "javascript",
+                "code": "/**\n * @param {TreeNode} root\n * @return {number}\n */\nvar minDepth = function(root) {\n    \n};"
+            },
+            {
+                "language": "python",
+                "code": "class Solution:\n    def minDepth(self, root: Optional[TreeNode]) -> int:\n        pass"
+            },
+            {
+                "language": "java",
+                "code": "class Solution {\n    public int minDepth(TreeNode root) {\n        // Write your code here\n    }\n}"
+            }
+        ],
+        "functionName": "minDepth"
+    },
+    {
+        "title": "Balanced Binary Tree",
+        "difficulty": "Easy",
+        "description": "## Balanced Binary Tree\n\nGiven a binary tree, determine if it is **height-balanced**.\n\nFor this problem, a height-balanced binary tree is defined as: a binary tree in which the left and right subtrees of every node differ in height by no more than 1.",
+        "constraints": "- The number of nodes in the tree is in the range `[0, 5000]`.\n- `-10^4 <= Node.val <= 10^4`.",
+        "examples": [
+            {
+                "input": "root = [3,9,20,null,null,15,7]",
+                "output": "true"
+            },
+            {
+                "input": "root = [1,2,2,3,3,null,null,4,4]",
+                "output": "false"
+            }
+        ],
+        "starterCode": [
+            {
+                "language": "javascript",
+                "code": "/**\n * @param {TreeNode} root\n * @return {boolean}\n */\nvar isBalanced = function(root) {\n    \n};"
+            },
+            {
+                "language": "python",
+                "code": "class Solution:\n    def isBalanced(self, root: Optional[TreeNode]) -> bool:\n        pass"
+            },
+            {
+                "language": "java",
+                "code": "class Solution {\n    public boolean isBalanced(TreeNode root) {\n        // Write your code here\n    }\n}"
+            }
+        ],
+        "functionName": "isBalanced"
+    },
+    {
+        "title": "Binary Tree Level Order Traversal",
+        "difficulty": "Medium",
+        "description": "## Binary Tree Level Order Traversal\n\nGiven the `root` of a binary tree, return *the level order traversal of its nodes' values*. (i.e., from left to right, level by level).",
+        "constraints": "- The number of nodes in the tree is in the range `[0, 2000]`.\n- `-1000 <= Node.val <= 1000`.",
+        "examples": [
+            {
+                "input": "root = [3,9,20,null,null,15,7]",
+                "output": "[[3],[9,20],[15,7]]"
+            },
+            {
+                "input": "root = [1]",
+                "output": "[[1]]"
+            }
+        ],
+        "starterCode": [
+            {
+                "language": "javascript",
+                "code": "/**\n * @param {TreeNode} root\n * @return {number[][]}\n */\nvar levelOrder = function(root) {\n    \n};"
+            },
+            {
+                "language": "python",
+                "code": "class Solution:\n    def levelOrder(self, root: Optional[TreeNode]) -> List[List[int]]:\n        pass"
+            },
+            {
+                "language": "java",
+                "code": "class Solution {\n    public List<List<Integer>> levelOrder(TreeNode root) {\n        // Write your code here\n    }\n}"
+            }
+        ],
+        "functionName": "levelOrder"
+    },
+    {
+        "title": "Validate Binary Search Tree",
+        "difficulty": "Medium",
+        "description": "## Validate Binary Search Tree\n\nGiven the `root` of a binary tree, *determine if it is a valid binary search tree (BST)*.\n\nA **valid BST** is defined as follows:\n- The left subtree of a node contains only nodes with keys **less than** the node's key.\n- The right subtree of a node contains only nodes with keys **greater than** the node's key.\n- Both the left and right subtrees must also be binary search trees.",
+        "constraints": "- The number of nodes in the tree is in the range `[1, 10^4]`.\n- `-2^31 <= Node.val <= 2^31 - 1`.",
+        "examples": [
+            {
+                "input": "root = [2,1,3]",
+                "output": "true"
+            },
+            {
+                "input": "root = [5,1,4,null,null,3,6]",
+                "output": "false",
+                "explanation": "The root node's value is 5 but its right child's value is 4."
+            }
+        ],
+        "starterCode": [
+            {
+                "language": "javascript",
+                "code": "/**\n * @param {TreeNode} root\n * @return {boolean}\n */\nvar isValidBST = function(root) {\n    \n};"
+            },
+            {
+                "language": "python",
+                "code": "class Solution:\n    def isValidBST(self, root: Optional[TreeNode]) -> bool:\n        pass"
+            },
+            {
+                "language": "java",
+                "code": "class Solution {\n    public boolean isValidBST(TreeNode root) {\n        // Write your code here\n    }\n}"
+            }
+        ],
+        "functionName": "isValidBST"
+    },
+    {
+        "title": "Lowest Common Ancestor of a Binary Tree",
+        "difficulty": "Medium",
+        "description": "## Lowest Common Ancestor of a Binary Tree\n\nGiven a binary tree, find the lowest common ancestor (LCA) of two given nodes in the tree.\n\nAccording to the [definition of LCA on Wikipedia](https://en.wikipedia.org/wiki/Lowest_common_ancestor): \"The lowest common ancestor is defined between two nodes `p` and `q` as the lowest node in `T` that has both `p` and `q` as descendants (where we allow **a node to be a descendant of itself**).\"",
+        "constraints": "- The number of nodes in the tree is in the range `[2, 10^5]`.\n- `-10^9 <= Node.val <= 10^9`.\n- All `Node.val` are **unique**.\n- `p != q`.\n- `p` and `q` will exist in the tree.",
+        "examples": [
+            {
+                "input": "root = [3,5,1,6,2,0,8,null,null,7,4], p = 5, q = 1",
+                "output": "3",
+                "explanation": "The LCA of nodes 5 and 1 is 3."
+            },
+            {
+                "input": "root = [3,5,1,6,2,0,8,null,null,7,4], p = 5, q = 4",
+                "output": "5",
+                "explanation": "The LCA of nodes 5 and 4 is 5, since a node can be a descendant of itself according to the LCA definition."
+            }
+        ],
+        "starterCode": [
+            {
+                "language": "javascript",
+                "code": "/**\n * @param {TreeNode} root\n * @param {TreeNode} p\n * @param {TreeNode} q\n * @return {TreeNode}\n */\nvar lowestCommonAncestor = function(root, p, q) {\n    \n};"
+            },
+            {
+                "language": "python",
+                "code": "class Solution:\n    def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':\n        pass"
+            },
+            {
+                "language": "java",
+                "code": "class Solution {\n    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {\n        // Write your code here\n    }\n}"
+            }
+        ],
+        "functionName": "lowestCommonAncestor"
+    },
+    {
+        "title": "Kth Smallest Element in a BST",
+        "difficulty": "Medium",
+        "description": "## Kth Smallest Element in a BST\n\nGiven the `root` of a binary search tree, and an integer `k`, return *the* `kth` *smallest value (**1-indexed**) of all the values of the nodes in the tree*.",
+        "constraints": "- The number of nodes in the tree is `n`.\n- `1 <= k <= n <= 10^4`.\n- `0 <= Node.val <= 10^4`.",
+        "examples": [
+            {
+                "input": "root = [3,1,4,null,2], k = 1",
+                "output": "1"
+            },
+            {
+                "input": "root = [5,3,6,2,4,null,null,1], k = 3",
+                "output": "3"
+            }
+        ],
+        "starterCode": [
+            {
+                "language": "javascript",
+                "code": "/**\n * @param {TreeNode} root\n * @param {number} k\n * @return {number}\n */\nvar kthSmallest = function(root, k) {\n    \n};"
+            },
+            {
+                "language": "python",
+                "code": "class Solution:\n    def kthSmallest(self, root: Optional[TreeNode], k: int) -> int:\n        pass"
+            },
+            {
+                "language": "java",
+                "code": "class Solution {\n    public int kthSmallest(TreeNode root, int k) {\n        // Write your code here\n    }\n}"
+            }
+        ],
+        "functionName": "kthSmallest"
+    },
+    {
+        "title": "Construct Binary Tree from Preorder and Inorder Traversal",
+        "difficulty": "Medium",
+        "description": "## Construct Binary Tree from Preorder and Inorder Traversal\n\nGiven two integer arrays `preorder` and `inorder` where `preorder` is the preorder traversal of a binary tree and `inorder` is the inorder traversal of the same tree, construct and return *the binary tree*.",
+        "constraints": "- `1 <= preorder.length <= 3000`.\n- `inorder.length == preorder.length`.\n- `-3000 <= preorder[i], inorder[i] <= 3000`.\n- `preorder` and `inorder` consist of **unique** values.\n- Each value of `inorder` also appears in `preorder`.\n- `preorder` is **guaranteed** to be the preorder traversal of the tree.\n- `inorder` is **guaranteed** to be the inorder traversal of the tree.",
+        "examples": [
+            {
+                "input": "preorder = [3,9,20,15,7], inorder = [9,3,15,20,7]",
+                "output": "[3,9,20,null,null,15,7]"
+            },
+            {
+                "input": "preorder = [-1], inorder = [-1]",
+                "output": "[-1]"
+            }
+        ],
+        "starterCode": [
+            {
+                "language": "javascript",
+                "code": "/**\n * @param {number[]} preorder\n * @param {number[]} inorder\n * @return {TreeNode}\n */\nvar buildTree = function(preorder, inorder) {\n    \n};"
+            },
+            {
+                "language": "python",
+                "code": "class Solution:\n    def buildTree(self, preorder: List[int], inorder: List[int]) -> Optional[TreeNode]:\n        pass"
+            },
+            {
+                "language": "java",
+                "code": "class Solution {\n    public TreeNode buildTree(int[] preorder, int[] inorder) {\n        // Write your code here\n    }\n}"
+            }
+        ],
+        "functionName": "buildTree"
+    },
+    {
+        "title": "Binary Tree Right Side View",
+        "difficulty": "Medium",
+        "description": "## Binary Tree Right Side View\n\nGiven the `root` of a binary tree, imagine yourself standing on the **right side** of it, return *the values of the nodes you can see ordered from top to bottom*.",
+        "constraints": "- The number of nodes in the tree is in the range `[0, 100]`.\n- `-100 <= Node.val <= 100`.",
+        "examples": [
+            {
+                "input": "root = [1,2,3,null,5,null,4]",
+                "output": "[1,3,4]"
+            },
+            {
+                "input": "root = [1,null,3]",
+                "output": "[1,3]"
+            }
+        ],
+        "starterCode": [
+            {
+                "language": "javascript",
+                "code": "/**\n * @param {TreeNode} root\n * @return {number[]}\n */\nvar rightSideView = function(root) {\n    \n};"
+            },
+            {
+                "language": "python",
+                "code": "class Solution:\n    def rightSideView(self, root: Optional[TreeNode]) -> List[int]:\n        pass"
+            },
+            {
+                "language": "java",
+                "code": "class Solution {\n    public List<Integer> rightSideView(TreeNode root) {\n        // Write your code here\n    }\n}"
+            }
+        ],
+        "functionName": "rightSideView"
+    },
+    {
+        "title": "Diameter of Binary Tree",
+        "difficulty": "Medium",
+        "description": "## Diameter of Binary Tree\n\nGiven the `root` of a binary tree, return *the length of the **diameter** of the tree*.\n\nThe **diameter** of a binary tree is the **length** of the longest path between any two nodes in a tree. This path may or may not pass through the `root`.\n\nThe **length** of a path between two nodes is represented by the number of edges between them.",
+        "constraints": "- The number of nodes in the tree is in the range `[1, 10^4]`.\n- `-100 <= Node.val <= 100`.",
+        "examples": [
+            {
+                "input": "root = [1,2,3,4,5]",
+                "output": "3",
+                "explanation": "3 is the length of the path [4,2,1,3] or [5,2,1,3]."
+            },
+            {
+                "input": "root = [1,2]",
+                "output": "1"
+            }
+        ],
+        "starterCode": [
+            {
+                "language": "javascript",
+                "code": "/**\n * @param {TreeNode} root\n * @return {number}\n */\nvar diameterOfBinaryTree = function(root) {\n    \n};"
+            },
+            {
+                "language": "python",
+                "code": "class Solution:\n    def diameterOfBinaryTree(self, root: Optional[TreeNode]) -> int:\n        pass"
+            },
+            {
+                "language": "java",
+                "code": "class Solution {\n    public int diameterOfBinaryTree(TreeNode root) {\n        // Write your code here\n    }\n}"
+            }
+        ],
+        "functionName": "diameterOfBinaryTree"
+    },
+    {
+        "title": "Binary Tree Maximum Path Sum",
+        "difficulty": "Hard",
+        "description": "## Binary Tree Maximum Path Sum\n\nA **path** in a binary tree is a sequence of nodes where each pair of adjacent nodes in the sequence has an edge connecting them. A node can only appear in the sequence **at most once**. Note that the path does not need to pass through the root.\n\nThe **path sum** of a path is the sum of the node's values in the path.\n\nGiven the `root` of a binary tree, return *the maximum **path sum** of any **non-empty** path*.",
+        "constraints": "- The number of nodes in the tree is in the range `[1, 3 * 10^4]`.\n- `-1000 <= Node.val <= 1000`.",
+        "examples": [
+            {
+                "input": "root = [1,2,3]",
+                "output": "6",
+                "explanation": "The optimal path is 2 -> 1 -> 3 with a path sum of 2 + 1 + 3 = 6."
+            },
+            {
+                "input": "root = [-10,9,20,null,null,15,7]",
+                "output": "42",
+                "explanation": "The optimal path is 15 -> 20 -> 7 with a path sum of 15 + 20 + 7 = 42."
+            }
+        ],
+        "starterCode": [
+            {
+                "language": "javascript",
+                "code": "/**\n * @param {TreeNode} root\n * @return {number}\n */\nvar maxPathSum = function(root) {\n    \n};"
+            },
+            {
+                "language": "python",
+                "code": "class Solution:\n    def maxPathSum(self, root: Optional[TreeNode]) -> int:\n        pass"
+            },
+            {
+                "language": "java",
+                "code": "class Solution {\n    public int maxPathSum(TreeNode root) {\n        // Write your code here\n    }\n}"
+            }
+        ],
+        "functionName": "maxPathSum"
+    },
+    {
+        "title": "Serialize and Deserialize Binary Tree",
+        "difficulty": "Hard",
+        "description": "## Serialize and Deserialize Binary Tree\n\nSerialization is the process of converting a data structure or object into a sequence of bits so that it can be stored in a file or memory buffer, or transmitted across a network connection link to be reconstructed later in the same or another computer environment.\n\nDesign an algorithm to serialize and deserialize a binary tree. There is no restriction on how your serialization/deserialization algorithm should work. You just need to ensure that a binary tree can be serialized to a string and this string can be deserialized to the original tree structure.",
+        "constraints": "- The number of nodes in the tree is in the range `[0, 10^4]`.\n- `-1000 <= Node.val <= 1000`.",
+        "examples": [
+            {
+                "input": "root = [1,2,3,null,null,4,5]",
+                "output": "[1,2,3,null,null,4,5]"
+            },
+            {
+                "input": "root = []",
+                "output": "[]"
+            }
+        ],
+        "starterCode": [
+            {
+                "language": "javascript",
+                "code": "/**\n * Encodes a tree to a single string.\n *\n * @param {TreeNode} root\n * @return {string}\n */\nvar serialize = function(root) {\n    \n};\n\n/**\n * Decodes your encoded data to tree.\n *\n * @param {string} data\n * @return {TreeNode}\n */\nvar deserialize = function(data) {\n    \n};\n\n/**\n * Your functions will be called as such:\n * deserialize(serialize(root));\n */"
+            },
+            {
+                "language": "python",
+                "code": "class Codec:\n\n    def serialize(self, root):\n        \"\"\"Encodes a tree to a single string.\n        \n        :type root: TreeNode\n        :rtype: str\n        \"\"\"\n        pass\n        \n\n    def deserialize(self, data):\n        \"\"\"Decodes your encoded data to tree.\n        \n        :type data: str\n        :rtype: TreeNode\n        \"\"\"\n        pass"
+            },
+            {
+                "language": "java",
+                "code": "public class Codec {\n\n    // Encodes a tree to a single string.\n    public String serialize(TreeNode root) {\n        \n    }\n\n    // Decodes your encoded data to tree.\n    public TreeNode deserialize(String data) {\n        \n    }\n}"
+            }
+        ],
+        "functionName": "serialize"
+    },
+    {
+        "title": "Recover Binary Search Tree",
+        "difficulty": "Hard",
+        "description": "## Recover Binary Search Tree\n\nYou are given the `root` of a binary search tree (BST), where the values of **exactly** two nodes of the tree were swapped by mistake. *Recover the tree without changing its structure*.",
+        "constraints": "- The number of nodes in the tree is in the range `[2, 1000]`.\n- `-2^31 <= Node.val <= 2^31 - 1`.",
+        "examples": [
+            {
+                "input": "root = [1,3,null,null,2]",
+                "output": "[3,1,null,null,2]",
+                "explanation": "3 cannot be a left child of 1 because 3 > 1. Swapping 1 and 3 makes the BST valid."
+            },
+            {
+                "input": "root = [3,1,4,null,null,2]",
+                "output": "[2,1,4,null,null,3]",
+                "explanation": "2 cannot be in the right subtree of 3 because 2 < 3. Swapping 2 and 3 makes the BST valid."
+            }
+        ],
+        "starterCode": [
+            {
+                "language": "javascript",
+                "code": "/**\n * @param {TreeNode} root\n * @return {void} Do not return anything, modify root in-place instead.\n */\nvar recoverTree = function(root) {\n    \n};"
+            },
+            {
+                "language": "python",
+                "code": "class Solution:\n    def recoverTree(self, root: Optional[TreeNode]) -> None:\n        pass"
+            },
+            {
+                "language": "java",
+                "code": "class Solution {\n    public void recoverTree(TreeNode root) {\n        // Write your code here\n    }\n}"
+            }
+        ],
+        "functionName": "recoverTree"
+    },
+    {
+        "title": "Vertical Order Traversal of a Binary Tree",
+        "difficulty": "Hard",
+        "description": "## Vertical Order Traversal of a Binary Tree\n\nGiven the `root` of a binary tree, calculate the **vertical order traversal** of the binary tree.\n\nFor each node at position `(row, col)`, its left child will be at `(row + 1, col - 1)` and its right child will be at `(row + 1, col + 1)`. The root of the tree is at `(0, 0)`.\n\nThe **vertical order traversal** of a binary tree is a list of top-to-bottom orderings for each column index starting from the leftmost column and ending on the rightmost column. There may be multiple nodes in the same row and same column. In such a case, sort these nodes by their values.",
+        "constraints": "- The number of nodes in the tree is in the range `[1, 1000]`.\n- `0 <= Node.val <= 1000`.",
+        "examples": [
+            {
+                "input": "root = [3,9,20,null,null,15,7]",
+                "output": "[[9],[3,15],[20],[7]]"
+            },
+            {
+                "input": "root = [1,2,3,4,5,6,7]",
+                "output": "[[4],[2],[1,5,6],[3],[7]]"
+            }
+        ],
+        "starterCode": [
+            {
+                "language": "javascript",
+                "code": "/**\n * @param {TreeNode} root\n * @return {number[][]}\n */\nvar verticalTraversal = function(root) {\n    \n};"
+            },
+            {
+                "language": "python",
+                "code": "class Solution:\n    def verticalTraversal(self, root: Optional[TreeNode]) -> List[List[int]]:\n        pass"
+            },
+            {
+                "language": "java",
+                "code": "class Solution {\n    public List<List<Integer>> verticalTraversal(TreeNode root) {\n        // Write your code here\n    }\n}"
+            }
+        ],
+        "functionName": "verticalTraversal"
+    },
+    {
+        "title": "All Nodes Distance K in Binary Tree",
+        "difficulty": "Hard",
+        "description": "## All Nodes Distance K in Binary Tree\n\nGiven the `root` of a binary tree, the value of a target node `target`, and an integer `k`, return *an array of the values of all nodes that have a distance* `k` *from the target node*.\n\nYou can return the answer in **any order**.",
+        "constraints": "- The number of nodes in the tree is in the range `[1, 500]`.\n- `0 <= Node.val <= 500`.\n- All the values `Node.val` are **unique**.\n- `target` is the value of one of the nodes in the tree.\n- `0 <= k <= 1000`.",
+        "examples": [
+            {
+                "input": "root = [3,5,1,6,2,0,8,null,null,7,4], target = 5, k = 2",
+                "output": "[7,4,1]"
+            },
+            {
+                "input": "root = [1], target = 1, k = 3",
+                "output": "[]"
+            }
+        ],
+        "starterCode": [
+            {
+                "language": "javascript",
+                "code": "/**\n * @param {TreeNode} root\n * @param {TreeNode} target\n * @param {number} k\n * @return {number[]}\n */\nvar distanceK = function(root, target, k) {\n    \n};"
+            },
+            {
+                "language": "python",
+                "code": "class Solution:\n    def distanceK(self, root: TreeNode, target: TreeNode, k: int) -> List[int]:\n        pass"
+            },
+            {
+                "language": "java",
+                "code": "class Solution {\n    public List<Integer> distanceK(TreeNode root, TreeNode target, int k) {\n        // Write your code here\n    }\n}"
+            }
+        ],
+        "functionName": "distanceK"
+    },
+    {
+        "title": "Count Complete Tree Nodes",
+        "difficulty": "Hard",
+        "description": "## Count Complete Tree Nodes\n\nGiven the `root` of a **complete** binary tree, return the number of the nodes in the tree.\n\nAccording to [Wikipedia](http://en.wikipedia.org/wiki/Binary_tree#Types_of_binary_trees), every level, except possibly the last, is completely filled in a complete binary tree, and all nodes in the last level are as far left as possible. It can have between 1 and 2^h nodes at the last level h.\n\nDesign an algorithm that runs in less than `O(n)` time complexity.",
+        "constraints": "- The number of nodes in the tree is in the range `[0, 5 * 10^4]`.\n- `0 <= Node.val <= 5 * 10^4`.\n- The tree is guaranteed to be **complete**.",
+        "examples": [
+            {
+                "input": "root = [1,2,3,4,5,6]",
+                "output": "6"
+            },
+            {
+                "input": "root = []",
+                "output": "0"
+            }
+        ],
+        "starterCode": [
+            {
+                "language": "javascript",
+                "code": "/**\n * @param {TreeNode} root\n * @return {number}\n */\nvar countNodes = function(root) {\n    \n};"
+            },
+            {
+                "language": "python",
+                "code": "class Solution:\n    def countNodes(self, root: Optional[TreeNode]) -> int:\n        pass"
+            },
+            {
+                "language": "java",
+                "code": "class Solution {\n    public int countNodes(TreeNode root) {\n        // Write your code here\n    }\n}"
+            }
+        ],
+        "functionName": "countNodes"
+    }
+]

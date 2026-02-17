@@ -1,0 +1,670 @@
+[
+    {
+        "title": "Valid Parentheses",
+        "difficulty": "Easy",
+        "description": "## Valid Parentheses\n\nGiven a string `s` containing just the characters `'('`, `')'`, `'{'`, `'}'`, `'['` and `']'`, determine if the input string is valid.\n\nAn input string is valid if:\n1. Open brackets must be closed by the same type of brackets.\n2. Open brackets must be closed in the correct order.\n3. Every close bracket has a corresponding open bracket of the same type.",
+        "constraints": "- `1 <= s.length <= 10^4`\n- `s` consists of parentheses only `'()[]{}'`.",
+        "examples": [
+            {
+                "input": "s = \"()\"",
+                "output": "true"
+            },
+            {
+                "input": "s = \"()[]{}\"",
+                "output": "true"
+            },
+            {
+                "input": "s = \"(]\"",
+                "output": "false"
+            }
+        ],
+        "starterCode": [
+            {
+                "language": "javascript",
+                "code": "/**\n * @param {string} s\n * @return {boolean}\n */\nvar isValid = function(s) {\n    \n};"
+            },
+            {
+                "language": "python",
+                "code": "class Solution:\n    def isValid(self, s: str) -> bool:\n        pass"
+            },
+            {
+                "language": "java",
+                "code": "class Solution {\n    public boolean isValid(String s) {\n        // Write your code here\n    }\n}"
+            }
+        ],
+        "functionName": "isValid"
+    },
+    {
+        "title": "Implement Stack using Queues",
+        "difficulty": "Easy",
+        "description": "## Implement Stack using Queues\n\nImplement a last-in-first-out (LIFO) stack using only two queues. The implemented stack should support all the functions of a normal stack (`push`, `top`, `pop`, and `empty`).\n\nImplement the `MyStack` class:\n- `void push(int x)` Pushes element x to the top of the stack.\n- `int pop()` Removes the element on the top of the stack and returns it.\n- `int top()` Returns the element on the top of the stack.\n- `boolean empty()` Returns `true` if the stack is empty, `false` otherwise.\n\n**Notes:**\n- You must use **only** standard operations of a queue, which means that only `push to back`, `peek/pop from front`, `size` and `is empty` operations are valid.\n- Depending on your language, the queue may not be supported natively. You may simulate a queue using a list or deque (double-ended queue) as long as you use only a queue's standard operations.",
+        "constraints": "- `1 <= x <= 9`\n- At most `100` calls will be made to `push`, `pop`, `top`, and `empty`.\n- All the calls to `pop` and `top` are valid.",
+        "examples": [
+            {
+                "input": "[\"MyStack\", \"push\", \"push\", \"top\", \"pop\", \"empty\"]\n[[], [1], [2], [], [], []]",
+                "output": "[null, null, null, 2, 2, false]",
+                "explanation": "MyStack myStack = new MyStack();\nmyStack.push(1);\nmyStack.push(2);\nmyStack.top(); // return 2\nmyStack.pop(); // return 2\nmyStack.empty(); // return False"
+            }
+        ],
+        "starterCode": [
+            {
+                "language": "javascript",
+                "code": "\nvar MyStack = function() {\n    \n};\n\n/** \n * @param {number} x\n * @return {void}\n */\nMyStack.prototype.push = function(x) {\n    \n};\n\n/**\n * @return {number}\n */\nMyStack.prototype.pop = function() {\n    \n};\n\n/**\n * @return {number}\n */\nMyStack.prototype.top = function() {\n    \n};\n\n/**\n * @return {boolean}\n */\nMyStack.prototype.empty = function() {\n    \n};\n\n/** \n * Your MyStack object will be instantiated and called as such:\n * var obj = new MyStack()\n * obj.push(x)\n * var param_2 = obj.pop()\n * var param_3 = obj.top()\n * var param_4 = obj.empty()\n */"
+            },
+            {
+                "language": "python",
+                "code": "class MyStack:\n\n    def __init__(self):\n        pass\n\n    def push(self, x: int) -> None:\n        pass\n\n    def pop(self) -> int:\n        pass\n\n    def top(self) -> int:\n        pass\n\n    def empty(self) -> bool:\n        pass\n\n# Your MyStack object will be instantiated and called as such:\n# obj = MyStack()\n# obj.push(x)\n# param_2 = obj.pop()\n# param_3 = obj.top()\n# param_4 = obj.empty()"
+            },
+            {
+                "language": "java",
+                "code": "class MyStack {\n\n    public MyStack() {\n        \n    }\n    \n    public void push(int x) {\n        \n    }\n    \n    public int pop() {\n        \n    }\n    \n    public int top() {\n        \n    }\n    \n    public boolean empty() {\n        \n    }\n}"
+            }
+        ],
+        "functionName": "MyStack"
+    },
+    {
+        "title": "Implement Queue using Stacks",
+        "difficulty": "Easy",
+        "description": "## Implement Queue using Stacks\n\nImplement a first-in-first-out (FIFO) queue using only two stacks. The implemented queue should support all the functions of a normal queue (`push`, `peek`, `pop`, and `empty`).\n\nImplement the `MyQueue` class:\n- `void push(int x)` Pushes element x to the back of the queue.\n- `int pop()` Removes the element from the front of the queue and returns it.\n- `int peek()` Returns the element at the front of the queue.\n- `boolean empty()` Returns `true` if the queue is empty, `false` otherwise.\n\n**Notes:**\n- You must use **only** standard operations of a stack, which means only `push to top`, `peek/pop from top`, `size`, and `is empty` operations are valid.\n- Depending on your language, the stack may not be supported natively. You may simulate a stack using a list or deque (double-ended queue) as long as you use only a stack's standard operations.",
+        "constraints": "- `1 <= x <= 9`\n- At most `100` calls will be made to `push`, `pop`, `peek`, and `empty`.\n- All the calls to `pop` and `peek` are valid.",
+        "examples": [
+            {
+                "input": "[\"MyQueue\", \"push\", \"push\", \"peek\", \"pop\", \"empty\"]\n[[], [1], [2], [], [], []]",
+                "output": "[null, null, null, 1, 1, false]",
+                "explanation": "MyQueue myQueue = new MyQueue();\nmyQueue.push(1); // queue is: [1]\nmyQueue.push(2); // queue is: [1, 2] (leftmost is front of the queue)\nmyQueue.peek(); // return 1\nmyQueue.pop(); // return 1, queue is [2]\nmyQueue.empty(); // return false"
+            }
+        ],
+        "starterCode": [
+            {
+                "language": "javascript",
+                "code": "\nvar MyQueue = function() {\n    \n};\n\n/** \n * @param {number} x\n * @return {void}\n */\nMyQueue.prototype.push = function(x) {\n    \n};\n\n/**\n * @return {number}\n */\nMyQueue.prototype.pop = function() {\n    \n};\n\n/**\n * @return {number}\n */\nMyQueue.prototype.peek = function() {\n    \n};\n\n/**\n * @return {boolean}\n */\nMyQueue.prototype.empty = function() {\n    \n};\n\n/** \n * Your MyQueue object will be instantiated and called as such:\n * var obj = new MyQueue()\n * obj.push(x)\n * var param_2 = obj.pop()\n * var param_3 = obj.peek()\n * var param_4 = obj.empty()\n */"
+            },
+            {
+                "language": "python",
+                "code": "class MyQueue:\n\n    def __init__(self):\n        pass\n\n    def push(self, x: int) -> None:\n        pass\n\n    def pop(self) -> int:\n        pass\n\n    def peek(self) -> int:\n        pass\n\n    def empty(self) -> bool:\n        pass\n\n# Your MyQueue object will be instantiated and called as such:\n# obj = MyQueue()\n# obj.push(x)\n# param_2 = obj.pop()\n# param_3 = obj.peek()\n# param_4 = obj.empty()"
+            },
+            {
+                "language": "java",
+                "code": "class MyQueue {\n\n    public MyQueue() {\n        \n    }\n    \n    public void push(int x) {\n        \n    }\n    \n    public int pop() {\n        \n    }\n    \n    public int peek() {\n        \n    }\n    \n    public boolean empty() {\n        \n    }\n}"
+            }
+        ],
+        "functionName": "MyQueue"
+    },
+    {
+        "title": "Min Stack",
+        "difficulty": "Easy",
+        "description": "## Min Stack\n\nDesign a stack that supports push, pop, top, and retrieving the minimum element in constant time.\n\nImplement the `MinStack` class:\n- `MinStack()` initializes the stack object.\n- `void push(int val)` pushes the element `val` onto the stack.\n- `void pop()` removes the element on the top of the stack.\n- `int top()` gets the top element of the stack.\n- `int getMin()` retrieves the minimum element in the stack.\n\nYou must implement a solution with `O(1)` time complexity for each function.",
+        "constraints": "- `-2^31 <= val <= 2^31 - 1`\n- Methods `pop`, `top` and `getMin` operations will always be called on **non-empty** stacks.\n- At most `3 * 10^4` calls will be made to `push`, `pop`, `top`, and `getMin`.",
+        "examples": [
+            {
+                "input": "[\"MinStack\",\"push\",\"push\",\"push\",\"getMin\",\"pop\",\"top\",\"getMin\"]\n[[],[-2],[0],[-3],[],[],[],[]]",
+                "output": "[null,null,null,null,-3,null,0,-2]",
+                "explanation": "MinStack minStack = new MinStack();\nminStack.push(-2);\nminStack.push(0);\nminStack.push(-3);\nminStack.getMin(); // return -3\nminStack.pop();\nminStack.top();    // return 0\nminStack.getMin(); // return -2"
+            }
+        ],
+        "starterCode": [
+            {
+                "language": "javascript",
+                "code": "\nvar MinStack = function() {\n    \n};\n\n/** \n * @param {number} val\n * @return {void}\n */\nMinStack.prototype.push = function(val) {\n    \n};\n\n/**\n * @return {void}\n */\nMinStack.prototype.pop = function() {\n    \n};\n\n/**\n * @return {number}\n */\nMinStack.prototype.top = function() {\n    \n};\n\n/**\n * @return {number}\n */\nMinStack.prototype.getMin = function() {\n    \n};\n\n/** \n * Your MinStack object will be instantiated and called as such:\n * var obj = new MinStack()\n * obj.push(val)\n * obj.pop()\n * var param_3 = obj.top()\n * var param_4 = obj.getMin()\n */"
+            },
+            {
+                "language": "python",
+                "code": "class MinStack:\n\n    def __init__(self):\n        pass\n\n    def push(self, val: int) -> None:\n        pass\n\n    def pop(self) -> None:\n        pass\n\n    def top(self) -> int:\n        pass\n\n    def getMin(self) -> int:\n        pass\n\n# Your MinStack object will be instantiated and called as such:\n# obj = MinStack()\n# obj.push(val)\n# obj.pop()\n# param_3 = obj.top()\n# param_4 = obj.getMin()"
+            },
+            {
+                "language": "java",
+                "code": "class MinStack {\n\n    public MinStack() {\n        \n    }\n    \n    public void push(int val) {\n        \n    }\n    \n    public void pop() {\n        \n    }\n    \n    public int top() {\n        \n    }\n    \n    public int getMin() {\n        \n    }\n}"
+            }
+        ],
+        "functionName": "MinStack"
+    },
+    {
+        "title": "Baseball Game",
+        "difficulty": "Easy",
+        "description": "## Baseball Game\n\nYou are keeping the scores for a baseball game with strange rules. At the beginning of the game, you start with an empty record.\n\nYou are given a list of strings `operations`, where `operations[i]` is the `ith` operation you must apply to the record and is one of the following:\n- An integer `x`.\n  - Record a new score of `x`.\n- `'+'`.\n  - Record a new score that is the sum of the previous two scores.\n- `'D'`.\n  - Record a new score that is the double of the previous score.\n- `'C'`.\n  - Invalidate the previous score, removing it from the record.\n\nReturn the sum of all the scores on the record after applying all the operations.\n\nThe test cases are generated such that the answer and all intermediate calculations fit in a **32-bit** integer and that all operations are valid.",
+        "constraints": "- `1 <= operations.length <= 1000`\n- `operations[i]` is `'C'`, `'D'`, `'+'`, or a string representing an integer in the range `[-3 * 10^4, 3 * 10^4]`.\n- For operation `'+'`, there will always be at least two previous scores on the record.\n- For operations `'C'` and `'D'`, there will always be at least one previous score on the record.",
+        "examples": [
+            {
+                "input": "operations = [\"5\",\"2\",\"C\",\"D\",\"+\"]",
+                "output": "30",
+                "explanation": "\"5\" - Add 5 to the record, record is [5].\n\"2\" - Add 2 to the record, record is [5, 2].\n\"C\" - Invalidate and remove the previous score, record is [5].\n\"D\" - Record 2 * 5 = 10, record is [5, 10].\n\"+\" - Record 5 + 10 = 15, record is [5, 10, 15].\nThe total sum is 5 + 10 + 15 = 30."
+            },
+            {
+                "input": "operations = [\"5\",\"-2\",\"4\",\"C\",\"D\",\"9\",\"+\",\"+\"]",
+                "output": "27",
+                "explanation": "\"5\" - Add 5 to the record, record is [5].\n\"-2\" - Add -2 to the record, record is [5, -2].\n\"4\" - Add 4 to the record, record is [5, -2, 4].\n\"C\" - Invalidate and remove the previous score, record is [5, -2].\n\"D\" - Record 2 * -2 = -4, record is [5, -2, -4].\n\"9\" - Add 9 to the record, record is [5, -2, -4, 9].\n\"+\" - Record -4 + 9 = 5, record is [5, -2, -4, 9, 5].\n\"+\" - Record 9 + 5 = 14, record is [5, -2, -4, 9, 5, 14].\nThe total sum is 5 + -2 + -4 + 9 + 5 + 14 = 27."
+            }
+        ],
+        "starterCode": [
+            {
+                "language": "javascript",
+                "code": "/**\n * @param {string[]} operations\n * @return {number}\n */\nvar calPoints = function(operations) {\n    \n};"
+            },
+            {
+                "language": "python",
+                "code": "class Solution:\n    def calPoints(self, operations: List[str]) -> int:\n        pass"
+            },
+            {
+                "language": "java",
+                "code": "class Solution {\n    public int calPoints(String[] operations) {\n        // Write your code here\n    }\n}"
+            }
+        ],
+        "functionName": "calPoints"
+    },
+    {
+        "title": "Backspace String Compare",
+        "difficulty": "Easy",
+        "description": "## Backspace String Compare\n\nGiven two strings `s` and `t`, return `true` if they are equal when both are typed into empty text editors. `'#'` means a backspace character.\n\nNote that after backspacing an empty text, the text will continue empty.",
+        "constraints": "- `1 <= s.length, t.length <= 200`\n- `s` and `t` only contain lowercase letters and `'#'` characters.",
+        "examples": [
+            {
+                "input": "s = \"ab#c\", t = \"ad#c\"",
+                "output": "true",
+                "explanation": "Both s and t become \"ac\"."
+            },
+            {
+                "input": "s = \"ab##\", t = \"c#d#\"",
+                "output": "true",
+                "explanation": "Both s and t become \"\"."
+            },
+            {
+                "input": "s = \"a#c\", t = \"b\"",
+                "output": "false",
+                "explanation": "s becomes \"c\" while t becomes \"b\"."
+            }
+        ],
+        "starterCode": [
+            {
+                "language": "javascript",
+                "code": "/**\n * @param {string} s\n * @param {string} t\n * @return {boolean}\n */\nvar backspaceCompare = function(s, t) {\n    \n};"
+            },
+            {
+                "language": "python",
+                "code": "class Solution:\n    def backspaceCompare(self, s: str, t: str) -> bool:\n        pass"
+            },
+            {
+                "language": "java",
+                "code": "class Solution {\n    public boolean backspaceCompare(String s, String t) {\n        // Write your code here\n    }\n}"
+            }
+        ],
+        "functionName": "backspaceCompare"
+    },
+    {
+        "title": "Remove Outermost Parentheses",
+        "difficulty": "Easy",
+        "description": "## Remove Outermost Parentheses\n\nA valid parentheses string is either empty `\"\"`, `\"(\" + A + \")\"`, or `A + B`, where `A` and `B` are valid parentheses strings, and `+` represents string concatenation.\n\n- For example, `\"\"`, `\"()\"`, `\"(())()\"`, and `\"(()(()))\"` are all valid parentheses strings.\n\nA valid parentheses string `s` is primitive if it is nonempty, and there does not exist a way to split it into `s = A + B`, with `A` and `B` nonempty valid parentheses strings.\n\nGiven a valid parentheses string `s`, consider its primitive decomposition: `s = P1 + P2 + ... + Pk`, where `Pi` are primitive valid parentheses strings.\n\nReturn `s` after removing the outermost parentheses of every primitive string in the primitive decomposition of `s`.",
+        "constraints": "- `1 <= s.length <= 10^5`\n- `s[i]` is either `'('` or `')'`.\n- `s` is a valid parentheses string.",
+        "examples": [
+            {
+                "input": "s = \"(()())(())\"",
+                "output": "\"()()()\"",
+                "explanation": "The input string is \"(()())(())\", with primitive decomposition \"(()())\" + \"(())\".\nAfter removing outer parentheses of each part, this is \"()()\" + \"()\" = \"()()()\"."
+            },
+            {
+                "input": "s = \"(()())(())(()(()))\"",
+                "output": "\"()()()()(())\"",
+                "explanation": "The input string is \"(()())(())(()(()))\", with primitive decomposition \"(()())\" + \"(())\" + \"(()(()))\".\nAfter removing outer parentheses of each part, this is \"()()\" + \"()\" + \"()(())\" = \"()()()()(())\"."
+            },
+            {
+                "input": "s = \"()()\"",
+                "output": "\"\"",
+                "explanation": "The input string is \"()()\", with primitive decomposition \"()\" + \"()\".\nAfter removing outer parentheses of each part, this is \"\" + \"\" = \"\"."
+            }
+        ],
+        "starterCode": [
+            {
+                "language": "javascript",
+                "code": "/**\n * @param {string} s\n * @return {string}\n */\nvar removeOuterParentheses = function(s) {\n    \n};"
+            },
+            {
+                "language": "python",
+                "code": "class Solution:\n    def removeOuterParentheses(self, s: str) -> str:\n        pass"
+            },
+            {
+                "language": "java",
+                "code": "class Solution {\n    public String removeOuterParentheses(String s) {\n        // Write your code here\n    }\n}"
+            }
+        ],
+        "functionName": "removeOuterParentheses"
+    },
+    {
+        "title": "Daily Temperatures",
+        "difficulty": "Medium",
+        "description": "## Daily Temperatures\n\nGiven an array of integers `temperatures` represents the daily temperatures, return an array `answer` such that `answer[i]` is the number of days you have to wait after the `ith` day to get a warmer temperature. If there is no future day for which this is possible, keep `answer[i] == 0` instead.",
+        "constraints": "- `1 <= temperatures.length <= 10^5`\n- `30 <= temperatures[i] <= 100`",
+        "examples": [
+            {
+                "input": "temperatures = [73,74,75,71,69,72,76,73]",
+                "output": "[1,1,4,2,1,1,0,0]"
+            },
+            {
+                "input": "temperatures = [30,40,50,60]",
+                "output": "[1,1,1,0]"
+            },
+            {
+                "input": "temperatures = [30,60,90]",
+                "output": "[1,1,0]"
+            }
+        ],
+        "starterCode": [
+            {
+                "language": "javascript",
+                "code": "/**\n * @param {number[]} temperatures\n * @return {number[]}\n */\nvar dailyTemperatures = function(temperatures) {\n    \n};"
+            },
+            {
+                "language": "python",
+                "code": "class Solution:\n    def dailyTemperatures(self, temperatures: List[int]) -> List[int]:\n        pass"
+            },
+            {
+                "language": "java",
+                "code": "class Solution {\n    public int[] dailyTemperatures(int[] temperatures) {\n        // Write your code here\n    }\n}"
+            }
+        ],
+        "functionName": "dailyTemperatures"
+    },
+    {
+        "title": "Next Greater Element II",
+        "difficulty": "Medium",
+        "description": "## Next Greater Element II\n\nGiven a circular integer array `nums` (i.e., the next element of `nums[nums.length - 1]` is `nums[0]`), return the **next greater number** for every element in `nums`.\n\nThe **next greater number** of a number `x` is the first greater number to its traversing-order next in the array, which means you could search circularly to find its next greater number. If it doesn't exist, return `-1` for this number.",
+        "constraints": "- `1 <= nums.length <= 10^4`\n- `-10^9 <= nums[i] <= 10^9`",
+        "examples": [
+            {
+                "input": "nums = [1,2,1]",
+                "output": "[2,-1,2]",
+                "explanation": "The first 1's next greater number is 2.\nThe number 2 can't find next greater number.\nThe second 1's next greater number needs to search circularly, which is also 2."
+            },
+            {
+                "input": "nums = [1,2,3,4,3]",
+                "output": "[2,3,4,-1,4]"
+            }
+        ],
+        "starterCode": [
+            {
+                "language": "javascript",
+                "code": "/**\n * @param {number[]} nums\n * @return {number[]}\n */\nvar nextGreaterElements = function(nums) {\n    \n};"
+            },
+            {
+                "language": "python",
+                "code": "class Solution:\n    def nextGreaterElements(self, nums: List[int]) -> List[int]:\n        pass"
+            },
+            {
+                "language": "java",
+                "code": "class Solution {\n    public int[] nextGreaterElements(int[] nums) {\n        // Write your code here\n    }\n}"
+            }
+        ],
+        "functionName": "nextGreaterElements"
+    },
+    {
+        "title": "Evaluate Reverse Polish Notation",
+        "difficulty": "Medium",
+        "description": "## Evaluate Reverse Polish Notation\n\nYou are given an array of strings `tokens` that represents an arithmetic expression in a [Reverse Polish Notation](http://en.wikipedia.org/wiki/Reverse_Polish_notation).\n\nEvaluate the expression. Return an integer that represents the value of the expression.\n\n**Note** that:\n- The valid operators are `'+'`, `'-'`, `'*'`, and `'/'`.\n- Each operand may be an integer or another expression.\n- The division between two integers always **truncates toward zero**.\n- There will not be any division by zero.\n- The input represents a valid arithmetic expression in a reverse polish notation.\n- The answer and all the intermediate calculations can be represented in a **32-bit** integer.",
+        "constraints": "- `1 <= tokens.length <= 10^4`\n- `tokens[i]` is either an operator: `\"+\"`, `\"-\"`, `\"*\"`, or `\"/\"`, or an integer in the range `[-200, 200]`.",
+        "examples": [
+            {
+                "input": "tokens = [\"2\",\"1\",\"+\",\"3\",\"*\"]",
+                "output": "9",
+                "explanation": "((2 + 1) * 3) = 9"
+            },
+            {
+                "input": "tokens = [\"4\",\"13\",\"5\",\"/\",\"+\"]",
+                "output": "6",
+                "explanation": "(4 + (13 / 5)) = 6"
+            }
+        ],
+        "starterCode": [
+            {
+                "language": "javascript",
+                "code": "/**\n * @param {string[]} tokens\n * @return {number}\n */\nvar evalRPN = function(tokens) {\n    \n};"
+            },
+            {
+                "language": "python",
+                "code": "class Solution:\n    def evalRPN(self, tokens: List[str]) -> int:\n        pass"
+            },
+            {
+                "language": "java",
+                "code": "class Solution {\n    public int evalRPN(String[] tokens) {\n        // Write your code here\n    }\n}"
+            }
+        ],
+        "functionName": "evalRPN"
+    },
+    {
+        "title": "Decode String",
+        "difficulty": "Medium",
+        "description": "## Decode String\n\nGiven an encoded string, return its decoded string.\n\nThe encoding rule is: `k[encoded_string]`, where the `encoded_string` inside the square brackets is being repeated exactly `k` times. Note that `k` is guaranteed to be a positive integer.\n\nYou may assume that the input string is always valid; there are no extra white spaces, square brackets are well-formed, etc. Furthermore, you may assume that the original data does not contain any digits and that digits are only for those repeat numbers, `k`. For example, there will not be input like `3a` or `2[4]`.",
+        "constraints": "- `1 <= s.length <= 30`\n- `s` consists of lowercase English letters, digits, and square brackets `'[]'`.\n- `s` is guaranteed to be a valid input.\n- All the integers in `s` are in the range `[1, 300]`.",
+        "examples": [
+            {
+                "input": "s = \"3[a]2[bc]\"",
+                "output": "\"aaabcbc\""
+            },
+            {
+                "input": "s = \"3[a2[c]]\"",
+                "output": "\"accaccacc\""
+            },
+            {
+                "input": "s = \"2[abc]3[cd]ef\"",
+                "output": "\"abcabccdcdef\""
+            }
+        ],
+        "starterCode": [
+            {
+                "language": "javascript",
+                "code": "/**\n * @param {string} s\n * @return {string}\n */\nvar decodeString = function(s) {\n    \n};"
+            },
+            {
+                "language": "python",
+                "code": "class Solution:\n    def decodeString(self, s: str) -> str:\n        pass"
+            },
+            {
+                "language": "java",
+                "code": "class Solution {\n    public String decodeString(String s) {\n        // Write your code here\n    }\n}"
+            }
+        ],
+        "functionName": "decodeString"
+    },
+    {
+        "title": "Asteroid Collision",
+        "difficulty": "Medium",
+        "description": "## Asteroid Collision\n\nWe are given an array `asteroids` of integers representing asteroids in a row.\n\nFor each asteroid, the absolute value represents its size, and the sign represents its direction (positive meaning right, negative meaning left). Each asteroid moves at the same speed.\n\nFind out the state of the asteroids after all collisions. If two asteroids meet, the smaller one will explode. If both are the same size, both will explode. Two asteroids moving in the same direction will never meet.",
+        "constraints": "- `2 <= asteroids.length <= 10^4`\n- `-1000 <= asteroids[i] <= 1000`\n- `asteroids[i] != 0`",
+        "examples": [
+            {
+                "input": "asteroids = [5,10,-5]",
+                "output": "[5,10]",
+                "explanation": "The 10 and -5 collide resulting in 10. The 5 and 10 never collide."
+            },
+            {
+                "input": "asteroids = [8,-8]",
+                "output": "[]",
+                "explanation": "The 8 and -8 collide exploding each other."
+            },
+            {
+                "input": "asteroids = [10,2,-5]",
+                "output": "[10]",
+                "explanation": "The 2 and -5 collide resulting in -5. The 10 and -5 collide resulting in 10."
+            }
+        ],
+        "starterCode": [
+            {
+                "language": "javascript",
+                "code": "/**\n * @param {number[]} asteroids\n * @return {number[]}\n */\nvar asteroidCollision = function(asteroids) {\n    \n};"
+            },
+            {
+                "language": "python",
+                "code": "class Solution:\n    def asteroidCollision(self, asteroids: List[int]) -> List[int]:\n        pass"
+            },
+            {
+                "language": "java",
+                "code": "class Solution {\n    public int[] asteroidCollision(int[] asteroids) {\n        // Write your code here\n    }\n}"
+            }
+        ],
+        "functionName": "asteroidCollision"
+    },
+    {
+        "title": "Simplify Path",
+        "difficulty": "Medium",
+        "description": "## Simplify Path\n\nGiven a string `path`, which is an **absolute path** (starting with a slash `'/'`) to a file or directory in a Unix-style file system, convert it to the simplified **canonical path**.\n\nIn a Unix-style file system, a period `'.'` refers to the current directory, a double period `'..'` refers to the directory up a level, and any multiple consecutive slashes (i.e. `'//'`) are treated as a single slash `'/'`. For this problem, any other format of periods such as `'...'` are treated as file/directory names.\n\nThe **canonical path** should have the following format:\n- The path starts with a single slash `'/'`.\n- Any two directories are separated by a single slash `'/'`.\n- The path does not end with a trailing `'/'`.\n- The path only contains the directories on the path from the root directory to the target file or directory (i.e., no period `'.'` or double period `'..'`).\n\nReturn the simplified **canonical path**.",
+        "constraints": "- `1 <= path.length <= 3000`\n- `path` consists of English letters, digits, period `'.'`, slash `'/'` or `'_'`.\n- `path` is a valid absolute Unix path.",
+        "examples": [
+            {
+                "input": "path = \"/home/\"",
+                "output": "\"/home\"",
+                "explanation": "Note that there is no trailing slash after the last directory name."
+            },
+            {
+                "input": "path = \"/../\"",
+                "output": "\"/\"",
+                "explanation": "Going one level up from the root directory is a no-op, as the root level is the highest level you can go."
+            },
+            {
+                "input": "path = \"/home//foo/\"",
+                "output": "\"/home/foo\"",
+                "explanation": "In the canonical path, multiple consecutive slashes are replaced by a single one."
+            }
+        ],
+        "starterCode": [
+            {
+                "language": "javascript",
+                "code": "/**\n * @param {string} path\n * @return {string}\n */\nvar simplifyPath = function(path) {\n    \n};"
+            },
+            {
+                "language": "python",
+                "code": "class Solution:\n    def simplifyPath(self, path: str) -> str:\n        pass"
+            },
+            {
+                "language": "java",
+                "code": "class Solution {\n    public String simplifyPath(String path) {\n        // Write your code here\n    }\n}"
+            }
+        ],
+        "functionName": "simplifyPath"
+    },
+    {
+        "title": "Online Stock Span",
+        "difficulty": "Medium",
+        "description": "## Online Stock Span\n\nDesign an algorithm that collects daily price quotes for some stock and returns the **span** of that stock's price for the current day.\n\nThe **span** of the stock's price in one day is the maximum number of consecutive days (starting from that day and going backward) for which the stock price was less than or equal to the price of that day.\n\n- For example, if the prices of the stock in the last four days is `[7,2,1,2]` and the price of the stock today is `2`, then the span of today is `4` because starting from today, the price of the stock was less than or equal `2` for `4` consecutive days.\n- Also, if the prices of the stock in the last four days is `[7,34,1,2]` and the price of the stock today is `8`, then the span of today is `3` because starting from today, the price of the stock was less than or equal `8` for `3` consecutive days.\n\nImplement the `StockSpanner` class:\n- `StockSpanner()` Initializes the object of the class.\n- `int next(int price)` Returns the **span** of the stock's price given that today's price is `price`.",
+        "constraints": "- `1 <= price <= 10^5`\n- At most `10^4` calls will be made to `next`.",
+        "examples": [
+            {
+                "input": "[\"StockSpanner\", \"next\", \"next\", \"next\", \"next\", \"next\", \"next\", \"next\"]\n[[], [100], [80], [60], [70], [60], [75], [85]]",
+                "output": "[null, 1, 1, 1, 2, 1, 4, 6]",
+                "explanation": "StockSpanner stockSpanner = new StockSpanner();\nstockSpanner.next(100); // return 1\nstockSpanner.next(80);  // return 1\nstockSpanner.next(60);  // return 1\nstockSpanner.next(70);  // return 2\nstockSpanner.next(60);  // return 1\nstockSpanner.next(75);  // return 4, because the last 4 prices (including today's price of 75) were less than or equal to today's price.\nstockSpanner.next(85);  // return 6"
+            }
+        ],
+        "starterCode": [
+            {
+                "language": "javascript",
+                "code": "\nvar StockSpanner = function() {\n    \n};\n\n/** \n * @param {number} price\n * @return {number}\n */\nStockSpanner.prototype.next = function(price) {\n    \n};\n\n/** \n * Your StockSpanner object will be instantiated and called as such:\n * var obj = new StockSpanner()\n * var param_1 = obj.next(price)\n */"
+            },
+            {
+                "language": "python",
+                "code": "class StockSpanner:\n\n    def __init__(self):\n        pass\n\n    def next(self, price: int) -> int:\n        pass\n\n# Your StockSpanner object will be instantiated and called as such:\n# obj = StockSpanner()\n# param_1 = obj.next(price)"
+            },
+            {
+                "language": "java",
+                "code": "class StockSpanner {\n\n    public StockSpanner() {\n        \n    }\n    \n    public int next(int price) {\n        \n    }\n}"
+            }
+        ],
+        "functionName": "StockSpanner"
+    },
+    {
+        "title": "Largest Rectangle in Histogram",
+        "difficulty": "Hard",
+        "description": "## Largest Rectangle in Histogram\n\nGiven an array of integers `heights` representing the histogram's bar height where the width of each bar is `1`, return the area of the largest rectangle in the histogram.",
+        "constraints": "- `1 <= heights.length <= 10^5`\n- `0 <= heights[i] <= 10^4`",
+        "examples": [
+            {
+                "input": "heights = [2,1,5,6,2,3]",
+                "output": "10",
+                "explanation": "The largest rectangle is shown in the red area, which has an area = 10 units."
+            },
+            {
+                "input": "heights = [2,4]",
+                "output": "4"
+            }
+        ],
+        "starterCode": [
+            {
+                "language": "javascript",
+                "code": "/**\n * @param {number[]} heights\n * @return {number}\n */\nvar largestRectangleArea = function(heights) {\n    \n};"
+            },
+            {
+                "language": "python",
+                "code": "class Solution:\n    def largestRectangleArea(self, heights: List[int]) -> int:\n        pass"
+            },
+            {
+                "language": "java",
+                "code": "class Solution {\n    public int largestRectangleArea(int[] heights) {\n        // Write your code here\n    }\n}"
+            }
+        ],
+        "functionName": "largestRectangleArea"
+    },
+    {
+        "title": "Maximal Rectangle",
+        "difficulty": "Hard",
+        "description": "## Maximal Rectangle\n\nGiven a `rows x cols` binary `matrix` filled with `0`'s and `1`'s, find the largest rectangle containing only `1`'s and return its area.",
+        "constraints": "- `rows == matrix.length`\n- `cols == matrix[i].length`\n- `1 <= row, cols <= 200`\n- `matrix[i][j]` is `'0'` or `'1'`.",
+        "examples": [
+            {
+                "input": "matrix = [[\"1\",\"0\",\"1\",\"0\",\"0\"],[\"1\",\"0\",\"1\",\"1\",\"1\"],[\"1\",\"1\",\"1\",\"1\",\"1\"],[\"1\",\"0\",\"0\",\"1\",\"0\"]]",
+                "output": "6"
+            },
+            {
+                "input": "matrix = [[\"0\"]]",
+                "output": "0"
+            },
+            {
+                "input": "matrix = [[\"1\"]]",
+                "output": "1"
+            }
+        ],
+        "starterCode": [
+            {
+                "language": "javascript",
+                "code": "/**\n * @param {character[][]} matrix\n * @return {number}\n */\nvar maximalRectangle = function(matrix) {\n    \n};"
+            },
+            {
+                "language": "python",
+                "code": "class Solution:\n    def maximalRectangle(self, matrix: List[List[str]]) -> int:\n        pass"
+            },
+            {
+                "language": "java",
+                "code": "class Solution {\n    public int maximalRectangle(char[][] matrix) {\n        // Write your code here\n    }\n}"
+            }
+        ],
+        "functionName": "maximalRectangle"
+    },
+    {
+        "title": "Sliding Window Maximum",
+        "difficulty": "Hard",
+        "description": "## Sliding Window Maximum\n\nYou are given an array of integers `nums`, there is a sliding window of size `k` which is moving from the very left of the array to the very right. You can only see the `k` numbers in the window. Each time the sliding window moves right by one position.\n\nReturn the max sliding window.",
+        "constraints": "- `1 <= nums.length <= 10^5`\n- `-10^4 <= nums[i] <= 10^4`\n- `1 <= k <= nums.length`",
+        "examples": [
+            {
+                "input": "nums = [1,3,-1,-3,5,3,6,7], k = 3",
+                "output": "[3,3,5,5,6,7]",
+                "explanation": "Window position                Max\n---------------               -----\n[1  3  -1] -3  5  3  6  7       3\n 1 [3  -1  -3] 5  3  6  7       3\n 1  3 [-1  -3  5] 3  6  7       5\n 1  3  -1 [-3  5  3] 6  7       5\n 1  3  -1  -3 [5  3  6] 7       6\n 1  3  -1  -3  5 [3  6  7]      7"
+            },
+            {
+                "input": "nums = [1], k = 1",
+                "output": "[1]"
+            }
+        ],
+        "starterCode": [
+            {
+                "language": "javascript",
+                "code": "/**\n * @param {number[]} nums\n * @param {number} k\n * @return {number[]}\n */\nvar maxSlidingWindow = function(nums, k) {\n    \n};"
+            },
+            {
+                "language": "python",
+                "code": "class Solution:\n    def maxSlidingWindow(self, nums: List[int], k: int) -> List[int]:\n        pass"
+            },
+            {
+                "language": "java",
+                "code": "class Solution {\n    public int[] maxSlidingWindow(int[] nums, int k) {\n        // Write your code here\n    }\n}"
+            }
+        ],
+        "functionName": "maxSlidingWindow"
+    },
+    {
+        "title": "Trapping Rain Water",
+        "difficulty": "Hard",
+        "description": "## Trapping Rain Water\n\nGiven `n` non-negative integers representing an elevation map where the width of each bar is `1`, compute how much water it can trap after raining.",
+        "constraints": "- `n == height.length`\n- `1 <= n <= 2 * 10^4`\n- `0 <= height[i] <= 10^5`",
+        "examples": [
+            {
+                "input": "height = [0,1,0,2,1,0,1,3,2,1,2,1]",
+                "output": "6",
+                "explanation": "The above elevation map (black section) is represented by array [0,1,0,2,1,0,1,3,2,1,2,1]. In this case, 6 units of rain water (blue section) are being trapped."
+            },
+            {
+                "input": "height = [4,2,0,3,2,5]",
+                "output": "9"
+            }
+        ],
+        "starterCode": [
+            {
+                "language": "javascript",
+                "code": "/**\n * @param {number[]} height\n * @return {number}\n */\nvar trap = function(height) {\n    \n};"
+            },
+            {
+                "language": "python",
+                "code": "class Solution:\n    def trap(self, height: List[int]) -> int:\n        pass"
+            },
+            {
+                "language": "java",
+                "code": "class Solution {\n    public int trap(int[] height) {\n        // Write your code here\n    }\n}"
+            }
+        ],
+        "functionName": "trap"
+    },
+    {
+        "title": "Basic Calculator",
+        "difficulty": "Hard",
+        "description": "## Basic Calculator\n\nGiven a string `s` representing a valid expression, implement a basic calculator to evaluate it, and return the result of the evaluation.\n\n**Note:** You are **not** allowed to use any built-in function which evaluates strings as mathematical expressions, such as `eval()`.",
+        "constraints": "- `1 <= s.length <= 3 * 10^5`\n- `s` consists of digits, `'+'`, `'-'`, `'('`, `')'`, and `' '`.\n- `s` represents a valid expression.\n- `'+'` is not used as a unary operation (i.e., `\"+1\"` and `\"+(2+3)\"` is invalid).\n- `'-'` could be used as a unary operation (i.e., `\"-1\"` and `\"-(2+3)\"` is valid).\n- There will be no two consecutive operators in the input.\n- Every number and running calculation will fit in a signed 32-bit integer.",
+        "examples": [
+            {
+                "input": "s = \"1 + 1\"",
+                "output": "2"
+            },
+            {
+                "input": "s = \" 2-1 + 2 \"",
+                "output": "3"
+            },
+            {
+                "input": "s = \"(1+(4+5+2)-3)+(6+8)\"",
+                "output": "23"
+            }
+        ],
+        "starterCode": [
+            {
+                "language": "javascript",
+                "code": "/**\n * @param {string} s\n * @return {number}\n */\nvar calculate = function(s) {\n    \n};"
+            },
+            {
+                "language": "python",
+                "code": "class Solution:\n    def calculate(self, s: str) -> int:\n        pass"
+            },
+            {
+                "language": "java",
+                "code": "class Solution {\n    public int calculate(String s) {\n        // Write your code here\n    }\n}"
+            }
+        ],
+        "functionName": "calculate"
+    },
+    {
+        "title": "Basic Calculator II",
+        "difficulty": "Hard",
+        "description": "## Basic Calculator II\n\nGiven a string `s` which represents an expression, evaluate this expression and return its value.\n\nThe integer division should truncate toward zero.\n\nYou may assume that the given expression is always valid. All intermediate results will be in the range of `[-2^31, 2^31 - 1]`.\n\n**Note:** You are not allowed to use any built-in function which evaluates strings as mathematical expressions, such as `eval()`.",
+        "constraints": "- `1 <= s.length <= 3 * 10^5`\n- `s` consists of integers and operators `('+', '-', '*', '/')` separated by some number of spaces.\n- `s` represents a valid expression.\n- All the integers in the expression are non-negative integers in the range `[0, 2^31 - 1]`.\n- The answer is **guaranteed** to fit in a **32-bit integer**.",
+        "examples": [
+            {
+                "input": "s = \"3+2*2\"",
+                "output": "7"
+            },
+            {
+                "input": "s = \" 3/2 \"",
+                "output": "1"
+            },
+            {
+                "input": "s = \" 3+5 / 2 \"",
+                "output": "5"
+            }
+        ],
+        "starterCode": [
+            {
+                "language": "javascript",
+                "code": "/**\n * @param {string} s\n * @return {number}\n */\nvar calculate = function(s) {\n    \n};"
+            },
+            {
+                "language": "python",
+                "code": "class Solution:\n    def calculate(self, s: str) -> int:\n        pass"
+            },
+            {
+                "language": "java",
+                "code": "class Solution {\n    public int calculate(String s) {\n        // Write your code here\n    }\n}"
+            }
+        ],
+        "functionName": "calculate"
+    }
+]

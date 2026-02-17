@@ -37,9 +37,9 @@ const AptitudeLayout = ({ children }) => {
             <aside className="w-full md:w-64 flex-shrink-0">
                 <div className="sticky top-24 space-y-6">
                     {/* Navigation Panel */}
-                    <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
-                        <div className="p-5 border-b border-gray-100 bg-gray-50/50">
-                            <h2 className="font-extrabold text-gray-900 text-lg flex items-center gap-2">
+                    <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 overflow-hidden">
+                        <div className="p-5 border-b border-gray-100 dark:border-gray-700 bg-gray-50/50 dark:bg-gray-900/50">
+                            <h2 className="font-extrabold text-gray-900 dark:text-white text-lg flex items-center gap-2">
                                 <span className="text-xl text-indigo-500"><FiCpu /></span> Learning Path
                             </h2>
                         </div>
@@ -49,8 +49,8 @@ const AptitudeLayout = ({ children }) => {
                                 end
                                 className={({ isActive }) =>
                                     `flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-bold transition-all ${isActive
-                                        ? 'bg-gray-900 text-white shadow-md transform scale-105'
-                                        : 'text-gray-500 hover:bg-gray-50 hover:text-gray-900'
+                                        ? 'bg-gray-900 dark:bg-white text-white dark:text-gray-900 shadow-md transform scale-105'
+                                        : 'text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-700/50 hover:text-gray-900 dark:hover:text-white'
                                     }`
                                 }
                             >
@@ -67,8 +67,8 @@ const AptitudeLayout = ({ children }) => {
                                     to={`/aptitude/${cat.id}`}
                                     className={({ isActive }) =>
                                         `flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-bold transition-all ${isActive || location.pathname.includes(`/aptitude/${cat.id}`)
-                                            ? `${cat.bg} ${cat.color} shadow-sm transform translate-x-1`
-                                            : 'text-gray-500 hover:bg-gray-50 hover:text-gray-900'
+                                            ? `${cat.bg} dark:bg-opacity-10 ${cat.color} shadow-sm transform translate-x-1 border border-transparent dark:border-${cat.color.split('-')[1]}-500/20`
+                                            : 'text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-700/50 hover:text-gray-900 dark:hover:text-white'
                                         }`
                                     }
                                 >

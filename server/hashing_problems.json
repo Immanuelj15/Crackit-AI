@@ -1,0 +1,654 @@
+[
+    {
+        "title": "Two Sum",
+        "difficulty": "Easy",
+        "description": "## Two Sum\n\nGiven an array of integers `nums` and an integer `target`, return indices of the two numbers such that they add up to `target`.\n\nYou may assume that each input would have **exactly one solution**, and you may not use the *same* element twice.\n\nYou can return the answer in any order.",
+        "constraints": "- `2 <= nums.length <= 10^4`\n- `-10^9 <= nums[i] <= 10^9`\n- `-10^9 <= target <= 10^9`\n- **Only one valid answer exists.**",
+        "examples": [
+            {
+                "input": "nums = [2,7,11,15], target = 9",
+                "output": "[0,1]",
+                "explanation": "Because nums[0] + nums[1] == 9, we return [0, 1]."
+            },
+            {
+                "input": "nums = [3,2,4], target = 6",
+                "output": "[1,2]"
+            },
+            {
+                "input": "nums = [3,3], target = 6",
+                "output": "[0,1]"
+            }
+        ],
+        "starterCode": [
+            {
+                "language": "javascript",
+                "code": "/**\n * @param {number[]} nums\n * @param {number} target\n * @return {number[]}\n */\nvar twoSum = function(nums, target) {\n    \n};"
+            },
+            {
+                "language": "python",
+                "code": "class Solution:\n    def twoSum(self, nums: List[int], target: int) -> List[int]:\n        pass"
+            },
+            {
+                "language": "java",
+                "code": "class Solution {\n    public int[] twoSum(int[] nums, int target) {\n        // Write your code here\n    }\n}"
+            }
+        ],
+        "functionName": "twoSum"
+    },
+    {
+        "title": "Contains Duplicate",
+        "difficulty": "Easy",
+        "description": "## Contains Duplicate\n\nGiven an integer array `nums`, return `true` if any value appears **at least twice** in the array, and return `false` if every element is distinct.",
+        "constraints": "- `1 <= nums.length <= 10^5`\n- `-10^9 <= nums[i] <= 10^9`",
+        "examples": [
+            {
+                "input": "nums = [1,2,3,1]",
+                "output": "true"
+            },
+            {
+                "input": "nums = [1,2,3,4]",
+                "output": "false"
+            },
+            {
+                "input": "nums = [1,1,1,3,3,4,3,2,4,2]",
+                "output": "true"
+            }
+        ],
+        "starterCode": [
+            {
+                "language": "javascript",
+                "code": "/**\n * @param {number[]} nums\n * @return {boolean}\n */\nvar containsDuplicate = function(nums) {\n    \n};"
+            },
+            {
+                "language": "python",
+                "code": "class Solution:\n    def containsDuplicate(self, nums: List[int]) -> bool:\n        pass"
+            },
+            {
+                "language": "java",
+                "code": "class Solution {\n    public boolean containsDuplicate(int[] nums) {\n        // Write your code here\n    }\n}"
+            }
+        ],
+        "functionName": "containsDuplicate"
+    },
+    {
+        "title": "Valid Anagram",
+        "difficulty": "Easy",
+        "description": "## Valid Anagram\n\nGiven two strings `s` and `t`, return `true` if `t` is an anagram of `s`, and `false` otherwise.\n\nAn **Anagram** is a word or phrase formed by rearranging the letters of a different word or phrase, typically using all the original letters exactly once.",
+        "constraints": "- `1 <= s.length, t.length <= 5 * 10^4`\n- `s` and `t` consist of lowercase English letters.",
+        "examples": [
+            {
+                "input": "s = \"anagram\", t = \"nagaram\"",
+                "output": "true"
+            },
+            {
+                "input": "s = \"rat\", t = \"car\"",
+                "output": "false"
+            }
+        ],
+        "starterCode": [
+            {
+                "language": "javascript",
+                "code": "/**\n * @param {string} s\n * @param {string} t\n * @return {boolean}\n */\nvar isAnagram = function(s, t) {\n    \n};"
+            },
+            {
+                "language": "python",
+                "code": "class Solution:\n    def isAnagram(self, s: str, t: str) -> bool:\n        pass"
+            },
+            {
+                "language": "java",
+                "code": "class Solution {\n    public boolean isAnagram(String s, String t) {\n        // Write your code here\n    }\n}"
+            }
+        ],
+        "functionName": "isAnagram"
+    },
+    {
+        "title": "First Unique Character in a String",
+        "difficulty": "Easy",
+        "description": "## First Unique Character in a String\n\nGiven a string `s`, find the first non-repeating character in it and return its index. If it does not exist, return `-1`.",
+        "constraints": "- `1 <= s.length <= 10^5`\n- `s` consists of only lowercase English letters.",
+        "examples": [
+            {
+                "input": "s = \"leetcode\"",
+                "output": "0"
+            },
+            {
+                "input": "s = \"loveleetcode\"",
+                "output": "2"
+            },
+            {
+                "input": "s = \"aabb\"",
+                "output": "-1"
+            }
+        ],
+        "starterCode": [
+            {
+                "language": "javascript",
+                "code": "/**\n * @param {string} s\n * @return {number}\n */\nvar firstUniqChar = function(s) {\n    \n};"
+            },
+            {
+                "language": "python",
+                "code": "class Solution:\n    def firstUniqChar(self, s: str) -> int:\n        pass"
+            },
+            {
+                "language": "java",
+                "code": "class Solution {\n    public int firstUniqChar(String s) {\n        // Write your code here\n    }\n}"
+            }
+        ],
+        "functionName": "firstUniqChar"
+    },
+    {
+        "title": "Intersection of Two Arrays",
+        "difficulty": "Easy",
+        "description": "## Intersection of Two Arrays\n\nGiven two integer arrays `nums1` and `nums2`, return an array of their intersection. Each element in the result must be **unique** and you may return the result in **any order**.",
+        "constraints": "- `1 <= nums1.length, nums2.length <= 1000`\n- `0 <= nums1[i], nums2[i] <= 1000`",
+        "examples": [
+            {
+                "input": "nums1 = [1,2,2,1], nums2 = [2,2]",
+                "output": "[2]"
+            },
+            {
+                "input": "nums1 = [4,9,5], nums2 = [9,4,9,8,4]",
+                "output": "[9,4]",
+                "explanation": "[4,9] is also accepted."
+            }
+        ],
+        "starterCode": [
+            {
+                "language": "javascript",
+                "code": "/**\n * @param {number[]} nums1\n * @param {number[]} nums2\n * @return {number[]}\n */\nvar intersection = function(nums1, nums2) {\n    \n};"
+            },
+            {
+                "language": "python",
+                "code": "class Solution:\n    def intersection(self, nums1: List[int], nums2: List[int]) -> List[int]:\n        pass"
+            },
+            {
+                "language": "java",
+                "code": "class Solution {\n    public int[] intersection(int[] nums1, int[] nums2) {\n        // Write your code here\n    }\n}"
+            }
+        ],
+        "functionName": "intersection"
+    },
+    {
+        "title": "Happy Number",
+        "difficulty": "Easy",
+        "description": "## Happy Number\n\nWrite an algorithm to determine if a number `n` is happy.\n\nA **happy number** is a number defined by the following process:\n1. Starting with any positive integer, replace the number by the sum of the squares of its digits.\n2. Repeat the process until the number equals 1 (where it will stay), or it loops endlessly in a cycle which does not include 1.\n3. Those numbers for which this process ends in 1 are happy.\n\nReturn `true` if `n` is a happy number, and `false` if not.",
+        "constraints": "- `1 <= n <= 2^31 - 1`",
+        "examples": [
+            {
+                "input": "n = 19",
+                "output": "true",
+                "explanation": "1^2 + 9^2 = 82\n8^2 + 2^2 = 68\n6^2 + 8^2 = 100\n1^2 + 0^2 + 0^2 = 1"
+            },
+            {
+                "input": "n = 2",
+                "output": "false"
+            }
+        ],
+        "starterCode": [
+            {
+                "language": "javascript",
+                "code": "/**\n * @param {number} n\n * @return {boolean}\n */\nvar isHappy = function(n) {\n    \n};"
+            },
+            {
+                "language": "python",
+                "code": "class Solution:\n    def isHappy(self, n: int) -> bool:\n        pass"
+            },
+            {
+                "language": "java",
+                "code": "class Solution {\n    public boolean isHappy(int n) {\n        // Write your code here\n    }\n}"
+            }
+        ],
+        "functionName": "isHappy"
+    },
+    {
+        "title": "Jewels and Stones",
+        "difficulty": "Easy",
+        "description": "## Jewels and Stones\n\nYou're given strings `jewels` representing the types of stones that are jewels, and `stones` representing the stones you have. Each character in `stones` is a type of stone you have. You want to know how many of the stones you have are also jewels.\n\nLetters are case sensitive, so `\"a\"` is considered a different type of stone from `\"A\"`.",
+        "constraints": "- `1 <= jewels.length, stones.length <= 50`\n- `jewels` and `stones` consist of only English letters.\n- All the characters of `jewels` are **unique**.",
+        "examples": [
+            {
+                "input": "jewels = \"aA\", stones = \"aAAbbbb\"",
+                "output": "3"
+            },
+            {
+                "input": "jewels = \"z\", stones = \"ZZ\"",
+                "output": "0"
+            }
+        ],
+        "starterCode": [
+            {
+                "language": "javascript",
+                "code": "/**\n * @param {string} jewels\n * @param {string} stones\n * @return {number}\n */\nvar numJewelsInStones = function(jewels, stones) {\n    \n};"
+            },
+            {
+                "language": "python",
+                "code": "class Solution:\n    def numJewelsInStones(self, jewels: str, stones: str) -> int:\n        pass"
+            },
+            {
+                "language": "java",
+                "code": "class Solution {\n    public int numJewelsInStones(String jewels, String stones) {\n        // Write your code here\n    }\n}"
+            }
+        ],
+        "functionName": "numJewelsInStones"
+    },
+    {
+        "title": "Group Anagrams",
+        "difficulty": "Medium",
+        "description": "## Group Anagrams\n\nGiven an array of strings `strs`, group the **anagrams** together. You can return the answer in **any order**.\n\nAn **Anagram** is a word or phrase formed by rearranging the letters of a different word or phrase, typically using all the original letters exactly once.",
+        "constraints": "- `1 <= strs.length <= 10^4`\n- `0 <= strs[i].length <= 100`\n- `strs[i]` consists of lowercase English letters.",
+        "examples": [
+            {
+                "input": "strs = [\"eat\",\"tea\",\"tan\",\"ate\",\"nat\",\"bat\"]",
+                "output": "[[\"bat\"],[\"nat\",\"tan\"],[\"ate\",\"eat\",\"tea\"]]"
+            },
+            {
+                "input": "strs = [\"\"]",
+                "output": "[[\"\"]]"
+            },
+            {
+                "input": "strs = [\"a\"]",
+                "output": "[[\"a\"]]"
+            }
+        ],
+        "starterCode": [
+            {
+                "language": "javascript",
+                "code": "/**\n * @param {string[]} strs\n * @return {string[][]}\n */\nvar groupAnagrams = function(strs) {\n    \n};"
+            },
+            {
+                "language": "python",
+                "code": "class Solution:\n    def groupAnagrams(self, strs: List[str]) -> List[List[str]]:\n        pass"
+            },
+            {
+                "language": "java",
+                "code": "class Solution {\n    public List<List<String>> groupAnagrams(String[] strs) {\n        // Write your code here\n    }\n}"
+            }
+        ],
+        "functionName": "groupAnagrams"
+    },
+    {
+        "title": "Top K Frequent Elements",
+        "difficulty": "Medium",
+        "description": "## Top K Frequent Elements\n\nGiven an integer array `nums` and an integer `k`, return the `k` most frequent elements. You may return the answer in **any order**.",
+        "constraints": "- `1 <= nums.length <= 10^5`\n- `-10^4 <= nums[i] <= 10^4`\n- `k` is in the range `[1, the number of unique elements in the array]`.\n- It is **guaranteed** that the answer is **unique**.",
+        "examples": [
+            {
+                "input": "nums = [1,1,1,2,2,3], k = 2",
+                "output": "[1,2]"
+            },
+            {
+                "input": "nums = [1], k = 1",
+                "output": "[1]"
+            }
+        ],
+        "starterCode": [
+            {
+                "language": "javascript",
+                "code": "/**\n * @param {number[]} nums\n * @param {number} k\n * @return {number[]}\n */\nvar topKFrequent = function(nums, k) {\n    \n};"
+            },
+            {
+                "language": "python",
+                "code": "class Solution:\n    def topKFrequent(self, nums: List[int], k: int) -> List[int]:\n        pass"
+            },
+            {
+                "language": "java",
+                "code": "class Solution {\n    public int[] topKFrequent(int[] nums, int k) {\n        // Write your code here\n    }\n}"
+            }
+        ],
+        "functionName": "topKFrequent"
+    },
+    {
+        "title": "Longest Consecutive Sequence",
+        "difficulty": "Medium",
+        "description": "## Longest Consecutive Sequence\n\nGiven an unsorted array of integers `nums`, return the length of the longest consecutive elements sequence.\n\nYou must write an algorithm that runs in `O(n)` time.",
+        "constraints": "- `0 <= nums.length <= 10^5`\n- `-10^9 <= nums[i] <= 10^9`",
+        "examples": [
+            {
+                "input": "nums = [100,4,200,1,3,2]",
+                "output": "4",
+                "explanation": "The longest consecutive elements sequence is [1, 2, 3, 4]. Therefore its length is 4."
+            },
+            {
+                "input": "nums = [0,3,7,2,5,8,4,6,0,1]",
+                "output": "9"
+            }
+        ],
+        "starterCode": [
+            {
+                "language": "javascript",
+                "code": "/**\n * @param {number[]} nums\n * @return {number}\n */\nvar longestConsecutive = function(nums) {\n    \n};"
+            },
+            {
+                "language": "python",
+                "code": "class Solution:\n    def longestConsecutive(self, nums: List[int]) -> int:\n        pass"
+            },
+            {
+                "language": "java",
+                "code": "class Solution {\n    public int longestConsecutive(int[] nums) {\n        // Write your code here\n    }\n}"
+            }
+        ],
+        "functionName": "longestConsecutive"
+    },
+    {
+        "title": "Subarray Sum Equals K",
+        "difficulty": "Medium",
+        "description": "## Subarray Sum Equals K\n\nGiven an array of integers `nums` and an integer `k`, return the total number of subarrays whose sum equals to `k`.\n\nA subarray is a contiguous non-empty sequence of elements within an array.",
+        "constraints": "- `1 <= nums.length <= 2 * 10^4`\n- `-1000 <= nums[i] <= 1000`\n- `-10^7 <= k <= 10^7`",
+        "examples": [
+            {
+                "input": "nums = [1,1,1], k = 2",
+                "output": "2"
+            },
+            {
+                "input": "nums = [1,2,3], k = 3",
+                "output": "2"
+            }
+        ],
+        "starterCode": [
+            {
+                "language": "javascript",
+                "code": "/**\n * @param {number[]} nums\n * @param {number} k\n * @return {number}\n */\nvar subarraySum = function(nums, k) {\n    \n};"
+            },
+            {
+                "language": "python",
+                "code": "class Solution:\n    def subarraySum(self, nums: List[int], k: int) -> int:\n        pass"
+            },
+            {
+                "language": "java",
+                "code": "class Solution {\n    public int subarraySum(int[] nums, int k) {\n        // Write your code here\n    }\n}"
+            }
+        ],
+        "functionName": "subarraySum"
+    },
+    {
+        "title": "Encode and Decode TinyURL",
+        "difficulty": "Medium",
+        "description": "## Encode and Decode TinyURL\n\nNote: This is a companion problem to the [System Design](https://leetcode.com/discuss/interview-question/system-design/) problem: [Design TinyURL](https://leetcode.com/problems/design-tinyurl/).\n\nTinyURL is a URL shortening service where you enter a URL such as `https://leetcode.com/problems/design-tinyurl` and it returns a short URL such as `http://tinyurl.com/4e9iAk`.\n\nDesign a class to encode a URL and decode a tiny URL.\n\nThere is no restriction on how your encode/decode algorithm should work. You just need to ensure that a URL can be encoded to a tiny URL and the tiny URL can be decoded to the original URL.\n\nImplement the `Solution` class:\n- `Solution()` Initializes the object of the system.\n- `String encode(String longUrl)` Returns a tiny URL for the given `longUrl`.\n- `String decode(String shortUrl)` Returns the original URL for the given `shortUrl`.",
+        "constraints": "- `1 <= url.length <= 10^4`\n- `url` is guranteed to be a valid URL.",
+        "examples": [
+            {
+                "input": "url = \"https://leetcode.com/problems/design-tinyurl\"",
+                "output": "\"https://leetcode.com/problems/design-tinyurl\"",
+                "explanation": "Solution obj = new Solution();\nstring tiny = obj.encode(url); // returns the encoded tiny url.\nstring ans = obj.decode(tiny); // returns the original url after decoding it."
+            }
+        ],
+        "starterCode": [
+            {
+                "language": "javascript",
+                "code": "/**\n * Encodes a URL to a shortened URL.\n *\n * @param {string} longUrl\n * @return {string}\n */\nvar encode = function(longUrl) {\n    \n};\n\n/**\n * Decodes a shortened URL to its original URL.\n *\n * @param {string} shortUrl\n * @return {string}\n */\nvar decode = function(shortUrl) {\n    \n};\n\n/**\n * Your functions will be called as such:\n * decode(encode(url));\n */"
+            },
+            {
+                "language": "python",
+                "code": "class Codec:\n\n    def encode(self, longUrl: str) -> str:\n        \"\"\"Encodes a URL to a shortened URL.\n        \"\"\"\n        pass\n\n    def decode(self, shortUrl: str) -> str:\n        \"\"\"Decodes a shortened URL to its original URL.\n        \"\"\"\n        pass\n\n# Your Codec object will be instantiated and called as such:\n# codec = Codec()\n# codec.decode(codec.encode(url))"
+            },
+            {
+                "language": "java",
+                "code": "public class Codec {\n\n    // Encodes a URL to a shortened URL.\n    public String encode(String longUrl) {\n        \n    }\n\n    // Decodes a shortened URL to its original URL.\n    public String decode(String shortUrl) {\n        \n    }\n}\n\n// Your Codec object will be instantiated and called as such:\n// Codec codec = new Codec();\n// codec.decode(codec.encode(url));"
+            }
+        ],
+        "functionName": "encode"
+    },
+    {
+        "title": "Find All Duplicates in an Array",
+        "difficulty": "Medium",
+        "description": "## Find All Duplicates in an Array\n\nGiven an integer array `nums` of length `n` where all the integers of `nums` are in the range `[1, n]` and each integer appears **once** or **twice**, return an array of all the integers that appears **twice**.\n\nYou must write an algorithm that runs in `O(n)` time and uses only constant extra space.",
+        "constraints": "- `n == nums.length`\n- `1 <= n <= 10^5`\n- `1 <= nums[i] <= n`\n- Each element in `nums` appears **once** or **twice**.",
+        "examples": [
+            {
+                "input": "nums = [4,3,2,7,8,2,3,1]",
+                "output": "[2,3]"
+            },
+            {
+                "input": "nums = [1,1,2]",
+                "output": "[1]"
+            },
+            {
+                "input": "nums = [1]",
+                "output": "[]"
+            }
+        ],
+        "starterCode": [
+            {
+                "language": "javascript",
+                "code": "/**\n * @param {number[]} nums\n * @return {number[]}\n */\nvar findDuplicates = function(nums) {\n    \n};"
+            },
+            {
+                "language": "python",
+                "code": "class Solution:\n    def findDuplicates(self, nums: List[int]) -> List[int]:\n        pass"
+            },
+            {
+                "language": "java",
+                "code": "class Solution {\n    public List<Integer> findDuplicates(int[] nums) {\n        // Write your code here\n    }\n}"
+            }
+        ],
+        "functionName": "findDuplicates"
+    },
+    {
+        "title": "Minimum Number of Operations to Make Array Empty",
+        "difficulty": "Medium",
+        "description": "## Minimum Number of Operations to Make Array Empty\n\nYou are given a **0-indexed** array `nums` consisting of positive integers.\n\nThere are two types of operations that you can apply on the array **any** number of times:\n- Choose **two** elements with **equal** values and delete them from the array.\n- Choose **three** elements with **equal** values and delete them from the array.\n\nReturn the **minimum** number of operations required to make the array empty, or `-1` if it is not possible.",
+        "constraints": "- `2 <= nums.length <= 10^5`\n- `1 <= nums[i] <= 10^6`",
+        "examples": [
+            {
+                "input": "nums = [2,3,3,2,2,4,2,3,4]",
+                "output": "4",
+                "explanation": "We can apply the following operations to make the array empty:\n- Apply the first operation on the elements at indices 0 and 3. The resulting array is nums = [3,3,2,4,2,3,4].\n- Apply the first operation on the elements at indices 2 and 4. The resulting array is nums = [3,3,4,3,4].\n- Apply the second operation on the elements at indices 0, 1, and 3. The resulting array is nums = [4,4].\n- Apply the first operation on the elements at indices 0 and 1. The resulting array is nums = [].\nIt can be shown that we cannot make the array empty in less than 4 operations."
+            },
+            {
+                "input": "nums = [2,1,2,2,3,3]",
+                "output": "-1",
+                "explanation": "It is impossible to empty the array."
+            }
+        ],
+        "starterCode": [
+            {
+                "language": "javascript",
+                "code": "/**\n * @param {number[]} nums\n * @return {number}\n */\nvar minOperations = function(nums) {\n    \n};"
+            },
+            {
+                "language": "python",
+                "code": "class Solution:\n    def minOperations(self, nums: List[int]) -> int:\n        pass"
+            },
+            {
+                "language": "java",
+                "code": "class Solution {\n    public int minOperations(int[] nums) {\n        // Write your code here\n    }\n}"
+            }
+        ],
+        "functionName": "minOperations"
+    },
+    {
+        "title": "LRU Cache",
+        "difficulty": "Hard",
+        "description": "## LRU Cache\n\nDesign a data structure that follows the constraints of a **Least Recently Used (LRU) cache**.\n\nImplement the `LRUCache` class:\n- `LRUCache(int capacity)` Initialize the LRU cache with **positive** size `capacity`.\n- `int get(int key)` Return the value of the `key` if the key exists, otherwise return `-1`.\n- `void put(int key, int value)` Update the value of the `key` if the `key` exists. Otherwise, add the `key-value` pair to the cache. If the number of keys exceeds the `capacity` from this operation, **evict** the least recently used key.\n\nThe functions `get` and `put` must each run in `O(1)` average time complexity.",
+        "constraints": "- `1 <= capacity <= 3000`\n- `0 <= key <= 10^4`\n- `0 <= value <= 10^5`\n- At most `2 * 10^5` calls will be made to `get` and `put`.",
+        "examples": [
+            {
+                "input": "[\"LRUCache\", \"put\", \"put\", \"get\", \"put\", \"get\", \"put\", \"get\", \"get\", \"get\"]\n[[2], [1, 1], [2, 2], [1], [3, 3], [2], [4, 4], [1], [3], [4]]",
+                "output": "[null, null, null, 1, null, -1, null, -1, 3, 4]",
+                "explanation": "LRUCache lRUCache = new LRUCache(2);\nlRUCache.put(1, 1); // cache is {1=1}\nlRUCache.put(2, 2); // cache is {1=1, 2=2}\nlRUCache.get(1);    // return 1\nlRUCache.put(3, 3); // LRU key was 2, evicts key 2, cache is {1=1, 3=3}\nlRUCache.get(2);    // returns -1 (not found)\nlRUCache.put(4, 4); // LRU key was 1, evicts key 1, cache is {4=4, 3=3}\nlRUCache.get(1);    // return -1 (not found)\nlRUCache.get(3);    // return 3\nlRUCache.get(4);    // return 4"
+            }
+        ],
+        "starterCode": [
+            {
+                "language": "javascript",
+                "code": "/**\n * @param {number} capacity\n */\nvar LRUCache = function(capacity) {\n    \n};\n\n/** \n * @param {number} key\n * @return {number}\n */\nLRUCache.prototype.get = function(key) {\n    \n};\n\n/** \n * @param {number} key \n * @param {number} value\n * @return {void}\n */\nLRUCache.prototype.put = function(key, value) {\n    \n};\n\n/** \n * Your LRUCache object will be instantiated and called as such:\n * var obj = new LRUCache(capacity)\n * var param_1 = obj.get(key)\n * obj.put(key,value)\n */"
+            },
+            {
+                "language": "python",
+                "code": "class LRUCache:\n\n    def __init__(self, capacity: int):\n        pass\n\n    def get(self, key: int) -> int:\n        pass\n\n    def put(self, key: int, value: int) -> None:\n        pass\n\n# Your LRUCache object will be instantiated and called as such:\n# obj = LRUCache(capacity)\n# param_1 = obj.get(key)\n# obj.put(key,value)"
+            },
+            {
+                "language": "java",
+                "code": "class LRUCache {\n\n    public LRUCache(int capacity) {\n        \n    }\n    \n    public int get(int key) {\n        \n    }\n    \n    public void put(int key, int value) {\n        \n    }\n}\n\n/**\n * Your LRUCache object will be instantiated and called as such:\n * LRUCache obj = new LRUCache(capacity);\n * int param_1 = obj.get(key);\n * obj.put(key,value);\n */"
+            }
+        ],
+        "functionName": "LRUCache"
+    },
+    {
+        "title": "First Missing Positive",
+        "difficulty": "Hard",
+        "description": "## First Missing Positive\n\nGiven an unsorted integer array `nums`, return the smallest missing positive integer.\n\nYou must implement an algorithm that runs in `O(n)` time and uses `O(1)` auxiliary space.",
+        "constraints": "- `1 <= nums.length <= 10^5`\n- `-2^31 <= nums[i] <= 2^31 - 1`",
+        "examples": [
+            {
+                "input": "nums = [1,2,0]",
+                "output": "3",
+                "explanation": "The numbers in the range [1,2] are all in the array."
+            },
+            {
+                "input": "nums = [3,4,-1,1]",
+                "output": "2",
+                "explanation": "1 is in the array but 2 is missing."
+            },
+            {
+                "input": "nums = [7,8,9,11,12]",
+                "output": "1",
+                "explanation": "The smallest positive integer 1 is missing."
+            }
+        ],
+        "starterCode": [
+            {
+                "language": "javascript",
+                "code": "/**\n * @param {number[]} nums\n * @return {number}\n */\nvar firstMissingPositive = function(nums) {\n    \n};"
+            },
+            {
+                "language": "python",
+                "code": "class Solution:\n    def firstMissingPositive(self, nums: List[int]) -> int:\n        pass"
+            },
+            {
+                "language": "java",
+                "code": "class Solution {\n    public int firstMissingPositive(int[] nums) {\n        // Write your code here\n    }\n}"
+            }
+        ],
+        "functionName": "firstMissingPositive"
+    },
+    {
+        "title": "Insert Delete GetRandom O(1)",
+        "difficulty": "Hard",
+        "description": "## Insert Delete GetRandom O(1)\n\nImplement the `RandomizedSet` class:\n\n- `RandomizedSet()` Initializes the `RandomizedSet` object.\n- `bool insert(int val)` Inserts an item `val` into the set if not present. Returns `true` if the item was not present, `false` otherwise.\n- `bool remove(int val)` Removes an item `val` from the set if present. Returns `true` if the item was present, `false` otherwise.\n- `int getRandom()` Returns a random element from the current set of elements (it's guaranteed that at least one element exists when this method is called). Each element must have the **same probability** of being returned.\n\nYou must implement the functions of the class such that each function works in **average** `O(1)` time complexity.",
+        "constraints": "- `-2^31 <= val <= 2^31 - 1`\n- At most `2 * 10^5` calls will be made to `insert`, `remove`, and `getRandom`.\n- There will be **at least one** element in the data structure when `getRandom` is called.",
+        "examples": [
+            {
+                "input": "[\"RandomizedSet\", \"insert\", \"remove\", \"insert\", \"getRandom\", \"remove\", \"insert\", \"getRandom\"]\n[[], [1], [2], [2], [], [1], [2], []]",
+                "output": "[null, true, false, true, 2, true, false, 2]",
+                "explanation": "RandomizedSet randomizedSet = new RandomizedSet();\nrandomizedSet.insert(1); // Inserts 1 to the set. Returns true as 1 was inserted successfully.\nrandomizedSet.remove(2); // Returns false as 2 does not exist in the set.\nrandomizedSet.insert(2); // Inserts 2 to the set, returns true. Set now contains [1,2].\nrandomizedSet.getRandom(); // getRandom() should return either 1 or 2 randomly.\nrandomizedSet.remove(1); // Removes 1 from the set, returns true. Set now contains [2].\nrandomizedSet.insert(2); // 2 was already in the set, so return false.\nrandomizedSet.getRandom(); // Since 2 is the only number in the set, getRandom() will always return 2."
+            }
+        ],
+        "starterCode": [
+            {
+                "language": "javascript",
+                "code": "\nvar RandomizedSet = function() {\n    \n};\n\n/** \n * @param {number} val\n * @return {boolean}\n */\nRandomizedSet.prototype.insert = function(val) {\n    \n};\n\n/** \n * @param {number} val\n * @return {boolean}\n */\nRandomizedSet.prototype.remove = function(val) {\n    \n};\n\n/**\n * @return {number}\n */\nRandomizedSet.prototype.getRandom = function() {\n    \n};\n\n/** \n * Your RandomizedSet object will be instantiated and called as such:\n * var obj = new RandomizedSet()\n * var param_1 = obj.insert(val)\n * var param_2 = obj.remove(val)\n * var param_3 = obj.getRandom()\n */"
+            },
+            {
+                "language": "python",
+                "code": "class RandomizedSet:\n\n    def __init__(self):\n        pass\n\n    def insert(self, val: int) -> bool:\n        pass\n\n    def remove(self, val: int) -> bool:\n        pass\n\n    def getRandom(self) -> int:\n        pass\n\n# Your RandomizedSet object will be instantiated and called as such:\n# obj = RandomizedSet()\n# param_1 = obj.insert(val)\n# param_2 = obj.remove(val)\n# param_3 = obj.getRandom()"
+            },
+            {
+                "language": "java",
+                "code": "class RandomizedSet {\n\n    public RandomizedSet() {\n        \n    }\n    \n    public boolean insert(int val) {\n        \n    }\n    \n    public boolean remove(int val) {\n        \n    }\n    \n    public int getRandom() {\n        \n    }\n}"
+            }
+        ],
+        "functionName": "RandomizedSet"
+    },
+    {
+        "title": "Substring with Concatenation of All Words",
+        "difficulty": "Hard",
+        "description": "## Substring with Concatenation of All Words\n\nYou are given a string `s` and an array of strings `words`. All the strings of `words` are of **the same length**.\n\nA **concatenated string** is a string that exactly contains all the strings of any permutation of `words` concatenated.\n\n- For example, if `words = [\"ab\",\"cd\",\"ef\"]`, then `\"abcdef\"`, `\"abefcd\"`, `\"cdabef\"`, `\"cdefab\"`, `\"efabcd\"`, and `\"efcdab\"` are all concatenated strings. `\"acdbef\"` is not a concatenated string because it is not the concatenation of any permutation of `words`.\n\nReturn an array of the starting indices of all the concatenated substrings in `s`. You can return the answer in **any order**.",
+        "constraints": "- `1 <= s.length <= 10^4`\n- `1 <= words.length <= 5000`\n- `1 <= words[i].length <= 30`\n- `s` and `words[i]` consist of lowercase English letters.",
+        "examples": [
+            {
+                "input": "s = \"barfoothefoobarman\", words = [\"foo\",\"bar\"]",
+                "output": "[0,9]",
+                "explanation": "The substring starting at 0 is \"barfoo\". It is the concatenation of [\"bar\",\"foo\"] which is a permutation of words.\nThe substring starting at 9 is \"foobar\". It is the concatenation of [\"foo\",\"bar\"] which is a permutation of words."
+            },
+            {
+                "input": "s = \"wordgoodgoodgoodbestword\", words = [\"word\",\"good\",\"best\",\"word\"]",
+                "output": "[]",
+                "explanation": "There is no concatenated substring."
+            },
+            {
+                "input": "s = \"barfoofoobarthefoobarman\", words = [\"bar\",\"foo\",\"the\"]",
+                "output": "[6,9,12]"
+            }
+        ],
+        "starterCode": [
+            {
+                "language": "javascript",
+                "code": "/**\n * @param {string} s\n * @param {string[]} words\n * @return {number[]}\n */\nvar findSubstring = function(s, words) {\n    \n};"
+            },
+            {
+                "language": "python",
+                "code": "class Solution:\n    def findSubstring(self, s: str, words: List[str]) -> List[int]:\n        pass"
+            },
+            {
+                "language": "java",
+                "code": "class Solution {\n    public List<Integer> findSubstring(String s, String[] words) {\n        // Write your code here\n    }\n}"
+            }
+        ],
+        "functionName": "findSubstring"
+    },
+    {
+        "title": "Minimum Window Substring",
+        "difficulty": "Hard",
+        "description": "## Minimum Window Substring\n\nGiven two strings `s` and `t` of lengths `m` and `n` respectively, return the **minimum window substring** of `s` such that every character in `t` (**including duplicates**) is included in the window. If there is no such substring, return the empty string `\"\"`.\n\nThe testcases will be generated such that the answer is **unique**.",
+        "constraints": "- `m == s.length`\n- `n == t.length`\n- `1 <= m, n <= 10^5`\n- `s` and `t` consist of uppercase and lowercase English letters.",
+        "examples": [
+            {
+                "input": "s = \"ADOBECODEBANC\", t = \"ABC\"",
+                "output": "\"BANC\"",
+                "explanation": "The minimum window substring \"BANC\" includes 'A', 'B', and 'C' from string t."
+            },
+            {
+                "input": "s = \"a\", t = \"a\"",
+                "output": "\"a\""
+            },
+            {
+                "input": "s = \"a\", t = \"aa\"",
+                "output": "\"\""
+            }
+        ],
+        "starterCode": [
+            {
+                "language": "javascript",
+                "code": "/**\n * @param {string} s\n * @param {string} t\n * @return {string}\n */\nvar minWindow = function(s, t) {\n    \n};"
+            },
+            {
+                "language": "python",
+                "code": "class Solution:\n    def minWindow(self, s: str, t: str) -> str:\n        pass"
+            },
+            {
+                "language": "java",
+                "code": "class Solution {\n    public String minWindow(String s, String t) {\n        // Write your code here\n    }\n}"
+            }
+        ],
+        "functionName": "minWindow"
+    },
+    {
+        "title": "Design Twitter",
+        "difficulty": "Hard",
+        "description": "## Design Twitter\n\nDesign a simplified version of Twitter where users can post tweets, follow/unfollow another user, and is able to see the `10` most recent tweets in the user's news feed.\n\nImplement the `Twitter` class:\n- `Twitter()` Initializes your twitter object.\n- `void postTweet(int userId, int tweetId)` Composes a new tweet with ID `tweetId` by the user `userId`. Each call to this function will be made with a unique `tweetId`.\n- `List<Integer> getNewsFeed(int userId)` Retrieves the `10` most recent tweet IDs in the user's news feed. Each item in the news feed must be posted by users who the user followed or by the user themself. Tweets must be ordered from most recent to least recent.\n- `void follow(int followerId, int followeeId)` The user with ID `followerId` started following the user with ID `followeeId`.\n- `void unfollow(int followerId, int followeeId)` The user with ID `followerId` started unfollowing the user with ID `followeeId`.",
+        "constraints": "- `1 <= userId, followerId, followeeId <= 500`\n- `0 <= tweetId <= 10^4`\n- All the tweets have unique IDs.\n- At most `3 * 10^4` calls will be made to `postTweet`, `getNewsFeed`, `follow`, and `unfollow`.",
+        "examples": [
+            {
+                "input": "[\"Twitter\", \"postTweet\", \"getNewsFeed\", \"follow\", \"postTweet\", \"getNewsFeed\", \"unfollow\", \"getNewsFeed\"]\n[[], [1, 5], [1], [1, 2], [2, 6], [1], [1, 2], [1]]",
+                "output": "[null, null, [5], null, null, [6, 5], null, [5]]",
+                "explanation": "Twitter twitter = new Twitter();\ntwitter.postTweet(1, 5); // User 1 posts a new tweet (id = 5).\ntwitter.getNewsFeed(1);  // User 1's news feed should return a list with 1 tweet id -> [5]. return [5]\ntwitter.follow(1, 2);    // User 1 follows user 2.\ntwitter.postTweet(2, 6); // User 2 posts a new tweet (id = 6).\ntwitter.getNewsFeed(1);  // User 1's news feed should return a list with 2 tweet ids -> [6, 5]. Tweet id 6 should precede tweet id 5 because it is posted after tweet id 5.\ntwitter.unfollow(1, 2);  // User 1 unfollows user 2.\ntwitter.getNewsFeed(1);  // User 1's news feed should return a list with 1 tweet id -> [5], since user 1 is no longer following user 2."
+            }
+        ],
+        "starterCode": [
+            {
+                "language": "javascript",
+                "code": "\nvar Twitter = function() {\n    \n};\n\n/** \n * @param {number} userId \n * @param {number} tweetId\n * @return {void}\n */\nTwitter.prototype.postTweet = function(userId, tweetId) {\n    \n};\n\n/** \n * @param {number} userId\n * @return {number[]}\n */\nTwitter.prototype.getNewsFeed = function(userId) {\n    \n};\n\n/** \n * @param {number} followerId \n * @param {number} followeeId\n * @return {void}\n */\nTwitter.prototype.follow = function(followerId, followeeId) {\n    \n};\n\n/** \n * @param {number} followerId \n * @param {number} followeeId\n * @return {void}\n */\nTwitter.prototype.unfollow = function(followerId, followeeId) {\n    \n};\n\n/** \n * Your Twitter object will be instantiated and called as such:\n * var obj = new Twitter()\n * obj.postTweet(userId,tweetId)\n * var param_2 = obj.getNewsFeed(userId)\n * obj.follow(followerId,followeeId)\n * obj.unfollow(followerId,followeeId)\n */"
+            },
+            {
+                "language": "python",
+                "code": "class Twitter:\n\n    def __init__(self):\n        pass\n\n    def postTweet(self, userId: int, tweetId: int) -> None:\n        pass\n\n    def getNewsFeed(self, userId: int) -> List[int]:\n        pass\n\n    def follow(self, followerId: int, followeeId: int) -> None:\n        pass\n\n    def unfollow(self, followerId: int, followeeId: int) -> None:\n        pass\n\n# Your Twitter object will be instantiated and called as such:\n# obj = Twitter()\n# obj.postTweet(userId,tweetId)\n# param_2 = obj.getNewsFeed(userId)\n# obj.follow(followerId,followeeId)\n# obj.unfollow(followerId,followeeId)"
+            },
+            {
+                "language": "java",
+                "code": "class Twitter {\n\n    public Twitter() {\n        \n    }\n    \n    public void postTweet(int userId, int tweetId) {\n        \n    }\n    \n    public List<Integer> getNewsFeed(int userId) {\n        \n    }\n    \n    public void follow(int followerId, int followeeId) {\n        \n    }\n    \n    public void unfollow(int followerId, int followeeId) {\n        \n    }\n}"
+            }
+        ],
+        "functionName": "Twitter"
+    }
+]
