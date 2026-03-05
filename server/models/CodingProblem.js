@@ -55,13 +55,18 @@ const codingProblemSchema = new mongoose.Schema({
 
     // Execution Data (Hidden from frontend normally)
     driverCode: {
-        functionName: { type: String, required: true }, // The function user must implement
+        functionName: { type: String, required: true },
+        parameterTypes: [{ type: String }],
+        returnType: { type: String }
     },
     testCases: [{
         input: String,
         expectedOutput: String,
         isHidden: { type: Boolean, default: true }
-    }]
+    }],
+    editorial: { type: String },
+    editorialCost: { type: Number, default: 50 },
+    dailyChallengeDate: { type: String } // YYYY-MM-DD
 }, { timestamps: true });
 
 module.exports = mongoose.model('CodingProblem', codingProblemSchema);

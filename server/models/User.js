@@ -54,7 +54,19 @@ const userSchema = new mongoose.Schema({
     lastActiveDate: {
         type: Date,
         default: null
-    }
+    },
+    coins: {
+        type: Number,
+        default: 0
+    },
+    unlockedEditorials: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'CodingProblem'
+    }],
+    activityLog: [{
+        date: { type: String }, // Format: YYYY-MM-DD
+        count: { type: Number, default: 1 }
+    }]
 }, { timestamps: true });
 
 module.exports = mongoose.model('User', userSchema);

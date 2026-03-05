@@ -17,10 +17,6 @@ const getPatterns = async (req, res) => {
             }
         ]);
 
-        // Define all supported patterns to ensure even empty ones might show up if we wanted (optional, but good for UI consistency)
-        // For now, we return what's in DB or we can hardcode the list and merge counts.
-        // Let's return the aggregation result for dynamic data.
-
         res.status(200).json(patterns);
     } catch (error) {
         res.status(500).json({ message: 'Server Error', error: error.message });

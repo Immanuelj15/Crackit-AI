@@ -1,109 +1,156 @@
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Dashboard from './pages/Dashboard';
-import LandingPage from './pages/LandingPage';
-import { useAuth } from './context/AuthContext';
-import { ThemeProvider } from './context/ThemeContext';
-
-import MockInterview from './pages/MockInterview';
+import Landing from './pages/LandingPage';
 import CompanyDetail from './pages/CompanyDetail';
+import AptitudeTest from './pages/AptitudeTest';
+import Companies from './pages/Companies';
+import MockInterview from './pages/MockInterview';
 import TopicSelection from './pages/TopicSelection';
 import TopicDetail from './pages/TopicDetail';
-import Chatbot from './components/ChatBot';
-import Layout from './components/Layout';
-import AptitudeLayout from './components/AptitudeLayout';
+// import ChatbotHistory from './pages/ChatbotHistory'; // File does not exist, removing for now
 import Profile from './pages/Profile';
+import CodingPractice from './pages/CodingPractice';
+import CodingProblemList from './components/CodingProblemList';
+import CodingProblemDetail from './pages/CodingProblemDetail';
+import Leaderboard from './pages/Leaderboard';
+import ProtectedRoute from './components/ProtectedRoute';
+import { ThemeProvider } from './context/ThemeContext';
 
-const ProtectedRoute = ({ children }) => {
-  const { user, loading } = useAuth();
-
-
-  if (loading) return <div>Loading...</div>;
-
-  if (!user) {
-    return <Navigate to="/login" />;
-  }
-
-  return <Layout>{children}</Layout>;
-};
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Landing />,
+  },
+  {
+    path: "/login",
+    element: <Login />,
+  },
+  {
+    path: "/register",
+    element: <Register />,
+  },
+  {
+    path: "/dashboard",
+    element: (
+      <ProtectedRoute>
+        <Dashboard />
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: "/companies",
+    element: (
+      <ProtectedRoute>
+        <Companies />
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: "/company/:id",
+    element: (
+      <ProtectedRoute>
+        <CompanyDetail />
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: "/mock-interview",
+    element: (
+      <ProtectedRoute>
+        <MockInterview />
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: "/aptitude",
+    element: (
+      <ProtectedRoute>
+        <TopicSelection />
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: "/aptitude/:category",
+    element: (
+      <ProtectedRoute>
+        <TopicSelection />
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: "/aptitude/:category/:id",
+    element: (
+      <ProtectedRoute>
+        <TopicDetail />
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: "/topic/:id",
+    element: (
+      <ProtectedRoute>
+        <TopicDetail />
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: "/test/:topicId",
+    element: (
+      <ProtectedRoute>
+        <AptitudeTest />
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: "/profile",
+    element: (
+      <ProtectedRoute>
+        <Profile />
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: "/coding",
+    element: (
+      <ProtectedRoute>
+        <CodingPractice />
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: "/coding/:pattern",
+    element: (
+      <ProtectedRoute>
+        <CodingProblemList />
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: "/coding/problem/:slug",
+    element: (
+      <ProtectedRoute>
+        <CodingProblemDetail />
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: "/leaderboard",
+    element: (
+      <ProtectedRoute>
+        <Leaderboard />
+      </ProtectedRoute>
+    ),
+  },
+]);
 
 function App() {
   return (
     <ThemeProvider>
-      <Router>
-        <div className="min-h-screen transition-colors duration-300 bg-gradient-to-br from-sky-50 via-white to-sky-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-950 text-gray-900 dark:text-white">
-          <Routes>
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
-            <Route
-              path="/dashboard"
-              element={
-                <ProtectedRoute>
-                  <Dashboard />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/profile"
-              element={
-                <ProtectedRoute>
-                  <Profile />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/mock-interview"
-              element={
-                <ProtectedRoute>
-                  <MockInterview />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/company/:id"
-              element={
-                <ProtectedRoute>
-                  <CompanyDetail />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/aptitude"
-              element={
-                <ProtectedRoute>
-                  <AptitudeLayout>
-                    <TopicSelection />
-                  </AptitudeLayout>
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/aptitude/:category"
-              element={
-                <ProtectedRoute>
-                  <AptitudeLayout>
-                    <TopicSelection />
-                  </AptitudeLayout>
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/aptitude/:category/:topicId"
-              element={
-                <ProtectedRoute>
-                  <AptitudeLayout>
-                    <TopicDetail />
-                  </AptitudeLayout>
-                </ProtectedRoute>
-              }
-            />
-            <Route path="/" element={<LandingPage />} />
-            <Route path="/" element={<LandingPage />} />
-          </Routes>
-          <Chatbot />
-        </div>
-      </Router>
+      <div className="min-h-screen bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300">
+        <RouterProvider router={router} />
+      </div>
     </ThemeProvider>
   );
 }

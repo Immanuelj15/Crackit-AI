@@ -24,3 +24,8 @@ dist
 error_log.txt
 test_*.js
 verify_chatbot.js
+server/uploads/
+server/inspect_*.js
+server/audit_*.js
+server/repair_*.js
+test_out*.txt

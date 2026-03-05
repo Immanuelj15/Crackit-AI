@@ -67,6 +67,16 @@ const Layout = ({ children }) => {
 
                         {/* Right Side Actions */}
                         <div className="hidden md:flex items-center gap-4">
+                            {user && (
+                                <div className="flex items-center gap-2 px-3 py-1 bg-yellow-500/10 rounded-full border border-yellow-500/20 shadow-sm animate-in fade-in zoom-in duration-500">
+                                    <div className="w-5 h-5 bg-yellow-500 rounded-full flex items-center justify-center text-white text-[10px] shadow-lg shadow-yellow-500/20">
+                                        $
+                                    </div>
+                                    <span className="text-xs font-black text-yellow-700 dark:text-yellow-500 tracking-tighter">
+                                        {user.coins || 0}
+                                    </span>
+                                </div>
+                            )}
                             <div className="h-6 w-px bg-gray-200 dark:bg-gray-700 mx-2"></div>
                             <DarkModeToggle />
 

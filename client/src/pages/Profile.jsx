@@ -5,8 +5,9 @@ import { motion, AnimatePresence } from 'framer-motion';
 import {
     FiUser, FiMail, FiCalendar, FiAward, FiClock, FiTarget,
     FiActivity, FiEdit2, FiPhone, FiBook, FiLayers, FiCamera,
-    FiX, FiCheck, FiBriefcase
+    FiX, FiCheck, FiBriefcase, FiZap
 } from 'react-icons/fi';
+import HistoryCalendar from '../components/HistoryCalendar';
 
 const Profile = () => {
     const { user, updateUserProfile } = useAuth();
@@ -287,8 +288,8 @@ const Profile = () => {
                         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
                             {[
                                 { label: 'Tests Taken', value: stats?.totalTests || 0, icon: <FiActivity />, color: 'sky' },
+                                { label: 'Current Streak', value: user?.streak || 0, icon: <FiZap />, color: 'orange' },
                                 { label: 'Avg Accuracy', value: `${stats?.averageAccuracy || 0}%`, icon: <FiTarget />, color: 'emerald' },
-                                { label: 'Topics Covered', value: stats?.topicsCompleted || 0, icon: <FiAward />, color: 'violet' },
                             ].map((stat, index) => (
                                 <motion.div
                                     key={index}
@@ -314,6 +315,12 @@ const Profile = () => {
                                     </span>
                                     Test History
                                 </h3>
+                                <div className="p-4 bg-gray-50 dark:bg-gray-800/10 rounded-2xl border border-gray-100 dark:border-gray-800 transition-all hover:border-emerald-500/20 shadow-sm">
+                                    <h4 className="text-[10px] font-black uppercase text-gray-400 mb-3 tracking-widest flex items-center gap-2">
+                                        <FiActivity size={10} /> Activity Map
+                                    </h4>
+                                    <HistoryCalendar activity={user?.activityLog} />
+                                </div>
                             </div>
                             <div className="divide-y divide-gray-100 dark:divide-gray-700/50">
                                 {history.length === 0 ? (
@@ -343,8 +350,8 @@ const Profile = () => {
                                                     </p>
                                                 </div>
                                                 <div className={`px-4 py-1.5 rounded-xl font-bold text-sm shadow-sm ${item.accuracy >= 80 ? 'bg-emerald-50 text-emerald-600 dark:bg-emerald-900/20 dark:text-emerald-400 border border-emerald-100 dark:border-emerald-800' :
-                                                        item.accuracy >= 50 ? 'bg-amber-50 text-amber-600 dark:bg-amber-900/20 dark:text-amber-400 border border-amber-100 dark:border-amber-800' :
-                                                            'bg-rose-50 text-rose-600 dark:bg-rose-900/20 dark:text-rose-400 border border-rose-100 dark:border-rose-800'
+                                                    item.accuracy >= 50 ? 'bg-amber-50 text-amber-600 dark:bg-amber-900/20 dark:text-amber-400 border border-amber-100 dark:border-amber-800' :
+                                                        'bg-rose-50 text-rose-600 dark:bg-rose-900/20 dark:text-rose-400 border border-rose-100 dark:border-rose-800'
                                                     }`}>
                                                     {Math.round(item.accuracy)}%
                                                 </div>

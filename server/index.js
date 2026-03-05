@@ -22,11 +22,15 @@ app.use(cors({
 }));
 
 app.use('/api/auth', authRoutes);
+app.use('/api/user', require('./routes/userRoutes'));
 app.use('/api/companies', require('./routes/companyRoutes'));
 app.use('/api/questions', require('./routes/questionRoutes'));
+app.use('/api/coding', require('./routes/codingRoutes'));
 app.use('/api/topics', require('./routes/topicRoutes'));
 app.use('/api/ai', require('./routes/aiRoutes'));
 app.use('/api/chat', require('./routes/chatRoutes'));
+app.use('/api/code', require('./routes/codeRoutes'));
+app.use('/api/gamification', require('./routes/gamificationRoutes'));
 
 
 
