@@ -63,7 +63,7 @@ const AptitudeTest = () => {
         }));
     };
 
-    const handleSubmit = () => {
+    const handleSubmit = async () => {
         clearInterval(timerRef.current);
         setSubmitted(true);
 
@@ -75,6 +75,17 @@ const AptitudeTest = () => {
             }
         });
         setScore(newScore);
+
+        // Save result to backend
+        try {
+            await axios.post('/api/questions/submit-aptitude', {
+                category,
+                score: newScore,
+                totalQuestions: questions.length
+            }, { withCredentials: true });
+        } catch (error) {
+            console.error("Error saving aptitude results:", error);
+        }
     };
 
     const formatTime = (seconds) => {
@@ -214,8 +225,8 @@ const AptitudeTest = () => {
                                 Question {currentQuestionIndex + 1} of {questions.length}
                             </span>
                             <span className={`px-3 py-1 rounded-full text-xs font-medium uppercase tracking-wide border ${currentQuestion.difficulty === 'easy' ? 'border-green-200 text-green-600 dark:border-green-800 dark:text-green-400' :
-                                    currentQuestion.difficulty === 'medium' ? 'border-yellow-200 text-yellow-600 dark:border-yellow-800 dark:text-yellow-400' :
-                                        'border-red-200 text-red-600 dark:border-red-800 dark:text-red-400'
+                                currentQuestion.difficulty === 'medium' ? 'border-yellow-200 text-yellow-600 dark:border-yellow-800 dark:text-yellow-400' :
+                                    'border-red-200 text-red-600 dark:border-red-800 dark:text-red-400'
                                 }`}>
                                 {currentQuestion.difficulty}
                             </span>
@@ -231,13 +242,13 @@ const AptitudeTest = () => {
                                     key={idx}
                                     onClick={() => handleOptionSelect(currentQuestion._id, opt)}
                                     className={`w-full text-left p-4 rounded-xl border-2 transition-all duration-200 flex items-center group ${answers[currentQuestion._id] === opt
-                                            ? 'border-sky-500 bg-sky-50 dark:bg-sky-900/20 ring-2 ring-sky-200 dark:ring-sky-800'
-                                            : 'border-gray-200 dark:border-gray-700 hover:border-sky-300 dark:hover:border-sky-600 hover:bg-gray-50 dark:hover:bg-gray-700/50'
+                                        ? 'border-sky-500 bg-sky-50 dark:bg-sky-900/20 ring-2 ring-sky-200 dark:ring-sky-800'
+                                        : 'border-gray-200 dark:border-gray-700 hover:border-sky-300 dark:hover:border-sky-600 hover:bg-gray-50 dark:hover:bg-gray-700/50'
                                         }`}
                                 >
                                     <div className={`w-6 h-6 rounded-full border-2 mr-4 flex items-center justify-center shrink-0 ${answers[currentQuestion._id] === opt
-                                            ? 'border-sky-500 bg-sky-500'
-                                            : 'border-gray-300 dark:border-gray-600 group-hover:border-sky-400'
+                                        ? 'border-sky-500 bg-sky-500'
+                                        : 'border-gray-300 dark:border-gray-600 group-hover:border-sky-400'
                                         }`}>
                                         {answers[currentQuestion._id] === opt && <div className="w-2.5 h-2.5 bg-white rounded-full" />}
                                     </div>
@@ -256,8 +267,8 @@ const AptitudeTest = () => {
                         onClick={() => setCurrentQuestionIndex(prev => Math.max(0, prev - 1))}
                         disabled={currentQuestionIndex === 0}
                         className={`px-6 py-3 rounded-xl font-medium transition-colors ${currentQuestionIndex === 0
-                                ? 'bg-gray-200 dark:bg-gray-800 text-gray-400 cursor-not-allowed'
-                                : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 shadow-sm'
+                            ? 'bg-gray-200 dark:bg-gray-800 text-gray-400 cursor-not-allowed'
+                            : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 shadow-sm'
                             }`}
                     >
                         Previous

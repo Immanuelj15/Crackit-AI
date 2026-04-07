@@ -32,4 +32,53 @@ const createQuestion = async (req, res) => {
     res.status(201).json(question);
 }
 
-module.exports = { getQuestions, createQuestion };
+// @desc    Submit aptitude test result
+// @route   POST /api/questions/submit-aptitude
+// @access  Private
+const submitAptitudeResult = async (req, res) => {
+    try {
+        const { category, score, totalQuestions } = req.body;
+        const userId = req.user._id;
+
+        const User = require('../models/User');
+        const user = await User.findById(userId);
+
+        if (!user) return res.status(404).json({ message: 'User not found' });
+
+        // Use shared gamification utility
+        const { updateUserStats } = require('../utils/gamificationUtils');
+
+        // Check if this fulfills a daily challenge
+        const today = new Date().toISOString().split('T')[0];
+        // We might need to check if any of the questions in this category were "daily" today
+        // Or if the test was triggered via the daily challenge link.
+        // For simplicity, let's check if the category matches the current daily aptitude category.
+        let isDailyChallenge = false;
+        try {
+            const CodingProblem = require('../models/CodingProblem'); // Needed if gamificationController isn't loaded
+            // We can query the question model for any daily challenge today in this category
+            const dailyQuestion = await Question.findOne({ type: 'aptitude', category, dailyChallengeDate: today });
+            if (dailyQuestion) isDailyChallenge = true;
+        } catch (err) {
+            console.error("Daily challenge check failed:", err);
+        }
+
+        const result = await updateUserStats(user, {
+            type: 'aptitude',
+            category,
+            score,
+            isDailyChallenge
+        });
+
+        res.status(200).json({
+            message: 'Aptitude result saved',
+            coinsAwarded: result.coinsAwarded,
+            totalCoins: result.totalCoins,
+            streak: result.streak
+        });
+    } catch (error) {
+        res.status(500).json({ message: 'Failed to save result', error: error.message });
+    }
+};
+
+module.exports = { getQuestions, createQuestion, submitAptitudeResult };

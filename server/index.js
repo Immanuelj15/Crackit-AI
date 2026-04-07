@@ -31,6 +31,11 @@ app.use('/api/ai', require('./routes/aiRoutes'));
 app.use('/api/chat', require('./routes/chatRoutes'));
 app.use('/api/code', require('./routes/codeRoutes'));
 app.use('/api/gamification', require('./routes/gamificationRoutes'));
+app.use('/api/contests', require('./routes/contestRoutes'));
+app.use('/api/interviews', require('./routes/interviewRoutes'));
+app.use('/api/admin', require('./routes/adminRoutes'));
+app.use('/api/comments', require('./routes/commentRoutes'));
+app.use('/api/feedback', require('./routes/feedbackRoutes'));
 
 
 

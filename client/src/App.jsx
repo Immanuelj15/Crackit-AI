@@ -15,7 +15,19 @@ import CodingPractice from './pages/CodingPractice';
 import CodingProblemList from './components/CodingProblemList';
 import CodingProblemDetail from './pages/CodingProblemDetail';
 import Leaderboard from './pages/Leaderboard';
+import InterviewBank from './pages/InterviewBank';
+import SystemDesign from './pages/SystemDesign';
+import Feedback from './pages/Feedback';
 import ProtectedRoute from './components/ProtectedRoute';
+import AdminProtectedRoute from './components/Admin/AdminProtectedRoute';
+import AdminLogin from './pages/Admin/AdminLogin';
+import AdminDashboard from './pages/Admin/AdminDashboard';
+import AdminStudents from './pages/Admin/AdminStudents';
+import AdminCodingProblems from './pages/Admin/AdminCodingProblems';
+import AddCodingProblem from './pages/Admin/AddCodingProblem';
+import AdminAptitude from './pages/Admin/AdminAptitude';
+import AddAptitudeQuestion from './pages/Admin/AddAptitudeQuestion';
+import AdminFeedback from './pages/Admin/AdminFeedback';
 import { ThemeProvider } from './context/ThemeContext';
 
 const router = createBrowserRouter([
@@ -141,6 +153,91 @@ const router = createBrowserRouter([
       <ProtectedRoute>
         <Leaderboard />
       </ProtectedRoute>
+    ),
+  },
+  {
+    path: "/interview-questions",
+    element: (
+      <ProtectedRoute>
+        <InterviewBank />
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: "/system-design",
+    element: (
+      <ProtectedRoute>
+        <SystemDesign />
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: "/feedback",
+    element: (
+      <ProtectedRoute>
+        <Feedback />
+      </ProtectedRoute>
+    ),
+  },
+  // Admin Routes
+  {
+    path: "/admin/login",
+    element: <AdminLogin />,
+  },
+  {
+    path: "/admin/dashboard",
+    element: (
+      <AdminProtectedRoute>
+        <AdminDashboard />
+      </AdminProtectedRoute>
+    ),
+  },
+  {
+    path: "/admin/students",
+    element: (
+      <AdminProtectedRoute>
+        <AdminStudents />
+      </AdminProtectedRoute>
+    ),
+  },
+  {
+    path: "/admin/coding",
+    element: (
+      <AdminProtectedRoute>
+        <AdminCodingProblems />
+      </AdminProtectedRoute>
+    ),
+  },
+  {
+    path: "/admin/coding/add",
+    element: (
+      <AdminProtectedRoute>
+        <AddCodingProblem />
+      </AdminProtectedRoute>
+    ),
+  },
+  {
+    path: "/admin/aptitude",
+    element: (
+      <AdminProtectedRoute>
+        <AdminAptitude />
+      </AdminProtectedRoute>
+    ),
+  },
+  {
+    path: "/admin/aptitude/add",
+    element: (
+      <AdminProtectedRoute>
+        <AddAptitudeQuestion />
+      </AdminProtectedRoute>
+    ),
+  },
+  {
+    path: "/admin/feedback",
+    element: (
+      <AdminProtectedRoute>
+        <AdminFeedback />
+      </AdminProtectedRoute>
     ),
   },
 ]);

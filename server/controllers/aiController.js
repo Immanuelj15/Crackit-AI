@@ -81,7 +81,12 @@ const chatWithBot = async (req, res) => {
     const { message } = req.body;
 
     try {
-        const systemPrompt = "You are a helpful support agent for 'CrackIt AI', a platform for mock interviews and company-specific preparation. Your goal is to explain features like AI Mock Interviews, Company Archives (Google, Amazon, etc.), and help users understand how to use the site. Be concise and friendly.";
+        const systemPrompt = `You are 'CrackIt AI', an expert technical mentor and support bot. 
+        Your goals:
+        1. Answer technical coding and aptitude questions clearly with examples.
+        2. Help users navigate 'CrackIt AI' features like Mock Interviews, Company Roadmaps, and Coding Workspace.
+        3. If someone asks for a code explanation (e.g., 'explain sliding window'), provide a clear conceptual explanation followed by a short example.
+        4. Be encouraging, concise, and professional.`;
 
         const response = await hf.chatCompletion({
             model: "Qwen/Qwen2.5-72B-Instruct",
@@ -89,7 +94,7 @@ const chatWithBot = async (req, res) => {
                 { role: "system", content: systemPrompt },
                 { role: "user", content: message }
             ],
-            max_tokens: 300,
+            max_tokens: 800,
             temperature: 0.7
         });
 
@@ -126,6 +131,42 @@ const analyzeResume = async (req, res) => {
         await parser.destroy();
         console.log("Successfully parsed PDF text.");
 
+        // AI Analysis
+        const prompt = `You are an expert technical recruiter. 
+        Analyze the following resume text:
+        "${data.text.substring(0, 4000)}"
+        
+        Provide a structured analysis in JSON format with:
+        - skills (Found technical skills)
+        - missingSkills (Skills commonly needed for their target roles they lack)
+        - improvementSuggestions (Resume and career tips)
+        - suitableRoles (Roles they should apply for)
+        
+        Format example: { "skills": [], "missingSkills": [], "improvementSuggestions": [], "suitableRoles": [] }
+        Ensure valid JSON only.`;
+
+        const response = await hf.chatCompletion({
+            model: "Qwen/Qwen2.5-72B-Instruct",
+            messages: [{ role: "user", content: prompt }],
+            max_tokens: 1000,
+            temperature: 0.5
+        });
+
+        let analysis = {};
+        try {
+            const aiOutput = response.choices[0].message.content;
+            let jsonText = aiOutput.replace(/```json/g, '').replace(/```/g, '').trim();
+            const jsonStart = jsonText.indexOf('{');
+            const jsonEnd = jsonText.lastIndexOf('}');
+            if (jsonStart !== -1 && jsonEnd !== -1) {
+                jsonText = jsonText.substring(jsonStart, jsonEnd + 1);
+            }
+            analysis = JSON.parse(jsonText);
+        } catch (e) {
+            console.error("AI Analysis Parse Error:", e);
+            analysis = { error: "Failed to parse detailed analysis" };
+        }
+
         // Optionally delete the file after parsing
         try {
             fs.unlinkSync(req.file.path);
@@ -135,6 +176,7 @@ const analyzeResume = async (req, res) => {
 
         res.json({
             text: data.text,
+            analysis,
             message: 'Resume analyzed successfully'
         });
     } catch (error) {
@@ -143,4 +185,56 @@ const analyzeResume = async (req, res) => {
     }
 };
 
-module.exports = { generateQuestion, evaluateAnswer, chatWithBot, analyzeResume };
+const analyzePerformance = async (req, res) => {
+    try {
+        const User = require('../models/User');
+        const user = await User.findById(req.user._id).select('solvedProblems');
+
+        if (!user || !user.solvedProblems || user.solvedProblems.length === 0) {
+            return res.json({
+                report: "Not enough data yet. Solve more problems to get personalized AI analysis!"
+            });
+        }
+
+        // Summary for AI
+        const history = user.solvedProblems.map(p => ({
+            type: p.type,
+            topic: p.topic,
+            difficulty: p.difficulty,
+            score: p.score
+        }));
+
+        const prompt = `You are an AI Performance Mentor for a student on 'CrackIt AI', an interview preparation platform.
+        Analyze the following student performance history (Coding & Aptitude):
+        ${JSON.stringify(history.slice(-20))} 
+        
+        Provide a concise performance report with:
+        - Identified Weak Topics (be specific).
+        - Strong Topics.
+        - Recommended Next Problems.
+        - A personalized Study Plan Suggestion.
+        
+        Format example:
+        Your weakness: Sliding Window
+        Recommended practice: 10 medium problems
+        Estimated time: 30 minutes
+        
+        Keep it concise and punchy. Be a helpful mentor.`;
+
+        const response = await hf.chatCompletion({
+            model: "Qwen/Qwen2.5-72B-Instruct",
+            messages: [{ role: "user", content: prompt }],
+            max_tokens: 500,
+            temperature: 0.7
+        });
+
+        const report = response.choices[0].message.content;
+
+        res.json({ report });
+    } catch (error) {
+        console.error("AI Performance Analysis Error:", error);
+        res.status(500).json({ message: 'AI analysis failed' });
+    }
+};
+
+module.exports = { generateQuestion, evaluateAnswer, chatWithBot, analyzeResume, analyzePerformance };

@@ -11,13 +11,19 @@ const protect = async (req, res, next) => {
             const decoded = jwt.verify(token, process.env.JWT_SECRET);
 
             req.user = await User.findById(decoded.userId).select('-password');
+            
+            if (!req.user) {
+                console.error("Auth Error: User associated with token no longer exists.");
+                return res.status(401).json({ message: 'Not authorized, user not found' });
+            }
 
             next();
         } catch (error) {
-            console.error(error);
+            console.error("JWT Verification Error:", error.message);
             res.status(401).json({ message: 'Not authorized, token failed' });
         }
     } else {
+        console.warn("Auth Warning: No JWT token found in request cookies.");
         res.status(401).json({ message: 'Not authorized, no token' });
     }
 };

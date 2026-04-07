@@ -4,7 +4,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import HistoryChart from '../components/HistoryChart';
-import { FiTrendingUp, FiTarget, FiClock, FiActivity, FiArrowRight, FiAward } from 'react-icons/fi';
+import { FiTrendingUp, FiTarget, FiClock, FiActivity, FiArrowRight, FiAward, FiLayout } from 'react-icons/fi';
 
 const Dashboard = () => {
   const { user } = useAuth();
@@ -14,6 +14,8 @@ const Dashboard = () => {
   const [history, setHistory] = useState([]);
   const [codingHistory, setCodingHistory] = useState([]);
   const [dailyChallenge, setDailyChallenge] = useState(null);
+  const [aiReport, setAiReport] = useState(null);
+  const [reportLoading, setReportLoading] = useState(false);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -35,6 +37,9 @@ const Dashboard = () => {
         setCodingStats(codingStatsRes.data);
         setCodingHistory(Array.isArray(codingHistoryRes.data) ? codingHistoryRes.data : []);
         setDailyChallenge(dailyChallengeRes.data);
+
+        // Fetch AI Analysis separately or here
+        fetchAiReport();
       } catch (error) {
         console.error("Failed to fetch data:", error);
         setError("Failed to load dashboard data. Please refresh.");
@@ -44,6 +49,18 @@ const Dashboard = () => {
     };
     fetchData();
   }, []);
+
+  const fetchAiReport = async () => {
+    setReportLoading(true);
+    try {
+      const { data } = await axios.post('/api/ai/analyze-performance', {}, { withCredentials: true });
+      setAiReport(data.report);
+    } catch (err) {
+      console.error("AI Analysis failed:", err);
+    } finally {
+      setReportLoading(false);
+    }
+  };
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -132,36 +149,113 @@ const Dashboard = () => {
             {/* Left Column - Main Stats & Chart */}
             <div className="lg:col-span-2 space-y-8">
 
-              {/* Daily Challenge Card */}
-              {dailyChallenge && (
+              {/* Challenges Section */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <motion.div
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  className="bg-gradient-to-br from-indigo-600 to-purple-700 p-8 rounded-3xl shadow-2xl relative overflow-hidden group"
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  className="bg-gradient-to-br from-indigo-600 to-purple-700 p-6 rounded-3xl shadow-xl relative overflow-hidden group"
                 >
-                  <div className="absolute top-0 right-0 p-8 opacity-10 group-hover:scale-110 transition-transform"><FiTarget size={80} /></div>
-                  <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6">
-                    <div className="text-center md:text-left">
-                      <div className="flex items-center justify-center md:justify-start gap-2 text-indigo-200 text-xs font-black uppercase tracking-widest mb-3">
-                        <span className="w-2 h-2 bg-red-500 rounded-full animate-pulse" /> Daily Challenge
+                    <div className="relative z-10">
+                      <div className="flex items-center justify-between mb-2">
+                        <div className="flex items-center gap-2 text-indigo-200 text-[10px] font-black uppercase tracking-widest">
+                          🔥 Daily Coding Challenge
+                        </div>
+                        <div className="bg-yellow-400 text-slate-900 px-2 py-0.5 rounded-lg text-[9px] font-black uppercase flex items-center gap-1 shadow-lg shadow-yellow-400/20">
+                          2X COINS
+                        </div>
                       </div>
-                      <h3 className="text-3xl font-black text-white tracking-tight mb-2">{dailyChallenge.title}</h3>
-                      <div className="flex items-center justify-center md:justify-start gap-4">
-                        <span className={`text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-white/10 text-white uppercase tracking-wider`}>
-                          {dailyChallenge.difficulty || 'Medium'}
-                        </span>
-                        <span className="text-[10px] font-bold text-indigo-300 uppercase tracking-widest">+10 COINS REWARD</span>
-                      </div>
+                      <h3 className="text-xl font-bold text-white mb-1 line-clamp-1">{dailyChallenge?.coding?.title || 'Array Manipulation'}</h3>
+                      <p className="text-[10px] text-indigo-200 font-bold uppercase tracking-widest mb-4">Complete today for 30 Credits!</p>
+                      <Link
+                        to={dailyChallenge?.coding ? `/coding/problem/${dailyChallenge.coding.slug}` : '/coding'}
+                        className="inline-block px-5 py-2 bg-white text-indigo-600 rounded-xl font-bold text-xs uppercase tracking-widest hover:scale-105 transition-all shadow-lg"
+                      >
+                        Solve Now
+                      </Link>
                     </div>
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="bg-gradient-to-br from-slate-800 to-slate-950 p-6 rounded-3xl shadow-xl relative overflow-hidden group border border-white/5"
+                >
+                  <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:scale-110 transition-transform"><FiLayout size={60} /></div>
+                  <div className="relative z-10">
+                    <div className="flex items-center gap-2 text-slate-400 text-[10px] font-black uppercase tracking-widest mb-2">
+                      🏗️ Architecture Lab
+                    </div>
+                    <h3 className="text-xl font-bold text-white mb-4 line-clamp-1">System Design</h3>
                     <Link
-                      to={`/coding/problem/${dailyChallenge.slug}`}
-                      className="px-8 py-3 bg-white text-indigo-600 rounded-2xl font-black text-sm uppercase tracking-widest shadow-xl hover:scale-105 active:scale-95 transition-all"
+                      to="/system-design"
+                      className="inline-block px-5 py-2 bg-indigo-500 text-white rounded-xl font-bold text-xs uppercase tracking-widest hover:scale-105 transition-all shadow-lg shadow-indigo-500/20"
                     >
-                      Solve Now
+                      Design Now
                     </Link>
                   </div>
                 </motion.div>
-              )}
+
+                <motion.div
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  className="bg-gradient-to-br from-emerald-600 to-teal-700 p-6 rounded-3xl shadow-xl relative overflow-hidden group"
+                >
+                  <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:scale-110 transition-transform"><FiClock size={60} /></div>
+                  <div className="relative z-10">
+                    <div className="flex items-center gap-2 text-emerald-200 text-[10px] font-black uppercase tracking-widest mb-2">
+                      🧠 Aptitude Challenge
+                    </div>
+                    <h3 className="text-xl font-bold text-white mb-4 line-clamp-1">{dailyChallenge?.aptitude?.category?.toUpperCase() || 'GENERAL'} QUIZ</h3>
+                    <Link
+                      to={dailyChallenge?.aptitude ? `/aptitude/test/${dailyChallenge.aptitude.category || 'quant'}` : '/aptitude'}
+                      className="inline-block px-5 py-2 bg-white text-emerald-600 rounded-xl font-bold text-xs uppercase tracking-widest hover:scale-105 transition-all"
+                    >
+                      Start Quiz
+                    </Link>
+                  </div>
+                </motion.div>
+              </div>
+
+              {/* AI Performance Mentor Report */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="bg-white dark:bg-slate-800 p-8 rounded-3xl shadow-sm border border-slate-200 dark:border-slate-700 relative overflow-hidden"
+              >
+                <div className="absolute top-0 right-0 w-32 h-32 bg-sky-500/5 rounded-full blur-3xl -mr-10 -mt-10"></div>
+                <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
+                  <div>
+                    <h3 className="text-2xl font-black text-slate-900 dark:text-white flex items-center gap-3">
+                      <span className="text-sky-500">🤖</span> AI Performance Mentor
+                    </h3>
+                    <p className="text-slate-500 text-sm mt-1">Personalized insights based on your recent activity</p>
+                  </div>
+                  <button
+                    onClick={fetchAiReport}
+                    disabled={reportLoading}
+                    className="px-4 py-2 bg-slate-100 dark:bg-slate-700 hover:bg-sky-500 hover:text-white rounded-xl text-xs font-bold transition-all disabled:opacity-50"
+                  >
+                    {reportLoading ? 'Analyzing...' : 'Refresh Report'}
+                  </button>
+                </div>
+
+                <div className="prose dark:prose-invert max-w-none">
+                  {reportLoading ? (
+                    <div className="space-y-3">
+                      <div className="h-3 bg-slate-100 dark:bg-slate-700 rounded w-3/4 animate-pulse"></div>
+                      <div className="h-3 bg-slate-100 dark:bg-slate-700 rounded w-full animate-pulse"></div>
+                      <div className="h-3 bg-slate-100 dark:bg-slate-700 rounded w-5/6 animate-pulse"></div>
+                    </div>
+                  ) : aiReport ? (
+                    <div className="text-slate-700 dark:text-slate-300 whitespace-pre-line leading-relaxed">
+                      {aiReport}
+                    </div>
+                  ) : (
+                    <p className="text-slate-400 italic">Click Refresh to get your first AI performance analysis.</p>
+                  )}
+                </div>
+              </motion.div>
 
               {/* Key Metrics */}
               <motion.div

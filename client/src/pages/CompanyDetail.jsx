@@ -137,13 +137,23 @@ const CompanyDetail = () => {
                         {company.rounds && company.rounds.length > 0 && (
                             <div className="mb-8 ml-2 relative border-l-2 border-sky-100 dark:border-sky-900 space-y-8">
                                 {company.rounds.map((round, idx) => (
-                                    <div key={idx} className="relative pl-6 group">
-                                        <div className="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full border-2 border-white dark:border-gray-800 bg-sky-200 dark:bg-sky-700 group-hover:bg-sky-500 transition-colors"></div>
-                                        <div className="flex flex-col">
-                                            <span className="text-sm font-semibold text-gray-900 dark:text-white group-hover:text-sky-600 dark:group-hover:text-sky-400 transition-colors">
-                                                {round.name}
+                                    <div key={idx} className="relative pl-8 group">
+                                        <div className={`absolute -left-[14px] top-1 w-7 h-7 rounded-full border-4 border-white dark:border-gray-900 shadow-sm flex items-center justify-center text-[10px] z-10 transition-all group-hover:scale-110
+                                            ${round.type === 'aptitude' ? 'bg-orange-500' :
+                                                round.type === 'coding' ? 'bg-emerald-500' :
+                                                    round.type === 'technical' ? 'bg-sky-500' :
+                                                        round.type === 'hr' ? 'bg-purple-500' : 'bg-gray-500'}
+                                        `}>
+                                            {round.type === 'aptitude' ? '🧠' :
+                                                round.type === 'coding' ? '💻' :
+                                                    round.type === 'technical' ? '⚙️' :
+                                                        round.type === 'hr' ? '👤' : '🏁'}
+                                        </div>
+                                        <div className="flex flex-col mb-1">
+                                            <span className="text-sm font-bold text-gray-900 dark:text-white group-hover:text-sky-600 dark:group-hover:text-sky-400 transition-colors uppercase tracking-tight">
+                                                Round {idx + 1}: {round.name}
                                             </span>
-                                            <span className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">
+                                            <span className="text-xs text-gray-500 dark:text-gray-400 mt-0.5 leading-relaxed">
                                                 {round.description}
                                             </span>
                                         </div>

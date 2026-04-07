@@ -9,10 +9,14 @@ const Login = () => {
     // Email State
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [otp, setOtp] = useState('');
+    const [loginMode, setLoginMode] = useState('password'); // 'password' or 'otp'
+    const [otpStep, setOtpStep] = useState(1); // 1 = request code, 2 = verify code
 
     const [error, setError] = useState('');
+    const [msg, setMsg] = useState('');
 
-    const { login, googleLogin, user } = useAuth();
+    const { login, googleLogin, requestOtp, verifyOtpLogin, user } = useAuth();
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -26,6 +30,29 @@ const Login = () => {
         setError('');
         try {
             await login(email, password);
+        } catch (err) {
+            setError(err);
+        }
+    };
+
+    const handleRequestOtp = async (e) => {
+        e.preventDefault();
+        setError('');
+        setMsg('');
+        try {
+            const data = await requestOtp(email);
+            setMsg(data.message);
+            setOtpStep(2);
+        } catch (err) {
+            setError(err);
+        }
+    };
+
+    const handleVerifyOtp = async (e) => {
+        e.preventDefault();
+        setError('');
+        try {
+            await verifyOtpLogin(email, otp);
         } catch (err) {
             setError(err);
         }
@@ -81,35 +108,78 @@ const Login = () => {
                     </motion.div>
                 )}
 
+                {msg && (
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.95 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        className="bg-emerald-50 border border-emerald-200 text-emerald-600 dark:bg-emerald-900/20 dark:border-emerald-800 dark:text-emerald-300 rounded-lg p-3 text-center text-sm font-medium"
+                    >
+                        {msg}
+                    </motion.div>
+                )}
+
+                {/* Mode Toggle */}
+                <div className="flex rounded-lg overflow-hidden border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 shadow-inner p-1">
+                    <button
+                        onClick={() => { setLoginMode('password'); setError(''); setMsg(''); }}
+                        className={`flex-1 py-2 text-sm font-bold transition-all rounded-md ${loginMode === 'password' ? 'bg-white dark:bg-gray-700 text-sky-600 dark:text-sky-400 shadow' : 'text-gray-500 hover:text-gray-700 dark:hover:text-gray-300'}`}
+                    >
+                        Password
+                    </button>
+                    <button
+                        onClick={() => { setLoginMode('otp'); setError(''); setMsg(''); setOtpStep(1); }}
+                        className={`flex-1 py-2 text-sm font-bold transition-all rounded-md ${loginMode === 'otp' ? 'bg-white dark:bg-gray-700 text-sky-600 dark:text-sky-400 shadow' : 'text-gray-500 hover:text-gray-700 dark:hover:text-gray-300'}`}
+                    >
+                        Email OTP
+                    </button>
+                </div>
+
                 {/* Email Form */}
                 <motion.form
                     key="email-form"
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     className="space-y-6"
-                    onSubmit={handleEmailLogin}
+                    onSubmit={loginMode === 'password' ? handleEmailLogin : (otpStep === 1 ? handleRequestOtp : handleVerifyOtp)}
                 >
                     <div className="space-y-4">
-                        <div>
-                            <input
-                                type="email"
-                                required
-                                className={inputClasses}
-                                placeholder="Email address"
-                                value={email}
-                                onChange={(e) => setEmail(e.target.value)}
-                            />
-                        </div>
-                        <div>
-                            <input
-                                type="password"
-                                required
-                                className={inputClasses}
-                                placeholder="Password"
-                                value={password}
-                                onChange={(e) => setPassword(e.target.value)}
-                            />
-                        </div>
+                        {loginMode === 'otp' && otpStep === 2 ? (
+                            <div>
+                                <input
+                                    type="text"
+                                    required
+                                    className={inputClasses}
+                                    placeholder="Enter 6-digit OTP"
+                                    value={otp}
+                                    onChange={(e) => setOtp(e.target.value)}
+                                />
+                                <p className="text-[10px] text-center text-gray-400 uppercase font-bold tracking-widest mt-3">Code sent to {email}</p>
+                            </div>
+                        ) : (
+                            <div>
+                                <input
+                                    type="email"
+                                    required
+                                    className={inputClasses}
+                                    placeholder="Email address"
+                                    value={email}
+                                    onChange={(e) => setEmail(e.target.value)}
+                                />
+                            </div>
+                        )}
+                        
+                        {loginMode === 'password' && (
+                            <div>
+                                <input
+                                    type="password"
+                                    required
+                                    className={inputClasses}
+                                    placeholder="Password"
+                                    value={password}
+                                    onChange={(e) => setPassword(e.target.value)}
+                                />
+                            </div>
+                        )}
                     </div>
                     <motion.button
                         whileHover={{ scale: 1.02 }}
@@ -117,7 +187,7 @@ const Login = () => {
                         type="submit"
                         className={buttonClasses}
                     >
-                        Sign in
+                        {loginMode === 'password' ? 'Sign in' : (otpStep === 1 ? 'Send Code' : 'Verify & Login')}
                     </motion.button>
                 </motion.form>
 

@@ -7,13 +7,14 @@ const localExecutionService = require('../services/localExecutionService');
 // @access  Private
 const runCode = async (req, res) => {
     try {
-        const { problemId, language, code } = req.body;
+        const { problemId, language, code, testCaseIndex } = req.body;
         const problem = await CodingProblem.findById(problemId);
 
         if (!problem) return res.status(404).json({ message: 'Problem not found' });
 
-        const example = problem.examples[0];
-        if (!example) return res.status(400).json({ message: 'No examples found for this problem' });
+        const index = testCaseIndex !== undefined ? testCaseIndex : 0;
+        const example = problem.examples[index];
+        if (!example) return res.status(400).json({ message: `Example at index ${index} not found` });
 
         const result = await localExecutionService.executeCode(code, language, example.input, problem.driverCode);
 
@@ -129,43 +130,25 @@ const submitCode = async (req, res) => {
 
         // Award coins and update activity if Accepted
         if (finalVerdict === 'Accepted') {
-            const user = await require('../models/User').findById(userId);
-            if (user) {
-                // Check if this is the first successful submission for this problem
-                const alreadySolved = await Submission.findOne({
-                    userId,
-                    problemId,
-                    verdict: 'Accepted',
-                    _id: { $ne: submission._id }
-                });
+            try {
+                const { updateUserStats } = require('../utils/gamificationUtils');
+                const user = await require('../models/User').findById(userId);
 
-                if (!alreadySolved) {
-                    user.coins = (user.coins || 0) + 10;
+                if (user) {
+                    const today = new Date().toISOString().split('T')[0];
+                    const isDailyChallenge = problem.dailyChallengeDate === today;
+
+                    await updateUserStats(user, {
+                        type: 'coding',
+                        problemId: problem._id,
+                        category: problem.pattern,
+                        difficulty: problem.difficulty,
+                        isDailyChallenge
+                    });
                 }
-
-                // Update activity log
-                const today = new Date().toISOString().split('T')[0];
-                const activityIndex = user.activityLog.findIndex(log => log.date === today);
-                if (activityIndex > -1) {
-                    user.activityLog[activityIndex].count += 1;
-                } else {
-                    user.activityLog.push({ date: today, count: 1 });
-                }
-
-                // Update streak
-                const lastActive = user.lastActiveDate ? new Date(user.lastActiveDate).toISOString().split('T')[0] : null;
-                const yesterday = new Date();
-                yesterday.setDate(yesterday.getDate() - 1);
-                const yesterdayStr = yesterday.toISOString().split('T')[0];
-
-                if (lastActive === yesterdayStr) {
-                    user.streak += 1;
-                } else if (lastActive !== today) {
-                    user.streak = 1;
-                }
-
-                user.lastActiveDate = new Date();
-                await user.save();
+            } catch (err) {
+                console.error("Gamification update failed:", err);
+                // Don't fail the whole submission if stats update fails
             }
         }
 

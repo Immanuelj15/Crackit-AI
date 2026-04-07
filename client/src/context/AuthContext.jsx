@@ -111,8 +111,32 @@ export const AuthProvider = ({ children }) => {
         }
     };
 
+    const requestOtp = async (email) => {
+        try {
+            const { data } = await axios.post('/api/auth/request-otp', { email });
+            return data;
+        } catch (error) {
+            throw error.response && error.response.data.message
+                ? error.response.data.message
+                : error.message;
+        }
+    };
+
+    const verifyOtpLogin = async (email, otp) => {
+        try {
+            const { data } = await axios.post('/api/auth/verify-otp', { email, otp });
+            setUser(data);
+            localStorage.setItem('userInfo', JSON.stringify(data));
+            return data;
+        } catch (error) {
+            throw error.response && error.response.data.message
+                ? error.response.data.message
+                : error.message;
+        }
+    };
+
     return (
-        <AuthContext.Provider value={{ user, login, register, logout, googleLogin, updateUserProfile, loading }}>
+        <AuthContext.Provider value={{ user, login, register, logout, googleLogin, updateUserProfile, requestOtp, verifyOtpLogin, loading }}>
             {children}
         </AuthContext.Provider>
     );

@@ -2,7 +2,7 @@ const User = require('../models/User');
 const generateToken = require('../utils/generateToken');
 const { OAuth2Client } = require('google-auth-library');
 const bcrypt = require('bcryptjs');
-
+const nodemailer = require('nodemailer');
 const client = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
 
 // @desc    Register a new user
@@ -165,10 +165,107 @@ const updateProfile = async (req, res) => {
     }
 };
 
+// @desc    Request OTP for login
+// @route   POST /api/auth/request-otp
+// @access  Public
+const requestOtp = async (req, res) => {
+    const { email } = req.body;
+    
+    // Find user
+    const user = await User.findOne({ email });
+    if (!user) {
+        return res.status(404).json({ message: 'No account found with this email' });
+    }
+
+    // Generate 6 digit OTP
+    const otp = Math.floor(100000 + Math.random() * 900000).toString();
+    const otpExpires = new Date(Date.now() + 10 * 60 * 1000); // 10 minutes from now
+
+    user.otp = otp;
+    user.otpExpires = otpExpires;
+    await user.save();
+
+    // Check if email credentials exist
+    if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
+        console.warn('EMAIL_USER or EMAIL_PASS not set in .env. Skipping real email and printing OTP to console.');
+        console.log(`[DEVELOPMENT] OTP for ${email}: ${otp}`);
+        return res.status(200).json({ message: 'OTP generated successfully (check console)' });
+    }
+
+    try {
+        const transporter = nodemailer.createTransport({
+            service: 'gmail',
+            auth: {
+                user: process.env.EMAIL_USER,
+                pass: process.env.EMAIL_PASS
+            }
+        });
+
+        const mailOptions = {
+            from: `"CrackIt AI" <${process.env.EMAIL_USER}>`,
+            to: email,
+            subject: 'Your CrackIt AI Login Code',
+            html: `
+                <h2>Login Code</h2>
+                <p>Hello ${user.name},</p>
+                <p>Your one-time password (OTP) is: <strong>${otp}</strong></p>
+                <p>This code will expire in 10 minutes.</p>
+                <p>If you did not request this, please ignore this email.</p>
+            `
+        };
+
+        await transporter.sendMail(mailOptions);
+        res.status(200).json({ message: 'OTP sent to email successfully' });
+    } catch (error) {
+        console.error('Error sending OTP email:', error);
+        res.status(500).json({ message: 'Failed to send OTP email. Please try again later.' });
+    }
+};
+
+// @desc    Verify OTP and login
+// @route   POST /api/auth/verify-otp
+// @access  Public
+const verifyOtp = async (req, res) => {
+    const { email, otp } = req.body;
+
+    const user = await User.findOne({ email });
+
+    if (!user) {
+        return res.status(404).json({ message: 'User not found' });
+    }
+
+    if (!user.otp || user.otp !== otp) {
+        return res.status(400).json({ message: 'Invalid OTP' });
+    }
+
+    if (new Date() > user.otpExpires) {
+        return res.status(400).json({ message: 'OTP has expired' });
+    }
+
+    // OTP is valid. Clear it and login user
+    user.otp = undefined;
+    user.otpExpires = undefined;
+    await user.save();
+
+    generateToken(res, user._id);
+    
+    res.json({
+        _id: user._id,
+        name: user.name,
+        email: user.email,
+        role: user.role,
+        college: user.college,
+        branch: user.branch,
+        picture: user.picture
+    });
+};
+
 module.exports = {
     registerUser,
     loginUser,
     logoutUser,
     googleAuth,
-    updateProfile
+    updateProfile,
+    requestOtp,
+    verifyOtp
 };

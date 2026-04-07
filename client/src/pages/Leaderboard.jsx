@@ -47,7 +47,8 @@ const Leaderboard = () => {
                 <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl rounded-[40px] shadow-2xl border border-white/20 dark:border-gray-700/50 overflow-hidden">
                     <div className="grid grid-cols-12 px-8 py-6 bg-gray-50/50 dark:bg-gray-900/50 border-b border-gray-100 dark:border-gray-700/50 text-[10px] font-black uppercase tracking-[0.2em] text-gray-400">
                         <div className="col-span-1">Rank</div>
-                        <div className="col-span-7">User</div>
+                        <div className="col-span-5">User</div>
+                        <div className="col-span-2 text-center">Solved</div>
                         <div className="col-span-2 text-center">Streak</div>
                         <div className="col-span-2 text-right">Coins</div>
                     </div>
@@ -67,13 +68,18 @@ const Leaderboard = () => {
                                             index === 2 ? <FiStar className="text-orange-400 text-xl" /> :
                                                 <span className="text-sm font-black text-gray-400">{index + 1}</span>}
                                 </div>
-                                <div className="col-span-7 flex items-center gap-4">
+                                <div className="col-span-5 flex items-center gap-4">
                                     <div className="w-10 h-10 rounded-full bg-indigo-100 dark:bg-indigo-900/50 flex items-center justify-center text-indigo-600 dark:text-indigo-400 font-bold border border-indigo-200 dark:border-indigo-800 overflow-hidden">
                                         {leader.picture ? <img src={leader.picture} alt="" className="w-full h-full object-cover" /> : leader.name[0]}
                                     </div>
                                     <div>
                                         <div className="font-bold text-gray-900 dark:text-white group-hover:text-indigo-600 transition-colors uppercase text-sm tracking-tighter">{leader.name}</div>
                                         <div className="text-[10px] text-gray-400 font-bold tracking-widest">{leader.college || 'CrackIt User'}</div>
+                                    </div>
+                                </div>
+                                <div className="col-span-2 flex justify-center">
+                                    <div className="flex items-center gap-1.5 px-3 py-1 bg-emerald-50 dark:bg-emerald-950/30 rounded-full border border-emerald-100 dark:border-emerald-900/50">
+                                        <span className="text-xs font-black text-emerald-600 dark:text-emerald-400">{leader.solvedCount || 0}</span>
                                     </div>
                                 </div>
                                 <div className="col-span-2 flex justify-center">

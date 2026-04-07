@@ -20,7 +20,8 @@ const questionSchema = new mongoose.Schema({
     options: [{ type: String }], // For MCQ
     correctAnswer: { type: String }, // Index or text
     explanation: { type: String }, // Step-by-step explanation
-    difficulty: { type: String, enum: ['easy', 'medium', 'hard'], default: 'medium' }
+    difficulty: { type: String, enum: ['easy', 'medium', 'hard'], default: 'medium' },
+    dailyChallengeDate: { type: String } // Format: YYYY-MM-DD
 }, { timestamps: true });
 
 module.exports = mongoose.model('Question', questionSchema);

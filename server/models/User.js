@@ -66,6 +66,14 @@ const userSchema = new mongoose.Schema({
     activityLog: [{
         date: { type: String }, // Format: YYYY-MM-DD
         count: { type: Number, default: 1 }
+    }],
+    solvedProblems: [{
+        problemId: { type: mongoose.Schema.Types.ObjectId, ref: 'CodingProblem' },
+        type: { type: String, enum: ['coding', 'aptitude'] },
+        topic: { type: String },
+        difficulty: { type: String },
+        score: { type: Number }, // For aptitude
+        solvedAt: { type: Date, default: Date.now }
     }]
 }, { timestamps: true });
 

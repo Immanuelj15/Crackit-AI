@@ -2,24 +2,22 @@ const multer = require('multer');
 const path = require('path');
 const fs = require('fs');
 
-// Ensure upload directory exists
-const uploadDir = path.join(__dirname, '../../client/public/uploads/profiles');
-if (!fs.existsSync(uploadDir)) {
-    fs.mkdirSync(uploadDir, { recursive: true });
-}
-
 // Set storage engine
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
+        // We'll set the subfolder in the controller or use a header
+        // For comments/feedback, we'll store them in subfolders.
+        const subfolder = req.uploadSubfolder || 'general';
+        const uploadDir = path.join(__dirname, '../../client/public/uploads', subfolder);
+        
+        if (!fs.existsSync(uploadDir)) {
+            fs.mkdirSync(uploadDir, { recursive: true });
+        }
         cb(null, uploadDir);
     },
     filename: function (req, file, cb) {
-        // file name: user_id-timestamp.ext
-        // We might not have user id in req yet if middleware order is wrong, 
-        // but for update profile, user should be protected => req.user exists.
-        // However, if we use it before protect middleware (which splits logic), we might rely on unique suffix.
         const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
-        cb(null, 'profile-' + uniqueSuffix + path.extname(file.originalname));
+        cb(null, 'file-' + uniqueSuffix + path.extname(file.originalname));
     }
 });
 

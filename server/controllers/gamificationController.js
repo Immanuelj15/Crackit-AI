@@ -39,12 +39,25 @@ const unlockEditorial = async (req, res) => {
 const getLeaderboard = async (req, res) => {
     try {
         const topUsers = await User.find({})
-            .sort({ streak: -1, coins: -1 })
-            .limit(20)
-            .select('name picture streak coins college')
+            .sort({ coins: -1, streak: -1 })
+            .limit(50)
+            .select('name picture streak coins college solvedProblems')
             .lean();
 
-        res.status(200).json(topUsers);
+        const formattedLeaderboard = topUsers.map((u, index) => {
+            const solvedCount = u.solvedProblems?.length || 0;
+            return {
+                rank: index + 1,
+                name: u.name,
+                picture: u.picture,
+                streak: u.streak,
+                coins: u.coins,
+                college: u.college,
+                solvedCount
+            };
+        });
+
+        res.status(200).json(formattedLeaderboard);
     } catch (error) {
         res.status(500).json({ message: 'Server error', error: error.message });
     }
@@ -55,24 +68,41 @@ const getLeaderboard = async (req, res) => {
 // @access  Public
 const getDailyChallenge = async (req, res) => {
     try {
+        const Question = require('../models/Question');
         const today = new Date().toISOString().split('T')[0];
 
-        // Find existing daily challenge for today
-        let problem = await CodingProblem.findOne({ dailyChallengeDate: today });
-
-        if (!problem) {
-            // Pick a random problem to be today's challenge
+        // 1. Coding Challenge
+        let codingProblem = await CodingProblem.findOne({ dailyChallengeDate: today });
+        if (!codingProblem) {
             const count = await CodingProblem.countDocuments();
-            const random = Math.floor(Math.random() * count);
-            problem = await CodingProblem.findOne().skip(random);
-
-            if (problem) {
-                problem.dailyChallengeDate = today;
-                await problem.save();
+            if (count > 0) {
+                const random = Math.floor(Math.random() * count);
+                codingProblem = await CodingProblem.findOne().skip(random);
+                if (codingProblem) {
+                    codingProblem.dailyChallengeDate = today;
+                    await codingProblem.save();
+                }
             }
         }
 
-        res.status(200).json(problem);
+        // 2. Aptitude Challenge
+        let aptitudeProblem = await Question.findOne({ type: 'aptitude', dailyChallengeDate: today });
+        if (!aptitudeProblem) {
+            const count = await Question.countDocuments({ type: 'aptitude' });
+            if (count > 0) {
+                const random = Math.floor(Math.random() * count);
+                aptitudeProblem = await Question.findOne({ type: 'aptitude' }).skip(random);
+                if (aptitudeProblem) {
+                    aptitudeProblem.dailyChallengeDate = today;
+                    await aptitudeProblem.save();
+                }
+            }
+        }
+
+        res.status(200).json({
+            coding: codingProblem,
+            aptitude: aptitudeProblem
+        });
     } catch (error) {
         res.status(500).json({ message: 'Server error', error: error.message });
     }

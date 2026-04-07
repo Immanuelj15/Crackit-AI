@@ -133,6 +133,19 @@ const submitTestResult = async (req, res) => {
     }
 
     try {
+        const { updateUserStats } = require('../utils/gamificationUtils');
+        const user = await require('../models/User').findById(req.user._id);
+
+        if (user) {
+            await updateUserStats(user, {
+                type: 'aptitude',
+                category,
+                score,
+                difficulty: 'medium', // Default for topic tests
+                isDailyChallenge: false // Topic tests aren't usually the "Daily Challenge"
+            });
+        }
+
         const result = await Result.create({
             user: req.user._id,
             topic: topicId,
