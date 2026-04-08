@@ -135,16 +135,30 @@ const submitCode = async (req, res) => {
                 const user = await require('../models/User').findById(userId);
 
                 if (user) {
-                    const today = new Date().toISOString().split('T')[0];
-                    const isDailyChallenge = problem.dailyChallengeDate === today;
+                    const todayStart = new Date();
+                    todayStart.setHours(0, 0, 0, 0);
 
-                    await updateUserStats(user, {
-                        type: 'coding',
+                    // Check if they solved it successfully today already (excluding this one)
+                    const existingSuccessToday = await require('../models/Submission').findOne({
+                        userId,
                         problemId: problem._id,
-                        category: problem.pattern,
-                        difficulty: problem.difficulty,
-                        isDailyChallenge
+                        verdict: 'Accepted',
+                        createdAt: { $gte: todayStart },
+                        _id: { $ne: submission._id }
                     });
+
+                    if (!existingSuccessToday) {
+                        const today = new Date().toISOString().split('T')[0];
+                        const isDailyChallenge = problem.dailyChallengeDate === today;
+
+                        await updateUserStats(user, {
+                            type: 'coding',
+                            problemId: problem._id,
+                            category: problem.pattern,
+                            difficulty: problem.difficulty,
+                            isDailyChallenge
+                        });
+                    }
                 }
             } catch (err) {
                 console.error("Gamification update failed:", err);

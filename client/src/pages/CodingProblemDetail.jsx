@@ -3,10 +3,11 @@ import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
 import ReactMarkdown from 'react-markdown';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FiChevronDown, FiPlay, FiCheck, FiTerminal, FiLayout, FiMaximize2, FiSettings, FiClock, FiCpu, FiBarChart2, FiMessageSquare } from 'react-icons/fi';
+import { FiChevronDown, FiPlay, FiCheck, FiTerminal, FiLayout, FiMaximize2, FiSettings, FiClock, FiCpu, FiBarChart2, FiMessageSquare, FiAward, FiX } from 'react-icons/fi';
 import PerformanceChart from '../components/PerformanceChart';
 import { useTheme } from '../context/ThemeContext';
 import CommentSection from '../components/CommentSection';
+import { useAuth } from '../context/AuthContext';
 const CodingProblemDetail = () => {
     const { slug } = useParams();
     const { theme } = useTheme();
@@ -21,7 +22,8 @@ const CodingProblemDetail = () => {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [testResult, setTestResult] = useState(null);
     const [submissionResult, setSubmissionResult] = useState(null);
-    const [user, setUser] = useState(null);
+    const { user, refreshUser } = useAuth();
+    const [selectedSubmission, setSelectedSubmission] = useState(null);
     const [isUnlocking, setIsUnlocking] = useState(false);
     const [consoleTab, setConsoleTab] = useState('testcase'); // 'testcase' or 'result'
     const [selectedExampleIdx, setSelectedExampleIdx] = useState(0);
@@ -37,14 +39,7 @@ const CodingProblemDetail = () => {
     const highlighterRef = useRef(null);
 
     useEffect(() => {
-        const fetchUser = async () => {
-            try {
-                const { data } = await axios.get('/api/user/profile', { withCredentials: true });
-                setUser(data);
-            } catch (error) {
-                console.error("Error fetching user:", error);
-            }
-        };
+        // Remove local fetchUser as it is handled by AuthContext
 
         const fetchProblem = async () => {
             try {
@@ -65,7 +60,7 @@ const CodingProblemDetail = () => {
                 setLoading(false);
             }
         };
-        fetchUser();
+        // fetchUser(); // Removed
         fetchProblem();
     }, [slug]);
 
@@ -174,6 +169,9 @@ const CodingProblemDetail = () => {
 
             setSubmissionResult(finalResult);
             fetchSubmissions(problem._id); // Refresh submissions list
+            if (finalResult.verdict === 'Accepted') {
+                refreshUser();
+            }
         } catch (error) {
             setSubmissionResult({ verdict: 'Error', message: error.response?.data?.message || 'Submission failed' });
         } finally {
@@ -190,13 +188,8 @@ const CodingProblemDetail = () => {
                 problemId: problem._id
             }, { withCredentials: true });
 
-            // Update local user state
-            setUser(prev => ({
-                ...prev,
-                coins: data.coins,
-                unlockedEditorials: [...prev.unlockedEditorials, problem._id]
-            }));
-
+            // Refresh user to sync coins and unlocked editorials
+            refreshUser();
             alert('Editorial Unlocked!');
         } catch (error) {
             alert(error.response?.data?.message || 'Failed to unlock editorial');
@@ -583,9 +576,12 @@ const CodingProblemDetail = () => {
                                                 <div className="flex items-center gap-4 text-[10px] font-black text-slate-500 dark:text-slate-400 transition-colors uppercase tracking-widest">
                                                     <span className="flex items-center gap-1.5"><FiClock className="text-indigo-500" /> {sub.runtime}ms</span>
                                                     <span className="flex items-center gap-1.5"><FiCpu className="text-emerald-500" /> {sub.language}</span>
-                                                    <div className="ml-auto opacity-0 group-hover:opacity-100 transition-opacity text-indigo-500 flex items-center gap-1">
+                                                    <button 
+                                                        onClick={() => setSelectedSubmission(sub)}
+                                                        className="ml-auto opacity-0 group-hover:opacity-100 transition-opacity text-indigo-500 flex items-center gap-1 hover:underline active:scale-95"
+                                                    >
                                                         View <FiMaximize2 size={10} />
-                                                    </div>
+                                                    </button>
                                                 </div>
                                             </div>
                                         )) : (
@@ -814,6 +810,72 @@ const CodingProblemDetail = () => {
                     </div>
                 </div>
             </div>
+
+            {/* Submission Code Viewer Modal */}
+            <AnimatePresence>
+                {selectedSubmission && (
+                    <div className="fixed inset-0 z-[200] flex items-center justify-center p-4 sm:p-6 lg:p-10">
+                        <motion.div
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            onClick={() => setSelectedSubmission(null)}
+                            className="absolute inset-0 bg-slate-900/60 backdrop-blur-sm"
+                        />
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.95, y: 20 }}
+                            animate={{ opacity: 1, scale: 1, y: 0 }}
+                            exit={{ opacity: 0, scale: 0.95, y: 20 }}
+                            className="relative w-full max-w-4xl max-h-[85vh] bg-white dark:bg-[#1e1e1e] rounded-3xl shadow-2xl overflow-hidden flex flex-col border border-slate-200 dark:border-white/10"
+                        >
+                            <div className="p-6 border-b border-slate-100 dark:border-white/5 flex items-center justify-between bg-slate-50 dark:bg-black/20">
+                                <div>
+                                    <div className="flex items-center gap-3 mb-1">
+                                        <span className={`px-2 py-0.5 rounded-lg text-[10px] font-black uppercase tracking-widest ${selectedSubmission.verdict === 'Accepted' ? 'bg-emerald-500/10 text-emerald-500' : 'bg-rose-500/10 text-rose-500'}`}>
+                                            {selectedSubmission.verdict}
+                                        </span>
+                                        <h3 className="text-sm font-black text-slate-900 dark:text-white uppercase tracking-tight">Submission Details</h3>
+                                    </div>
+                                    <p className="text-[10px] font-bold text-slate-400 uppercase">{new Date(selectedSubmission.submittedAt).toLocaleString()}</p>
+                                </div>
+                                <button
+                                    onClick={() => setSelectedSubmission(null)}
+                                    className="p-3 rounded-2xl hover:bg-slate-200 dark:hover:bg-white/10 text-slate-400 hover:text-slate-900 dark:hover:text-white transition-all shadow-sm"
+                                >
+                                    <FiX size={20} />
+                                </button>
+                            </div>
+
+                            <div className="flex-1 overflow-y-auto p-0 bg-[#1e1e1e] custom-scrollbar">
+                                <div className="p-6 text-[13px] font-mono leading-relaxed text-slate-300 font-medium">
+                                    <pre className="whitespace-pre-wrap">{selectedSubmission.code}</pre>
+                                </div>
+                            </div>
+
+                            <div className="p-4 bg-slate-50 dark:bg-black/20 border-t border-slate-100 dark:border-white/5 flex items-center gap-6">
+                                <div className="flex items-center gap-2">
+                                    <FiClock className="text-indigo-500" />
+                                    <span className="text-[10px] font-black uppercase text-slate-500 dark:text-slate-400">{selectedSubmission.runtime}ms</span>
+                                </div>
+                                <div className="flex items-center gap-2">
+                                    <FiCpu className="text-emerald-500" />
+                                    <span className="text-[10px] font-black uppercase text-slate-500 dark:text-slate-400">{selectedSubmission.language}</span>
+                                </div>
+                                <button 
+                                    onClick={() => {
+                                        setCode(selectedSubmission.code);
+                                        setLanguage(selectedSubmission.language);
+                                        setSelectedSubmission(null);
+                                    }}
+                                    className="ml-auto px-6 py-2 bg-indigo-500 text-white rounded-xl text-[10px] font-black uppercase tracking-widest hover:bg-indigo-600 transition-colors shadow-lg shadow-indigo-500/20"
+                                >
+                                    Restore to Editor
+                                </button>
+                            </div>
+                        </motion.div>
+                    </div>
+                )}
+            </AnimatePresence>
         </div>
     );
 };

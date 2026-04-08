@@ -17,6 +17,7 @@ import CodingProblemDetail from './pages/CodingProblemDetail';
 import Leaderboard from './pages/Leaderboard';
 import InterviewBank from './pages/InterviewBank';
 import SystemDesign from './pages/SystemDesign';
+import CoreCSSelection from './pages/CoreCSSelection';
 import Feedback from './pages/Feedback';
 import ProtectedRoute from './components/ProtectedRoute';
 import AdminProtectedRoute from './components/Admin/AdminProtectedRoute';
@@ -168,6 +169,22 @@ const router = createBrowserRouter([
     element: (
       <ProtectedRoute>
         <SystemDesign />
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: "/core-cs",
+    element: (
+      <ProtectedRoute>
+        <CoreCSSelection />
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: "/core-cs/:id",
+    element: (
+      <ProtectedRoute>
+        <TopicDetail />
       </ProtectedRoute>
     ),
   },

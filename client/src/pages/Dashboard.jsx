@@ -4,7 +4,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import HistoryChart from '../components/HistoryChart';
-import { FiTrendingUp, FiTarget, FiClock, FiActivity, FiArrowRight, FiAward, FiLayout } from 'react-icons/fi';
+import { FiTrendingUp, FiTarget, FiClock, FiActivity, FiArrowRight, FiAward, FiLayout, FiBookOpen, FiBox, FiCpu, FiDatabase, FiWifi } from 'react-icons/fi';
 
 const Dashboard = () => {
   const { user } = useAuth();
@@ -403,6 +403,32 @@ const Dashboard = () => {
                         <p className="text-[10px] text-slate-500">{new Date(item.createdAt).toLocaleDateString()}</p>
                       </div>
                     </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* CS Fundamentals Quick Access */}
+              <div className="bg-white dark:bg-slate-800/50 backdrop-blur-md rounded-3xl shadow-sm border border-slate-200 dark:border-slate-700/50 p-6">
+                <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-2">
+                  <FiBookOpen className="text-indigo-500" /> CS Fundamentals
+                </h3>
+                <div className="grid grid-cols-2 gap-3">
+                  {[
+                    { name: 'OOPS', icon: <FiBox />, color: 'violet' },
+                    { name: 'OS', icon: <FiCpu />, color: 'sky' },
+                    { name: 'DBMS', icon: <FiDatabase />, color: 'amber' },
+                    { name: 'CN', icon: <FiWifi />, color: 'emerald' },
+                  ].map((subject) => (
+                    <Link
+                      key={subject.name}
+                      to="/core-cs"
+                      className={`group flex items-center gap-3 p-3 rounded-2xl border border-slate-100 dark:border-slate-700/50 hover:border-${subject.color}-500/30 hover:bg-${subject.color}-500/5 transition-all duration-200`}
+                    >
+                      <div className={`w-9 h-9 rounded-xl bg-${subject.color}-500/10 text-${subject.color}-500 flex items-center justify-center text-sm group-hover:scale-110 transition-transform`}>
+                        {subject.icon}
+                      </div>
+                      <span className="text-[11px] font-black uppercase tracking-widest text-slate-600 dark:text-slate-400">{subject.name}</span>
+                    </Link>
                   ))}
                 </div>
               </div>

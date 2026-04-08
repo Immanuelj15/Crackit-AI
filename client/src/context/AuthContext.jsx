@@ -135,8 +135,19 @@ export const AuthProvider = ({ children }) => {
         }
     };
 
+    const refreshUser = async () => {
+        try {
+            const { data } = await axios.get('/api/auth/me');
+            setUser(data);
+            localStorage.setItem('userInfo', JSON.stringify(data));
+            return data;
+        } catch (error) {
+            console.error("Refresh User Error:", error);
+        }
+    };
+
     return (
-        <AuthContext.Provider value={{ user, login, register, logout, googleLogin, updateUserProfile, requestOtp, verifyOtpLogin, loading }}>
+        <AuthContext.Provider value={{ user, login, register, logout, googleLogin, updateUserProfile, requestOtp, verifyOtpLogin, refreshUser, loading }}>
             {children}
         </AuthContext.Provider>
     );

@@ -260,6 +260,18 @@ const verifyOtp = async (req, res) => {
     });
 };
 
+// @desc    Get current user profile
+// @route   GET /api/auth/me
+// @access  Private
+const getMe = async (req, res) => {
+    const user = await User.findById(req.user._id).select('-password');
+    if (user) {
+        res.json(user);
+    } else {
+        res.status(404).json({ message: 'User not found' });
+    }
+};
+
 module.exports = {
     registerUser,
     loginUser,
@@ -267,5 +279,6 @@ module.exports = {
     googleAuth,
     updateProfile,
     requestOtp,
-    verifyOtp
+    verifyOtp,
+    getMe
 };

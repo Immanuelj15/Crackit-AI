@@ -7,7 +7,8 @@ const {
     googleAuth,
     updateProfile,
     requestOtp,
-    verifyOtp
+    verifyOtp,
+    getMe
 } = require('../controllers/authController');
 const { protect } = require('../middlewares/authMiddleware');
 const upload = require('../middlewares/uploadMiddleware');
@@ -19,5 +20,6 @@ router.post('/google', googleAuth);
 router.put('/profile', protect, upload.single('image'), updateProfile);
 router.post('/request-otp', requestOtp);
 router.post('/verify-otp', verifyOtp);
+router.get('/me', protect, getMe);
 
 module.exports = router;

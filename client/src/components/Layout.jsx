@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FiHome, FiBarChart2, FiCpu, FiUser, FiMenu, FiX, FiLogOut, FiMoon, FiSun, FiBriefcase, FiCode, FiLayout, FiChevronLeft, FiChevronRight, FiMessageCircle } from 'react-icons/fi';
+import { FiHome, FiBarChart2, FiCpu, FiUser, FiMenu, FiX, FiLogOut, FiMoon, FiSun, FiBriefcase, FiCode, FiLayout, FiChevronLeft, FiChevronRight, FiMessageCircle, FiBookOpen } from 'react-icons/fi';
 import DarkModeToggle from './DarkModeToggle';
 import Chatbot from './ChatBot';
 import { useAuth } from '../context/AuthContext';
@@ -22,6 +22,7 @@ const Layout = ({ children }) => {
         { path: '/coding', label: 'Coding', icon: <FiCode /> },
         { path: '/mock-interview', label: 'Mock Interview', icon: <FiUser /> },
         { path: '/system-design', label: 'System Design', icon: <FiLayout /> },
+        { path: '/core-cs', label: 'Core CS', icon: <FiBookOpen /> },
         { path: '/companies', label: 'Companies', icon: <FiBriefcase /> },
         { path: '/profile', label: 'Profile', icon: <FiUser /> },
         { path: '/feedback', label: 'Feedback', icon: <FiMessageCircle /> },

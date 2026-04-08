@@ -53,6 +53,9 @@ const executeCode = async (sourceCode, language, input, driverConfig) => {
                     const vals = value.replace(/[\[\]]/g, '').split(',').map(v => v.trim()).filter(v => v !== '');
                     return `new double[]{${vals.join(', ')}}`;
                 }
+                if (type === 'ListNode') {
+                    return `ListNode.fromArray("${value.replace(/"/g, '')}")`;
+                }
                 return `null`;
             };
 
@@ -72,9 +75,11 @@ const executeCode = async (sourceCode, language, input, driverConfig) => {
             let outputFormatter = `System.out.println(result);`;
             if (returnType.includes('[]')) {
                 outputFormatter = `System.out.println(Arrays.toString(result));`;
+            } else if (returnType === 'ListNode') {
+                outputFormatter = `System.out.println(result == null ? "[]" : result.toString());`;
             }
 
-            wrappedCode += `\n\nclass Driver {\n    public static void main(String[] args) {\n        ${className} sol = new ${className}();\n        ${argInitializers.join('\n        ')}\n        ${returnType} result = sol.${functionName}(${argNames});\n        ${outputFormatter}\n    }\n}`;
+            wrappedCode += `\n\nclass ListNode {\n    int val;\n    ListNode next;\n    ListNode() {}\n    ListNode(int val) { this.val = val; }\n    ListNode(int val, ListNode next) { this.val = val; this.next = next; }\n    \n    public static ListNode fromArray(String str) {\n        if (str == null || str.equals("[]") || str.isEmpty() || str.equals("null")) return null;\n        String[] parts = str.replace("[", "").replace("]", "").split(",");\n        ListNode dummy = new ListNode(0);\n        ListNode current = dummy;\n        for (String part : parts) {\n            String s = part.trim();\n            if (s.isEmpty()) continue;\n            current.next = new ListNode(Integer.parseInt(s));\n            current = current.next;\n        }\n        return dummy.next;\n    }\n    \n    @Override\n    public String toString() {\n        StringBuilder sb = new StringBuilder("[");\n        ListNode curr = this;\n        while (curr != null) {\n            sb.append(curr.val);\n            if (curr.next != null) sb.append(",");\n            curr = curr.next;\n        }\n        sb.append("]");\n        return sb.toString();\n    }\n}\n\nclass Driver {\n    public static void main(String[] args) {\n        ${className} sol = new ${className}();\n        ${argInitializers.join('\n        ')}\n        ${returnType} result = sol.${functionName}(${argNames});\n        ${outputFormatter}\n    }\n}`;
 
             filePath = path.join(TEMP_DIR, `${className}.java`);
             fs.writeFileSync(filePath, wrappedCode);

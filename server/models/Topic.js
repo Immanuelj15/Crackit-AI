@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const topicSchema = new mongoose.Schema({
     category: {
         type: String,
-        enum: ['quant', 'logical', 'verbal'],
+        enum: ['quant', 'logical', 'verbal', 'core-cs'],
         required: true
     },
     name: {

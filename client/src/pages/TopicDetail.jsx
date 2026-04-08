@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { useParams, Link, useNavigate } from 'react-router-dom';
+import { useParams, Link, useNavigate, useLocation } from 'react-router-dom';
 import axios from 'axios';
 import { motion, AnimatePresence } from 'framer-motion';
 import ReactMarkdown from 'react-markdown';
@@ -14,8 +14,10 @@ ChartJS.register(ArcElement, Tooltip, Legend, CategoryScale, LinearScale, BarEle
 const TopicDetail = () => {
     const params = useParams();
     const navigate = useNavigate();
+    const location = useLocation();
     const topicId = params.topicId || params.id;
     const category = params.category;
+    const isCoreCS = location.pathname.startsWith('/core-cs');
     const [topic, setTopic] = useState(null);
     const [activeTab, setActiveTab] = useState('study'); // study, practice, test
     const [loading, setLoading] = useState(true);
@@ -75,10 +77,12 @@ const TopicDetail = () => {
                 const { data } = await axios.get(`/api/topics/${topicId}`, { withCredentials: true });
                 setTopic(data);
 
-                const qRes = await axios.get(`/api/questions?category=${category}`, { withCredentials: true });
-                const allQs = qRes.data.filter(q => q.topic === topicId);
-                setPracticeQuestions(allQs);
-                setPracticeAnswers({});
+                if (!isCoreCS) {
+                    const qRes = await axios.get(`/api/questions?category=${category}`, { withCredentials: true });
+                    const allQs = qRes.data.filter(q => q.topic === topicId);
+                    setPracticeQuestions(allQs);
+                    setPracticeAnswers({});
+                }
 
                 // Fetch Streak
                 const streakRes = await axios.get('/api/user/streak', { withCredentials: true });
@@ -91,7 +95,7 @@ const TopicDetail = () => {
             }
         };
         fetchTopicAndStreak();
-    }, [topicId, category]);
+    }, [topicId, category, isCoreCS]);
 
     const handleStreakUpdate = async () => {
         try {
@@ -187,26 +191,38 @@ const TopicDetail = () => {
                     </div>
                 </div>
 
-                {/* Navigation */}
-                <div className="bg-white dark:bg-gray-800 rounded-2xl p-4 shadow-sm border border-gray-100 dark:border-gray-700">
-                    <h3 className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-3 px-2">Categories</h3>
-                    <div className="space-y-1">
-                        {Object.entries(categoryConfig).map(([key, config]) => (
-                            <button
-                                key={key}
-                                onClick={() => handleCategoryChange(key)}
-                                className={`w-full flex items-center gap-3 px-3 py-3 rounded-xl text-sm font-bold transition-all
-                                    ${category === key
-                                        ? `bg-gradient-to-r ${config.color} text-white shadow-md`
-                                        : 'text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-700/50'
-                                    }`}
-                            >
-                                <span className="text-lg">{config.icon}</span>
-                                {config.label}
-                            </button>
-                        ))}
+                {/* Navigation - Core CS or Aptitude */}
+                {isCoreCS ? (
+                    <div className="bg-white dark:bg-gray-800 rounded-2xl p-4 shadow-sm border border-gray-100 dark:border-gray-700">
+                        <h3 className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-3 px-2">Core CS Topics</h3>
+                        <div className="space-y-1">
+                            <Link to="/core-cs" className="w-full flex items-center gap-3 px-3 py-3 rounded-xl text-sm font-bold transition-all text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-900/20">
+                                <FiChevronLeft className="text-lg" />
+                                Back to All Topics
+                            </Link>
+                        </div>
                     </div>
-                </div>
+                ) : (
+                    <div className="bg-white dark:bg-gray-800 rounded-2xl p-4 shadow-sm border border-gray-100 dark:border-gray-700">
+                        <h3 className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-3 px-2">Categories</h3>
+                        <div className="space-y-1">
+                            {Object.entries(categoryConfig).map(([key, config]) => (
+                                <button
+                                    key={key}
+                                    onClick={() => handleCategoryChange(key)}
+                                    className={`w-full flex items-center gap-3 px-3 py-3 rounded-xl text-sm font-bold transition-all
+                                        ${category === key
+                                            ? `bg-gradient-to-r ${config.color} text-white shadow-md`
+                                            : 'text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-700/50'
+                                        }`}
+                                >
+                                    <span className="text-lg">{config.icon}</span>
+                                    {config.label}
+                                </button>
+                            ))}
+                        </div>
+                    </div>
+                )}
             </div>
 
             {/* MAIN CONTENT */}
@@ -216,18 +232,28 @@ const TopicDetail = () => {
                     <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                         <div>
                             <div className="text-sm text-gray-500 mb-1 flex items-center gap-2">
-                                <Link to="/aptitude" className="hover:text-sky-600">Aptitude</Link>
-                                <FiChevronRight className="text-xs" />
-                                <Link to={`/aptitude/${category}`} className="capitalize hover:text-sky-600">{category}</Link>
+                                {isCoreCS ? (
+                                    <>
+                                        <Link to="/core-cs" className="hover:text-sky-600">Core CS</Link>
+                                        <FiChevronRight className="text-xs" />
+                                        <span className="text-gray-400">{topic.name}</span>
+                                    </>
+                                ) : (
+                                    <>
+                                        <Link to="/aptitude" className="hover:text-sky-600">Aptitude</Link>
+                                        <FiChevronRight className="text-xs" />
+                                        <Link to={`/aptitude/${category}`} className="capitalize hover:text-sky-600">{category}</Link>
+                                    </>
+                                )}
                             </div>
-                            <h1 className="text-3xl font-extrabold text-gray-900">{topic.name}</h1>
+                            <h1 className="text-3xl font-extrabold text-gray-900 dark:text-white">{topic.name}</h1>
                             <p className="text-gray-500 mt-1">{topic.description}</p>
                         </div>
                     </div>
 
                     {/* Modern Pill Tabs */}
-                    <div className="flex p-1 space-x-1 bg-gray-100/80 rounded-xl w-full md:w-fit font-bold text-sm">
-                        {tabs.map((tab) => (
+                    <div className="flex p-1 space-x-1 bg-gray-100/80 dark:bg-gray-800/80 rounded-xl w-full md:w-fit font-bold text-sm">
+                        {(isCoreCS ? tabs.filter(t => t.id === 'study') : tabs).map((tab) => (
                             <button
                                 key={tab.id}
                                 onClick={() => setActiveTab(tab.id)}
